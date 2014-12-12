@@ -1,0 +1,137 @@
+{
+  "routes": {
+    "index": {
+      "controllerPath": "../routes/index",
+      "routePath": "/"
+    },
+    "activity": {
+      "controllerPath": "../routes/activity",
+      "routePath": "/activity"
+    },
+    "nutrition": {
+      "controllerPath": "../routes/nutrition",
+      "routePath": "/nutrition"
+    },
+    "health": {
+      "controllerPath": "../routes/health",
+      "routePath": "/health"
+    },
+    "api": {
+      "controllerPath": "../routes/api",
+      "routePath": "/api"
+    },
+    "templates": {
+      "controllerPath": "../routes/templates",
+      "routePath": "/templates"
+    }
+  },
+  "activityTypes": [
+    {
+      "type": "trainer",
+      "name": "Trainer Ride"
+    },
+    {
+      "type": "hike",
+      "name": "Hike/Walk"
+    },
+    {
+      "type": "run",
+      "name": "Run"
+    },
+    {
+      "type": "strength",
+      "name": "Strength"
+    },
+    {
+      "type": "ride",
+      "name": "Outdoor Ride"
+    }
+  ],
+  "formFields": {
+    "ride": [
+      "rideName",
+      "date",
+      "distance",
+      "duration",
+      "climbing",
+      "power",
+      "kj",
+      "stravaLink",
+      "rwgpsLink",
+      "description"
+    ],
+    "trainer": [
+      "name",
+      "date",
+      "duration",
+      "power",
+      "kj",
+      "stravaLink",
+      "rwgpsLink",
+      "description"
+    ],
+    "run": [
+      "name",
+      "date",
+      "distance",
+      "duration",
+      "climbing",
+      "calories",
+      "stravaLink",
+      "rwgpsLink",
+      "description"
+    ],
+    "hike": [
+      "name",
+      "date",
+      "distance",
+      "duration",
+      "climbing",
+      "calories",
+      "stravaLink",
+      "rwgpsLink",
+      "description"
+    ],
+    "strength": [
+      "name",
+      "date",
+      "duration",
+      "calories",
+      "description"
+    ]
+  },
+  "metrics": {
+    "ride": [
+      "Date",
+      "Duration",
+      "Hours",
+      "Distance",
+      "Climbing",
+      "AverageSpeed",
+      "VAM",
+      "ClimbingRate"
+    ],
+    "trainer": [
+      "Date",
+      "Duration",
+      "Hours"
+    ],
+    "run": [
+      "Date",
+      "Duration",
+      "Hours",
+      "Climbing"
+    ],
+    "hike": [
+      "Date",
+      "Duration",
+      "Hours",
+      "Climbing"
+    ],
+    "strength": [
+      "Date",
+      "Duration",
+      "Hours"
+    ]
+  }
+}

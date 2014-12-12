@@ -1,0 +1,25 @@
+<form class="new-activity-form" id="newActivityForm" action="{{action}}" method="POST">
+    <fieldset class="activity-type">
+        <select id="activity_type" name="type" class="select select-fill-width" data-validation="required" data-validation-message="Please select an activity type.">
+            <option value="">Choose activity type ...</option>
+            {{#activityTypes}}
+                <option data-index="{{index}}" {{#selected}} selected="selected" {{/selected}}value="{{type}}">{{name}}</option>
+            {{/activityTypes}}
+        </select>
+    </fieldset>
+
+    <div class="groupset">
+        <div id="activity-form-data-fields"></div>
+
+        <div class="group">
+            <button class="btn gray pill pull-right" id="save_activity" disabled="disabled">Save Activity</button>
+            {{#deleteAction}}
+                <button type="button" class="btn gray pill pull-right" id="delete_activity">Delete</button>
+            {{/deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="close_activity_form">Cancel</button>
+            <input type="hidden" name="activityID" value="{{_id}}" />
+
+            <div class="activity-messaging"></div>
+        </div>
+    </div>
+</form>

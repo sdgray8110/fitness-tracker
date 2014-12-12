@@ -1,0 +1,32 @@
+.tabs {
+    height: 36px;
+    z-index: 2;
+    position: relative;
+
+    > li {
+        display: block;
+        float: left;
+
+        &.pull-right {
+            float: right;
+        }
+    }
+
+    button {
+        font-size: 14px;
+        font-weight: $light;
+        color: $dark-gray;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 8px;
+        border-top: 4px solid transparent;
+
+        &.active {
+            background: #fff;
+            border-top: 4px solid $core-blue;
+            border-left: 1px solid $dark-gray;
+            border-right: 1px solid $dark-gray;
+            cursor: default;
+        }
+    }
+}

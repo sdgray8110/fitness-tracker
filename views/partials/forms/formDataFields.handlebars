@@ -1,0 +1,84 @@
+<div class="group">
+    {{#fields.rideNameField}}
+    <label for="ride_name">Name</label>
+    <input id="ride_name" name="ride_name" type="text" class="inputText" value="{{ride_name}}" data-validation="required" data-validation-message="Please enter the ride name." />
+    {{/fields.rideNameField}}
+
+    {{#fields.nameField}}
+    <label for="activity_name">Name</label>
+    <input id="activity_name" name="activity_name" type="text" class="inputText" value="{{activity_name}}" data-validation="required" data-validation-message="Please enter the activity name." />
+    {{/fields.nameField}}
+
+    {{#fields.dateField}}
+    <label for="date">Date</label>
+    <input id="date" name="date" type="text" class="inputText" value="{{{date.formatted}}}" data-validation="required" data-validation-message="Please enter the a valid ride date" />
+    {{/fields.dateField}}
+
+    {{#fields.distanceField}}
+    <label for="distance">Distance</label>
+    <input id="distance" name="distance" type="text" class="inputText" value="{{distance.formatted}}" data-validation="number" data-required="true" data-validation-message="Please enter the ride distance." />
+    {{/fields.distanceField}}
+
+    {{#fields.durationField}}
+    <label for="duration">Duration</label>
+    <input id="duration" name="duration" type="text" class="inputText" value="{{duration.formatted}}" data-validation="required" data-validation-message="Please enter a valid ride duration." />
+    {{/fields.durationField}}
+
+    {{#fields.climbingField}}
+    <label for="climbing">Climbing</label>
+    <input id="climbing" name="climbing" type="text" class="inputText" value="{{climbing.raw}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid climbing total." />
+
+    <label for="meters">Meters?</label>
+    <input id="meters" name="meters" type="checkbox" value="1" />
+    {{/fields.climbingField}}
+
+    {{#fields.powerField}}
+    <fieldset class="three-column">
+        <legend>Power</legend>
+
+        <ul class="columns">
+            <li>
+                <label for="average_power">Average</label>
+                <input id="average_power" name="average_power" type="text" class="inputText" value="{{power.average_power}}" data-validation="number" data-validation-message="Please enter a valid number for Average Power" />
+            </li>
+
+            <li>
+                <label for="normalized_power">Normalized</label>
+                <input id="normalized_power" name="normalized_power" type="text" class="inputText" value="{{power.normalized_power}}" data-validation="number" data-validation-message="Please enter a valid number for Normalized Power" />
+            </li>
+
+            <li>
+                <label for="max_power">Maximum</label>
+                <input id="max_power" name="max_power" type="text" class="inputText" value="{{power.max_power}}" data-validation="number" data-validation-message="Please enter a valid number for Max Power" />
+            </li>
+        </ul>
+    </fieldset>
+    {{/fields.powerField}}
+</div>
+
+<div class="group">
+    {{#fields.kjField}}
+    <label for="kj">Kilojoules</label>
+    <input id="kj" name="kj" type="text" class="inputText" value="{{kj}}" data-validation="number" data-validation-message="Please enter a valid number for Kilojoules" />
+    {{/fields.kjField}}
+
+    {{#fields.caloriesField}}
+        <label for="calories">Kilojoules</label>
+        <input id="calories" name="calories" type="text" class="inputText" value="{{calories}}" data-validation="number" data-validation-message="Please enter a valid number for Calories" />
+    {{/fields.caloriesField}}
+
+    {{#fields.stravaLinkField}}
+    <label for="stravaLink">Strava Link</label>
+    <input id="stravaLink" name="stravaLink" type="text" class="inputText" value="{{stravaLink}}" />
+    {{/fields.stravaLinkField}}
+
+    {{#fields.rwgpsLinkField}}
+    <label for="rwgpsLink">RWGPS Link</label>
+    <input id="rwgpsLink" name="rwgpsLink" type="text" class="inputText" value="{{rwgpsLink}}" />
+    {{/fields.rwgpsLinkField}}
+
+    {{#fields.descriptionField}}
+    <label for="description">Description</label>
+    <textarea class="inputText" id="description" name="description">{{description}}</textarea>
+    {{/fields.descriptionField}}
+</div>

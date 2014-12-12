@@ -1,0 +1,10 @@
+column headers:
+--------------------------
+id,date,distance,duration,climbing,average_speed,climbing_rate,vam,ride_name,links,description,updated_at,created_at
+
+command
+--------------------------
+mongoimport --db fitness-tracker --collection rides --drop --headerline --file 11162014.rides.bak.json
+
+Then visit:
+http://localhost:3000/api/migrate

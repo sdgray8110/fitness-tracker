@@ -1,0 +1,151 @@
+/* Layout
+---------------------------------------------------------------------------- */
+.groupset {
+    display: table;
+    width: 100%;
+}
+
+.group {
+    vertical-align: top;
+    display: table-cell;
+    width: 33%;
+    padding: 0 20px;
+
+    &:only-child:before {
+        content: "";
+        vertical-align: top;
+        display: table-cell;
+        width: 66%;
+        padding: 0 20px;
+    }
+
+    input[type=text],
+    label,
+    textarea,
+    .select {
+        display: block;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    label {
+        width: 30%;
+        padding-right: 15px;
+        text-align: right;
+    }
+
+    input[type=text],
+    textarea {
+        width: 70%;
+    }
+}
+
+label {
+    font-size: 12px;
+    color: $dark-gray;
+    height: 30px;
+    line-height: 30px;
+}
+
+input[type=text],
+textarea {
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    color: #333333;
+    outline: none;
+    font-size: 12px;
+}
+
+input[type=text] {
+    height: 30px;
+}
+
+textarea {
+    height: 108px;
+}
+
+legend {
+    text-align: center;
+}
+
+.three-column {
+    margin-top: 20px;;
+    float: left;
+    width: 100%;
+
+    .columns {
+        display: table;
+        width: 100%;
+    }
+
+    li {
+        display: table-cell;
+        padding-left: 20px;
+    }
+
+    label {
+        padding: 0;
+        text-align: center;
+        margin: 0;
+    }
+
+    label,
+    input[type=text] {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+}
+
+/* Selects
+---------------------------------------------------------------------------- */
+.select {
+    font-family: 'Open Sans', Arial, sans-serif;
+    height: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #999999;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background: #ffffff image-url('select-arrows.svg') no-repeat right 10px center;
+    background-size: auto auto;
+    font-size: 12px;
+    color: #333333;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.select:focus {
+    border: 1px solid #0290d7;
+}
+
+.select:disabled {
+    background-color: #E2E2E2;
+    color: #b2b2b2;
+    border: 1px solid #ccc;
+    background: #ffffff image-url('select-arrows-disable.svg') no-repeat right 10px center;
+    cursor: default;
+}
+
+.select-sm {
+    width: 135px;
+}
+
+.select-med {
+    width: 170px;
+}
+
+.select-fill-width {
+    width: 100%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /*---- fixes padding in chrome-----*/
+    select {
+        padding-top: 0;
+    }
+}

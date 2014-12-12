@@ -1,0 +1,27 @@
+{{#year}}
+<section class="at-a-glance clearfix" id="at_a_glance">
+    <dl>
+        <dt class="title">
+            {{year}} at a glance:
+        </dt>
+    </dl>
+
+    {{#stats}}
+    <dl>
+        <dt>Distance:</dt>
+        <dd>{{totals.distance.formatted}}</dd>
+    </dl>
+
+    <dl>
+        <dt>Duration:</dt>
+        <dd>{{totals.duration.formatted}}</dd>
+    </dl>
+
+    <dl>
+        <dt>Climbing</dt>
+        <dd>{{totals.climbing.formatted}}</dd>
+    </dl>
+    {{/stats}}
+
+</section>
+{{/year}}

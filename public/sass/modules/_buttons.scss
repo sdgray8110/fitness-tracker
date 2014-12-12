@@ -1,0 +1,41 @@
+button {
+    outline: none;
+}
+
+.btn {
+    font-size: 14px;
+    color: $dark-gray;
+    padding: 0 10px;
+    height: 23px;
+    display: block;
+
+    &.pill {
+        border-radius: 10px;
+    }
+
+    &.gray {
+        background: $light-gray ;
+        border: 1px solid $gray;
+        color: $dark-gray;
+
+        &:hover {
+            border-color: $dark-gray;
+            background: $gray;
+            color: #fff;
+        }
+    }
+
+    &.pull-right + .btn.pull-right {
+        margin-right: 10px;
+    }
+
+    &:disabled,
+    &:hover:disabled
+    &.gray:disabled,
+    &.gray:hover:disabled {
+        cursor: default;
+        background-color: #E2E2E2;
+        color: #b2b2b2;
+        border: 0;
+    }
+}

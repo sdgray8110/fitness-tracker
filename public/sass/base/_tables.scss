@@ -1,0 +1,125 @@
+table {
+    background: #fff;
+    width: 100%;
+}
+
+th {
+    background: $dark-gray;
+    color: #fff;
+    font-weight: $semibold;
+}
+
+th,
+td {
+    font-size: 12px;
+    max-height: 30px;
+    line-height: 30px;
+    padding: 0 7px;
+    border-right: 1px solid $gray;
+
+    &:last-of-type {
+        border-right: none;
+    }
+}
+
+tbody {
+    td {
+        background: #fff;
+        color: $dark-gray;
+    }
+
+    tr {
+        &.open {
+            + .additional-info {
+                td {
+                    display: table-cell;
+                }
+
+                .ride-details {
+                    display: block;
+                }
+            }
+        }
+
+        &.open,
+        &.open.even {
+            td {
+                background: $light-blue;
+            }
+        }
+    }
+
+    .activity-data {
+        &.even {
+            td {
+                background: $mid-light-gray;
+            }
+        }
+    }
+
+    .additional-info {
+        td {
+            border-top: 1px solid $gray;
+            border-bottom: 1px solid $gray;
+        }
+
+        td,
+        .ride-details {
+            display: none;
+        }
+    }
+}
+
+tfoot {
+    tr:first-of-type {
+        td {
+            border-top: 1px solid $dark-gray;
+        }
+    }
+
+    .null-row {
+        border: none;
+        background: $dark-gray;
+    }
+
+    .label {
+        background: $dark-gray;
+        color: #fff;
+        font-weight: $semibold;
+    }
+}
+
+.expand-row {
+    width:50px;
+    padding: 0;
+
+    button {
+        width: 100%;
+        height: 100%;
+        text-indent: -9999px;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 0 4px 5px;
+            border-color: transparent transparent transparent $dark-gray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -2px;
+            margin-left: -2px;
+        }
+    }
+
+    button:hover:before,
+    .open & button:before {
+        border-width: 5px 4px 0 4px;
+        border-color: $dark-gray transparent transparent transparent;
+        margin-top: 0;
+        margin-left: -4px;
+    }
+}

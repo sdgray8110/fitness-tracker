@@ -1,0 +1,28 @@
+<form class="new-ride-form" id="newRideForm" action="{{action}}" method="POST">
+    <div class="groupset">
+        <div id="ride-form-data-fields">
+            {{> newRideFormDataFields}}
+        </div>
+
+        <div class="group">
+            <label for="common_rides">Pre-populate</label>
+            <fieldset class="common-rides">
+                <select id="common_rides" class="select select-fill-width">
+                    <option value="empty">Populate from Common Rides</option>
+                    {{#commonRides}}
+                    <option value="{{index}}">{{ride_name}}</option>
+                    {{/commonRides}}
+                </select>
+            </fieldset>
+
+            <button class="btn gray pill pull-right" id="save_ride">Save Ride</button>
+            {{#deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="delete_ride">Delete</button>
+            {{/deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="close_ride_form">Cancel</button>
+            <input type="hidden" name="rideID" value="{{_id}}" />
+
+            <div class="ride-messaging"></div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+-- Track
+    Activity Type:
+        Bike (Should use rides collection to populate rides)
+            KJ -- add KJ field to ride logger?
+        Trainer
+            {"_id": ObjectId(546ab9bea43284eafedbd014)},{"type":"trainer","name":"Tempo","date":ISODate("2014-11-12T00:00:00Z"),"duration":3629,"power":{"max_power":318,"average_power":263,"normalized_power":268},"kj":1018,"description":"","stravaLink":"","rwgpsLink":""}
+        Hike
+            Name
+            Date
+            Distance
+            Climbing
+            Duration
+            Calories (Can we find a formula to autocalc this?)
+            Description
+            Strava Link
+            RWGPS Link
+        Run
+            Name
+            Date
+            Distance
+            Climbing
+            Duration
+            Calories (Can we find a formula to autocalc this?)
+            Description
+            Strava Link
+            RWGPS Link
+        Strength
+            Name
+            Date
+            Calories
+            Description
+
+-- Dashboard
+    Phase 1:
+    -- Monthly Overview similar to rides
+    -- Stats
+        Total Activities by type
+        Total Duration by type
+        Total Calories
+
+
+    -- Yearly Overview
+        -- Calendar view?
+        -- Daily View?

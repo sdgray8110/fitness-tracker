@@ -1,0 +1,33 @@
+{{> rides/monthlyTabs}}
+
+<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}">
+    <header class="clearfix">
+        <h1 class="pull-left">Rides for {{content.displayMonth}}</h1>
+        <button id="new_ride" class="btn pill gray pull-right">Create New Ride</button>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>Duration</th>
+            <th>Climbing</th>
+            <th>Average Speed</th>
+            <th>Vertical Feet per Hour</th>
+            <th>Vertical Feet per Mile</th>
+        </tr>
+        </thead>
+        <tbody class="activity-list">
+        {{#rides}}
+        {{> rides/ride}}
+        {{> rides/additionalInfo}}
+        {{/rides}}
+        </tbody>
+        {{> rides/stats}}
+    </table>
+</section>
+
+<var class="js_components hidden">
+    monthly_overview
+</var>

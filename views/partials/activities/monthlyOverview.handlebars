@@ -1,0 +1,28 @@
+<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}">
+    <header class="clearfix">
+        <h1 class="pull-left">Activities for {{content.displayMonth}}</h1>
+        <button id="new_activity" class="btn pill gray pull-right">Create New Activity</button>
+    </header>
+
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Calories</th>
+        </tr>
+        </thead>
+        <tbody class="activity-list">
+        {{#activities}}
+            {{> activities/activity}}
+            {{> activities/additionalInfo}}
+        {{/activities}}
+        </tbody>
+    </table>
+</section>
+
+<var class="js_components hidden">
+    monthly_overview
+</var>

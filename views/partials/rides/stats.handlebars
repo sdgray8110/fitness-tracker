@@ -1,0 +1,42 @@
+{{#stats}}
+<tfoot id="monthly_stats">
+{{#totals}}
+<tr>
+    <td class="null-row"></td>
+    <td class="label">Total:</td>
+    <td>{{distance.formatted}}</td>
+    <td>{{duration.formatted}}</td>
+    <td>{{climbing.formatted}}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+{{/totals}}
+
+{{#maximums}}
+<tr>
+    <td class="null-row"></td>
+    <td class="label">Maximum:</td>
+    <td>{{distance.formatted}}</td>
+    <td>{{duration.formatted}}</td>
+    <td>{{climbing.formatted}}</td>
+    <td>{{average_speed.formatted}}</td>
+    <td>{{vam.formatted}}</td>
+    <td>{{climbing_rate.formatted}}</td>
+</tr>
+{{/maximums}}
+
+{{#averages}}
+<tr>
+    <td class="null-row"></td>
+    <td class="label">Average:</td>
+    <td>{{distance.formatted}}</td>
+    <td>{{duration.formatted}}</td>
+    <td>{{climbing.formatted}}</td>
+    <td>{{average_speed.formatted}}</td>
+    <td>{{vam.formatted}}</td>
+    <td>{{climbing_rate.formatted}}</td>
+</tr>
+{{/averages}}
+</tfoot>
+{{/stats}}

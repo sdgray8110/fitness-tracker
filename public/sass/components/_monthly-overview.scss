@@ -1,0 +1,83 @@
+.monthly-overview {
+    border: 1px solid $dark-gray;
+    background: #fff;
+
+    header {
+        padding: 0 7px;
+
+        .btn {
+            margin-top: 6px;
+        }
+
+        & + .new-ride-form,
+        & + .new-activity-form {
+            padding: 20px 7px 7px 7px;
+            margin-top: 5px;
+            border-top: 1px solid $mid-light-gray;
+            display: none;
+        }
+    }
+
+    h1 {
+        height: 35px;
+        line-height: 35px;
+        font-weight: $semibold;
+        font-size: 16px;
+        color: #000;
+    }
+
+    .tabs + & {
+        position: relative;
+        z-index: 1;
+        margin-top: -1px;
+    }
+
+    .ride-name,
+    .activity-name {
+        font-weight: $semibold;
+        font-size: 16px;
+        color: $dark-gray
+    }
+
+    .new-ride-form,
+    .new-activity-form {
+        width: 100%;
+        display: block;
+    }
+
+    .additional-info .new-ride-form,
+    .additional-info .new-activity-form {
+        display: none;
+        padding: 20px 7px 7px 7px;
+        margin-top: 5px;
+        border-top: 1px solid $mid-light-gray;
+    }
+
+    .edit-ride,
+    .duplicate-ride,
+    .edit-activity {
+        cursor: pointer;
+        -webkit-transition: opacity .5s;
+        transition: opacity .5s;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.disabled {
+            cursor: default;
+            opacity: 0;
+        }
+    }
+
+    .ride-messaging,
+    .activity-messaging {
+        float: left;
+        width: 100%;
+        clear: both;
+    }
+
+    .activity-type {
+        margin-bottom: 20px;
+    }
+}

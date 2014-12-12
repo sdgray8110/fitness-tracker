@@ -1,0 +1,18 @@
+<header class="main-header">
+    {{#homepage}}
+        <div class="logo">Fitness Tracker</div>
+    {{/homepage}}
+    {{^homepage}}
+        <a href="/" class="logo">Fitness Tracker</a>
+    {{/homepage}}
+
+    <nav class="main-navigation">
+        <ul>
+        {{#navigation}}
+            <li class="{{className}}">
+                <a{{#active}} class="active"{{/active}} href="{{path}}">{{title}}</a>
+            </li>
+        {{/navigation}}
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,45 @@
+.alert {
+    color: #b94a48;
+    background: #efcbcc;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #b94a48;
+
+    .message {
+        font-weight: 700;
+        font-size: 14px;
+        border-bottom: 1px solid #b94a48;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        padding-left: 22px;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: image-url('error.svg') no-repeat;
+            background-size: contain;
+        }
+    }
+    ul {
+        margin-left: 24px;
+    }
+
+    li {
+        font-size: 12px;
+        list-style-type: disc;
+    }
+}
+
+input[type=text].validationError,
+textarea.validationError,
+.select.validationError{
+    color: #b94a48;
+    background: #efcbcc;
+    border-color: #b94a48;
+}

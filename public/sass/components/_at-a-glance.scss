@@ -1,0 +1,40 @@
+.at-a-glance {
+    padding: 8px;
+    background: $gray;
+    border: 1px solid $dark-gray;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    dl {
+        display: block;
+        float: left;
+        margin-right: 20px;
+        padding-right: 20px;
+        border-right: 1px solid $dark-gray;
+        height: 32px;
+
+        &:last-of-type {
+            border: none;
+            margin-right: 0;
+            padding: 0;
+        }
+    }
+
+    dt,
+    dd {
+        font-size: 12px;
+        line-height: 18px;
+        color: #000;
+        display: block;
+    }
+
+    dt {
+        font-weight: $semibold;
+
+        &.title {
+            font-size: 16px;
+            height: 32px;
+            line-height: 32px;
+        }
+    }
+}
