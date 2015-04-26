@@ -17,7 +17,7 @@
 10 error You can get their info via:
 10 error     npm owner ls fitness-tracker
 10 error There is likely additional logging output above.
-11 error System Darwin 14.0.0
+11 error System Darwin 14.3.0
 12 error command "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 13 error cwd /Users/Shared/projects/fitness-tracker
 14 error node -v v0.10.33

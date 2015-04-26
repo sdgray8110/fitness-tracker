@@ -52,7 +52,7 @@ define(function(require) {
             currentDays: function(data) {
                 _nv.addGraph(function() {
                     var chart = _nv.models.discreteBarChart()
-                            .x(function(d) { return d.index; })    //Specify the data accessors.
+                            .x(function(d) { return d.index + 1; })    //Specify the data accessors.
                             .y(function(d) { return d.value })
                             .staggerLabels(false)    //Too many bars and not enough room? Try staggering labels.
                             .tooltips(true)        //Don't show tooltips
@@ -87,7 +87,7 @@ define(function(require) {
             },
 
             processData: function(data) {
-                var rides = data.allRides['2014'],
+                var rides = data.allRides['2015'],
                     keys = Object.keys(rides.months),
                     vals = [];
 
@@ -101,7 +101,7 @@ define(function(require) {
                 });
 
                 var res = {
-                    key: '2014 Monthly Ride Totals',
+                    key: '2015 Monthly Ride Totals',
                     values: vals
                 };
 
@@ -109,7 +109,7 @@ define(function(require) {
             },
 
             processDailyRides: function(data) {
-                var rides = data.dailyRides['2014'],
+                var rides = data.dailyRides['2015'],
                     vals = [];
 
                 rides.forEach(function(ride, i) {
@@ -121,7 +121,7 @@ define(function(require) {
                 });
 
                 var res = {
-                    key: '2014 Daily Rides',
+                    key: '2015 Daily Rides',
                     values: vals
                 };
 
@@ -129,7 +129,7 @@ define(function(require) {
             },
 
             processBreakdown: function(data) {
-                var breakdown = data.breakdown['2014'],
+                var breakdown = data.breakdown['2015'],
                     keys = Object.keys(breakdown),
                     prev = 0,
                     vals = [];

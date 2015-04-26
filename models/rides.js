@@ -139,8 +139,8 @@ var RideCollection = (function() {
                 duration = totals.duration.raw / len,
                 climbing = totals.climbing.raw / len,
                 average_speed = totals.distance.raw / totals.duration.hours,
-                vam = totals.climbing.raw / totals.duration.hours,
-                climbing_rate = totals.climbing.raw / totals.distance.raw;
+                vam = totals.climbing.raw / totals.distance.raw,
+                climbing_rate = totals.climbing.raw / totals.duration.hours;
 
             return {
                 distance: helpers.formatDecimal(distance),
