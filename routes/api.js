@@ -21,6 +21,15 @@ router.get('/ride/:id', function(req, res) {
     });
 });
 
+router.get('/rides/:year(\\d+)/:month(\\d+)', function(req, res) {
+    req.fields = ['rides'];
+
+    RideCollection.dataAccess.fetchMonth(req, res, function(rides) {
+        res.json(rides);
+    });
+});
+
+
 router.get('/activity/:id', function(req, res) {
     ActivityCollection.dataAccess.fetchActivityByID(req, res, function(activity) {
         res.json(activity);
