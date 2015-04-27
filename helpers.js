@@ -104,12 +104,13 @@ var helpers = (function() {
             return folders;
         },
 
-        isFutureDate: function(req) {
+        isFutureDate: function(req, prependPath) {
             var date = moment(req.params.month + '/1/' + req.params.year),
-                curMonth = moment().startOf('month');
+                curMonth = moment().startOf('month'),
+                initialRoute = prependPath ? '/' + prependPath : '';
 
             if (date.diff(curMonth, 'months') > 0) {
-                var path = '/' + curMonth.format('YYYY') + '/' + curMonth.format('MM');
+                var path = initialRoute + '/' + curMonth.format('YYYY') + '/' + curMonth.format('MM');
 
                 return path;
             }

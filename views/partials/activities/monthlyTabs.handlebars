@@ -1,0 +1,11 @@
+<ul id="monthly-overview-tabs" class="tabs clearfix">
+    {{#tabs}}
+        <li>
+            <button {{#className}}class="{{.}}"{{/className}} type="button" data-path="activity/{{year}}/{{month}}">{{name}}</button>
+        </li>
+    {{/tabs}}
+
+    <li class="year-selection pull-right">
+        {{> activities/yearSelection}}
+    </li>
+</ul>

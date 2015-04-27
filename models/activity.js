@@ -26,6 +26,30 @@ var ActivityCollection = (function() {
             return data;
         },
 
+        processTabs: function(date) {
+            var now = moment(),
+                selectedMonth = parseInt(date.format('M')),
+                currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
+                year = parseInt(date.format('YYYY')),
+                month = currentMonth,
+                months = [];
+
+            while (month > 0) {
+                var model = {
+                    month: month,
+                    year: year,
+                    name: helpers.monthName(month),
+                    className: month === selectedMonth ? 'active' : null
+                };
+
+                months.push(model);
+
+                month -= 1;
+            };
+
+            return months.reverse();
+        },
+
         uiModel: function(activity, i) {
             activity.ui = {
                 className: i % 2 === 0 ? 'even' : 'odd'
@@ -48,7 +72,8 @@ var ActivityCollection = (function() {
                     var fieldAssociation = {
                             activities: {method: 'processActivities', data: activities},
                             meta: {method: 'processMeta', data: {title: req.title, displayMonth: displayMonth}},
-                            content: {method: 'processContent', data: content}
+                            content: {method: 'processContent', data: content},
+                            tabs: {method: 'processTabs', data: dateObj}
                         };
 
                     req.fields.forEach(function(field) {
@@ -57,7 +82,11 @@ var ActivityCollection = (function() {
                         model[field] = self[association.method](association.data);
                     });
 
-                    callback(model);
+                    self.dataAccess.fetchYearList(req, res, {selectedYear: selectedYear, selectedMonth: selectedMonth}, function(years) {
+                        model.yearList = {years: years};
+
+                        callback(model);
+                    });
                 });
             },
 
@@ -66,6 +95,26 @@ var ActivityCollection = (function() {
 
                 db.collection('activities').find({'_id': new ObjectID(req.params.id)}).toArray(function(err, activities) {
                     callback(self.processActivities(activities));
+                });
+            },
+
+            fetchYearList: function(req, res, options, callback) {
+                var db = req.db;
+
+                db.collection('activities').aggregate([{'$group': {_id: {year: {'$year': '$date'}}}},{'$sort' : {'_id.year' : -1}}], function(err, years) {
+                    for (var i = 0; i < years.length; i ++) {
+                        years[i] = years[i]._id;
+
+                        if (options.selectedYear) {
+                            years[i].selected = parseInt(options.selectedYear) === parseInt(years[i].year);
+                        }
+
+                        if (options.selectedMonth) {
+                            years[i].month = options.selectedMonth;
+                        }
+                    }
+
+                    callback(years);
                 });
             },
 

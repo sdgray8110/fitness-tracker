@@ -1,133 +1,26 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   '-g',
-1 verbose cli   'react-native-cli' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 verbose cache add [ 'react-native-cli', null ]
-5 verbose cache add name=undefined spec="react-native-cli" args=["react-native-cli",null]
-6 verbose parsed url { protocol: null,
-6 verbose parsed url   slashes: null,
-6 verbose parsed url   auth: null,
-6 verbose parsed url   host: null,
-6 verbose parsed url   port: null,
-6 verbose parsed url   hostname: null,
-6 verbose parsed url   hash: null,
-6 verbose parsed url   search: null,
-6 verbose parsed url   query: null,
-6 verbose parsed url   pathname: 'react-native-cli',
-6 verbose parsed url   path: 'react-native-cli',
-6 verbose parsed url   href: 'react-native-cli' }
-7 silly lockFile c2686040-react-native-cli react-native-cli
-8 verbose lock react-native-cli /Users/spencergray/.npm/c2686040-react-native-cli.lock
-9 silly lockFile c2686040-react-native-cli react-native-cli
-10 silly lockFile c2686040-react-native-cli react-native-cli
-11 verbose addNamed [ 'react-native-cli', '' ]
-12 verbose addNamed [ null, '*' ]
-13 silly lockFile 252340c9-react-native-cli react-native-cli@
-14 verbose lock react-native-cli@ /Users/spencergray/.npm/252340c9-react-native-cli.lock
-15 silly addNameRange { name: 'react-native-cli', range: '*', hasData: false }
-16 verbose request where is /react-native-cli
-17 verbose request registry https://registry.npmjs.org/
-18 verbose request id 0306abb54ca03615
-19 verbose url raw /react-native-cli
-20 verbose url resolving [ 'https://registry.npmjs.org/', './react-native-cli' ]
-21 verbose url resolved https://registry.npmjs.org/react-native-cli
-22 verbose request where is https://registry.npmjs.org/react-native-cli
-23 info trying registry request attempt 1 at 18:20:49
-24 http GET https://registry.npmjs.org/react-native-cli
-25 http 200 https://registry.npmjs.org/react-native-cli
-26 silly registry.get cb [ 200,
-26 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 silly registry.get     etag: '"F5FO4N8Z0DC74HFTF8M547087"',
-26 silly registry.get     'content-type': 'application/json',
-26 silly registry.get     'cache-control': 'max-age=60',
-26 silly registry.get     'content-length': '4037',
-26 silly registry.get     'accept-ranges': 'bytes',
-26 silly registry.get     date: 'Mon, 27 Apr 2015 00:20:51 GMT',
-26 silly registry.get     via: '1.1 varnish',
-26 silly registry.get     age: '0',
-26 silly registry.get     connection: 'keep-alive',
-26 silly registry.get     'x-served-by': 'cache-ord1729-ORD',
-26 silly registry.get     'x-cache': 'MISS',
-26 silly registry.get     'x-cache-hits': '0',
-26 silly registry.get     'x-timer': 'S1430094051.044250,VS0,VE38',
-26 silly registry.get     vary: 'Accept' } ]
-27 silly addNameRange number 2 { name: 'react-native-cli', range: '*', hasData: true }
-28 silly addNameRange versions [ 'react-native-cli', [ '0.0.0', '0.0.1', '0.1.2', '0.1.3' ] ]
-29 verbose addNamed [ 'react-native-cli', '0.1.3' ]
-30 verbose addNamed [ '0.1.3', '0.1.3' ]
-31 silly lockFile 4185b8f8-react-native-cli-0-1-3 react-native-cli@0.1.3
-32 verbose lock react-native-cli@0.1.3 /Users/spencergray/.npm/4185b8f8-react-native-cli-0-1-3.lock
-33 silly lockFile 8674d513-e-cli-react-native-cli-0-1-3-tgz https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-34 verbose lock https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz /Users/spencergray/.npm/8674d513-e-cli-react-native-cli-0-1-3-tgz.lock
-35 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz',
-35 verbose addRemoteTarball   '451f04641809e6b7f4ccb7ffb9481c1f76827d88' ]
-36 info retry fetch attempt 1 at 18:20:51
-37 verbose fetch to= /var/folders/v1/9jg8w9c943xfw38dymgv7lfw0000gn/T/npm-1272-xINf9QEn/registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-38 http GET https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-39 http 200 https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-40 silly lockFile 8674d513-e-cli-react-native-cli-0-1-3-tgz https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-41 silly lockFile 8674d513-e-cli-react-native-cli-0-1-3-tgz https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz
-42 silly lockFile 4185b8f8-react-native-cli-0-1-3 react-native-cli@0.1.3
-43 silly lockFile 4185b8f8-react-native-cli-0-1-3 react-native-cli@0.1.3
-44 silly lockFile 252340c9-react-native-cli react-native-cli@
-45 silly lockFile 252340c9-react-native-cli react-native-cli@
-46 silly resolved [ { name: 'react-native-cli',
-46 silly resolved     version: '0.1.3',
-46 silly resolved     description: 'The ReactNative cli tools',
-46 silly resolved     main: 'index.js',
-46 silly resolved     bin: { 'react-native': 'index.js' },
-46 silly resolved     _id: 'react-native-cli@0.1.3',
-46 silly resolved     scripts: {},
-46 silly resolved     _shasum: '451f04641809e6b7f4ccb7ffb9481c1f76827d88',
-46 silly resolved     _from: 'react-native-cli@',
-46 silly resolved     _npmVersion: '2.2.0',
-46 silly resolved     _nodeVersion: '0.10.35',
-46 silly resolved     _npmUser: { name: 'spicyj', email: 'ben@benalpert.com' },
-46 silly resolved     maintainers: [ [Object], [Object], [Object] ],
-46 silly resolved     dist:
-46 silly resolved      { shasum: '451f04641809e6b7f4ccb7ffb9481c1f76827d88',
-46 silly resolved        tarball: 'http://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz' },
-46 silly resolved     directories: {},
-46 silly resolved     _resolved: 'https://registry.npmjs.org/react-native-cli/-/react-native-cli-0.1.3.tgz' } ]
-47 info install react-native-cli@0.1.3 into /usr/local/lib
-48 info installOne react-native-cli@0.1.3
-49 verbose lib/node_modules/react-native-cli unbuild
-50 verbose tar unpack /Users/spencergray/.npm/react-native-cli/0.1.3/package.tgz
-51 silly lockFile f533916d-ib-node-modules-react-native-cli tar:///usr/local/lib/node_modules/react-native-cli
-52 verbose lock tar:///usr/local/lib/node_modules/react-native-cli /Users/spencergray/.npm/f533916d-ib-node-modules-react-native-cli.lock
-53 silly lockFile ce719f5a-act-native-cli-0-1-3-package-tgz tar:///Users/spencergray/.npm/react-native-cli/0.1.3/package.tgz
-54 verbose lock tar:///Users/spencergray/.npm/react-native-cli/0.1.3/package.tgz /Users/spencergray/.npm/ce719f5a-act-native-cli-0-1-3-package-tgz.lock
-55 silly gunzTarPerm modes [ '755', '644' ]
-56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/react-native-cli'
-56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/react-native-cli']
-56 error   errno: 3,
-56 error   code: 'EACCES',
-56 error   path: '/usr/local/lib/node_modules/react-native-cli',
-56 error   fstream_type: 'Directory',
-56 error   fstream_path: '/usr/local/lib/node_modules/react-native-cli',
-56 error   fstream_class: 'DirWriter',
-56 error   fstream_stack:
-56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
-56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
-56 error      'Object.oncomplete (fs.js:107:15)' ] }
-57 error Please try running this command again as root/Administrator.
-58 error System Darwin 14.3.0
-59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "react-native-cli"
-60 error cwd /Users/Shared/projects/fitness-tracker
-61 error node -v v0.10.33
-62 error npm -v 1.4.28
-63 error path /usr/local/lib/node_modules/react-native-cli
-64 error fstream_path /usr/local/lib/node_modules/react-native-cli
-65 error fstream_type Directory
-66 error fstream_class DirWriter
-67 error code EACCES
-68 error errno 3
-69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/react-native-cli'
-70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
-70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
-70 error fstream_stack Object.oncomplete (fs.js:107:15)
-71 verbose exit [ 3, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart fitness-tracker@0.0.0
+6 info start fitness-tracker@0.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info fitness-tracker@0.0.0 Failed to exec start script
+9 error fitness-tracker@0.0.0 start: `node ./bin/www`
+9 error Exit status 8
+10 error Failed at the fitness-tracker@0.0.0 start script.
+10 error This is most likely a problem with the fitness-tracker package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     node ./bin/www
+10 error You can get their info via:
+10 error     npm owner ls fitness-tracker
+10 error There is likely additional logging output above.
+11 error System Darwin 14.3.0
+12 error command "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+13 error cwd /Users/Shared/projects/fitness-tracker
+14 error node -v v0.10.33
+15 error npm -v 1.4.28
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]

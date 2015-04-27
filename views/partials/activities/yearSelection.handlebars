@@ -1,0 +1,7 @@
+{{#yearList}}
+    <select id="yearSelection" class="select select-sm">
+        {{#years}}
+            <option value="activity/{{year}}/{{month}}"{{#selected}} selected="selected"{{/selected}}>{{year}}</option>
+        {{/years}}
+    </select>
+{{/yearList}}
