@@ -18,4 +18,18 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
+    req.title = 'Fitness Tracker';
+    req.fields = ['activities', 'meta', 'content'];
+    var viewModel = {
+        navigation: Navigation.construct('activity')
+    };
+
+    ActivityCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
+        viewModel = helpers.extend(viewModel, partialModel);
+
+        res.render('activity', viewModel);
+    });
+});
+
 module.exports = router;
