@@ -246,11 +246,12 @@ var RideCollection = (function() {
                         } else if (keys.indexOf(ride.ride_name) < 0 && rideNames[ride.ride_name] >= 10) {
                             var index = keys.length,
                                 date = moment(),
-                                mountainTime = date.tz('America/Denver');
+                                mountainTime = date.tz('America/Denver').format('MM/DD/YYYY');
+
                             rideNames[ride.ride_name] += 1;
                             keys.push(ride.ride_name);
 
-                            ride.date = mountainTime.toDate();
+                            ride.date = new Date(mountainTime);
                             ride.index = index;
 
                             commonRides.push(ride);
