@@ -1,4 +1,4 @@
-var moment = require('moment'),
+var moment = require('moment-timezone'),
     helpers = require('../helpers'),
     ObjectID = require('mongoskin').ObjectID;
 
@@ -244,12 +244,15 @@ var RideCollection = (function() {
                         } else if (typeof(rideNames[ride.ride_name]) === 'undefined') {
                             rideNames[ride.ride_name] = 1;
                         } else if (keys.indexOf(ride.ride_name) < 0 && rideNames[ride.ride_name] >= 10) {
-                            var index = keys.length;
+                            var index = keys.length,
+                                date = moment(),
+                                mountainTime = date.tz('America/Denver');
                             rideNames[ride.ride_name] += 1;
                             keys.push(ride.ride_name);
 
+                            ride.date = mountainTime.toDate();
                             ride.index = index;
-                            ride.date = new Date();
+
                             commonRides.push(ride);
                         } else {
                             rideNames[ride.ride_name] += 1;
