@@ -19,7 +19,7 @@ var RideCollection = (function() {
         },
 
         processTabs: function(date) {
-            var now = moment().tz('America/Denver'),
+            var now = helpers.today(),
                 selectedMonth = parseInt(date.format('M')),
                 currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
                 year = parseInt(date.format('YYYY')),
@@ -244,14 +244,12 @@ var RideCollection = (function() {
                         } else if (typeof(rideNames[ride.ride_name]) === 'undefined') {
                             rideNames[ride.ride_name] = 1;
                         } else if (keys.indexOf(ride.ride_name) < 0 && rideNames[ride.ride_name] >= 10) {
-                            var index = keys.length,
-                                date = moment(),
-                                mountainTime = date.tz('America/Denver').format('MM/DD/YYYY');
+                            var index = keys.length;
 
                             rideNames[ride.ride_name] += 1;
                             keys.push(ride.ride_name);
 
-                            ride.date = new Date(mountainTime);
+                            ride.date = helpers.today();
                             ride.index = index;
 
                             commonRides.push(ride);

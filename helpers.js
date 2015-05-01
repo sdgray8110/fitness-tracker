@@ -1,7 +1,7 @@
 var config = require('./models/config'),
     fs = require('fs'),
     path = require('path'),
-    moment = require('moment');
+    moment = require('moment-timezone');
 
 var helpers = (function() {
     var self = {
@@ -19,6 +19,14 @@ var helpers = (function() {
                 }
             }
             return extended;
+        },
+
+        today: function() {
+            var today = moment(),
+                mountainTimeFormatted = today.tz('America/Denver').format('MM/DD/YYYY'),
+                date = new Date(mountainTimeFormatted);
+
+            return moment(date);
         },
 
         zeroPrefixInt: function(int) {
