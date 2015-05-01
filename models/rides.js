@@ -19,7 +19,7 @@ var RideCollection = (function() {
         },
 
         processTabs: function(date) {
-            var now = moment(),
+            var now = moment().tz('America/Denver'),
                 selectedMonth = parseInt(date.format('M')),
                 currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
                 year = parseInt(date.format('YYYY')),
