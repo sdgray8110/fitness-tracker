@@ -202,8 +202,9 @@ var helpers = (function() {
                 return req.params.month + '/1/' + req.params.year;
             }
 
-            var month = moment().format('M'),
-                year = moment().format('YYYY');
+            var today = helpers.today(),
+                month = today.format('M'),
+                year = today.format('YYYY');
 
             return month + '/1/' + year;
         },
