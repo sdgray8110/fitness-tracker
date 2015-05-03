@@ -23,5 +23,25 @@
     </dl>
     {{/stats}}
 
+    <dl>
+        <dt class="title">Week at a glance:</dt>
+    </dl>
+
+    {{#weeklyStats}}
+        <dl>
+            <dt>Distance:</dt>
+            <dd>{{totals.distance.formatted}}</dd>
+        </dl>
+
+        <dl>
+            <dt>Duration:</dt>
+            <dd>{{totals.duration.formatted}}</dd>
+        </dl>
+
+        <dl>
+            <dt>Climbing</dt>
+            <dd>{{totals.climbing.formatted}}</dd>
+        </dl>
+    {{/weeklyStats}}
 </section>
 {{/year}}

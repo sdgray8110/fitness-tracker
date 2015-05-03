@@ -204,6 +204,18 @@ var RideCollection = (function() {
                 });
             },
 
+            fetchCurrentWeekStats: function(req, callback) {
+                var db = req.db,
+                    startOfWeek = moment().startOf('isoweek'),
+                    dateRange = {'$gte': startOfWeek.toDate(), '$lt': moment().toDate()};
+
+                db.collection('rides').find({date: dateRange}).sort({date: 1}).toArray(function(err, rides) {
+                    var weeklyStats = self.processStats(rides);
+
+                    callback(weeklyStats);
+                });
+            },
+
             fetchYear: function(req, res, callback) {
                 var db = req.db,
                     dateStr = helpers.constructDateString(req),
@@ -225,7 +237,14 @@ var RideCollection = (function() {
                         model.year[field] = self[association.method](association.data);
                     });
 
-                    callback(model);
+
+                    self.dataAccess.fetchCurrentWeekStats(req, function(weeklyStats) {
+                        model.year.weeklyStats = weeklyStats;
+
+                        console.log(model);
+
+                        callback(model);
+                    });
                 });
             },
 
