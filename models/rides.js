@@ -67,7 +67,7 @@ var RideCollection = (function() {
         },
 
         rawDataStructure: function(rides) {
-            var fields = ['distance', 'duration', 'climbing', 'average_speed', 'vam', 'climbing_rate'],
+            var fields = ['distance', 'duration', 'climbing', 'average_speed', 'vam', 'climbing_rate', 'kj'],
                 data = {};
 
             fields.forEach(function(key) {
@@ -106,12 +106,14 @@ var RideCollection = (function() {
         totals: function(data) {
             var distance = helpers.sum(data, 'distance'),
                 duration = helpers.sum(data, 'duration'),
-                climbing = helpers.sum(data, 'climbing')
+                climbing = helpers.sum(data, 'climbing'),
+                kj = helpers.sum(data, 'kj');
 
             return {
                 distance: helpers.formatDecimal(distance),
                 duration: helpers.formattedDuration({duration: duration}, true),
-                climbing: helpers.formatDecimal(climbing, 0)
+                climbing: helpers.formatDecimal(climbing, 0),
+                kj: helpers.formatDecimal(kj, 0)
             }
         },
 

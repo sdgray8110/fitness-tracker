@@ -42,6 +42,13 @@
             <dt>Climbing</dt>
             <dd>{{totals.climbing.formatted}}</dd>
         </dl>
+
+        {{#totals.kj.formatted}}
+        <dl>
+            <dt>Work</dt>
+            <dd>{{.}} kj</dd>
+        </dl>
+        {{/totals.kj.formatted}}
     {{/weeklyStats}}
 </section>
 {{/year}}

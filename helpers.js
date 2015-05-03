@@ -128,7 +128,7 @@ var helpers = (function() {
 
         sum: function(data, key) {
             var total = data[key].reduce(function(a, b) {
-                return a + b;
+                return (a * 1) + (b * 1);
             });
 
             return total;
