@@ -139,6 +139,7 @@ var helpers = (function() {
         },
 
         formatDecimal: function(val, floatLen) {
+            val = Number(val);
             floatLen = typeof(floatLen) !== 'undefined' ? floatLen  : 2;
 
             return {
