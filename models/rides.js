@@ -208,7 +208,7 @@ var RideCollection = (function() {
 
             fetchCurrentWeekStats: function(req, callback) {
                 var db = req.db,
-                    startOfWeek = moment().tz('GMT').startOf('isoweek').subtract(6, 'hours'),
+                    startOfWeek = moment().startOf('isoweek').subtract(6, 'hours'),
                     dateRange = {'$gte': startOfWeek.toDate(), '$lt': moment().toDate()};
 
                 db.collection('rides').find({date: dateRange}).sort({date: 1}).toArray(function(err, rides) {
