@@ -85,7 +85,12 @@ var RideCollection = (function() {
             var fields = Object.keys(data);
 
             fields.forEach(function(key) {
-                var val = typeof(ride[key].raw) !== 'undefined' ? ride[key].raw : ride[key];
+                if (typeof(ride[key]) !== 'undefined') {
+                    var val = typeof(ride[key].raw) !== 'undefined' ? ride[key].raw : ride[key];
+                } else {
+                    val = 0;
+                }
+
 
                 data[key].push(val);
             });
