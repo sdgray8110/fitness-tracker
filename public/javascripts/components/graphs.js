@@ -139,17 +139,15 @@ define(function(require) {
 
                     if (i == 0) {
                         averages.push(value);
-                    }
+                        cumulativePower = 0;
+                    } else if (x == 6) {
+                        value.value = cumulativePower / x;
 
-                    if (x == 6) {
-                        value.value = cumulativePower / 7;
                         averages.push(value);
 
                         x = 0;
                         cumulativePower = 0;
-                    }
-
-                    if ((i + 1) == len) {
+                    } else if ((i + 1) == len) {
                         value.value = cumulativePower / (x);
                         averages.push(value);
                     }
