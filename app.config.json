@@ -16,6 +16,10 @@
       "controllerPath": "../routes/health",
       "routePath": "/health"
     },
+    "graphs": {
+      "controllerPath": "../routes/graphs",
+      "routePath": "/graphs"
+    },
     "api": {
       "controllerPath": "../routes/api",
       "routePath": "/api"

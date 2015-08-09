@@ -3,7 +3,7 @@ var router = express.Router();
 var Config = require('../models/config');
 var RideCollection = require('../models/rides');
 var ActivityCollection = require('../models/activity');
-var RideGraphs = require('../models/rideGraphs');
+var RideGraphs = require('../models/graphs');
 var moment = require('moment');
 
 /* GET */
