@@ -86,4 +86,10 @@
             background-image: image-url('health.svg');
         }
     }
+
+    .graphs {
+        a:before {
+            background-image: image-url('graph.svg');
+        }
+    }
 }

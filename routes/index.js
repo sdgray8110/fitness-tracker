@@ -51,7 +51,7 @@ router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
 router.get('/graphs', function(req, res) {
     req.title = 'Fitness Tracker';
     var viewModel = {
-            navigation: Navigation.construct('ride')
+            navigation: Navigation.construct('graphs')
         };
 
     res.render('graphs', viewModel);

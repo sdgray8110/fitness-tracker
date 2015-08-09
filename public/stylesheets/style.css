@@ -506,6 +506,10 @@ tfoot .label {
 .main-navigation .health-tracker a:before {
   background-image: url('/images/health.svg?1416202592');
 }
+/* line 91, ../sass/base/_main-header.scss */
+.main-navigation .graphs a:before {
+  background-image: url('/images/graph.svg?1439097171');
+}
 
 /* line 1, ../sass/modules/_buttons.scss */
 button {

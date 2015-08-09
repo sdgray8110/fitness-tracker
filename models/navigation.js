@@ -5,6 +5,11 @@ var Navigation = (function() {
                 title: 'Ride Logger',
                 className: 'ride-logger'
             },
+            graphs: {
+                path: '/graphs',
+                title: 'Ride Graphs',
+                className: 'graphs'
+            },
             activity: {
                 path: '/activity',
                 title: 'Activity Tracker',
