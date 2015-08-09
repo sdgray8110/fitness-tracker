@@ -425,7 +425,7 @@ tfoot .label {
 
 /* line 1, ../sass/base/_main-header.scss */
 .main-header {
-  height: 50px;
+  overflow: hidden;
   width: 100%;
   background: #006599;
   padding: 0 30px;
