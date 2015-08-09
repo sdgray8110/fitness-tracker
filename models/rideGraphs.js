@@ -12,13 +12,15 @@ var RideGraphs = (function() {
                     monthlyRides: {},
                     dailyRides: {},
                     totals: {},
-                    breakdown: {}
+                    breakdown: {},
+                    power: {values: []}
                 };
 
                 totals.forEach(function(ride, i) {
                     var rideDate = new Date(ride.date),
                         year = rideDate.getFullYear(),
                         month = rideDate.getMonth() + 1,
+                        dayVal = rideDate.getDay() + 1,
                         day = moment(rideDate).startOf('day').unix();
 
                     (function() {
@@ -77,6 +79,16 @@ var RideGraphs = (function() {
                         }
                     })();
 
+                    (function() {
+                        if (ride.power && ride.power.average_power) {
+                            data.power.values.push({
+                                value: ride.power.average_power,
+                                index: data.power.values.length,
+                                label: month + '/' + dayVal + '/' + year
+                            });
+                        }
+                    })();
+
                     data.monthlyRides[year][month].push(ride.distance);
                     data.yearlyRides[year].push(ride.distance);
                 });
@@ -92,6 +104,7 @@ var RideGraphs = (function() {
 
                 data.totals.dailyRides = data.dailyRides;
                 data.totals.breakdown = data.breakdown;
+                data.totals.power = data.power;
 
                 return data.totals;
             },

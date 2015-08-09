@@ -5477,6 +5477,9 @@
 
 
         function chart(selection) {
+
+            console.log(selection);
+
             selection.each(function(data) {
                 var container = d3.select(this),
                     that = this;

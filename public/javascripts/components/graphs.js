@@ -27,6 +27,7 @@ define(function(require) {
                 self.currentMonths(data);
                 self.currentDays(data.allRides);
                 self.rideBreakdown(data.allRides);
+                self.powerLineChart(data.allRides.power);
             },
 
             currentMonths: function(data) {
@@ -69,6 +70,22 @@ define(function(require) {
                 });
             },
 
+            powerLineChart: function(data) {
+                nv.addGraph(function() {
+                    var chart = nv.models.lineChart()
+                        .x(function(d) { return d.index + 1; })    //Specify the data accessors.
+                        .y(function(d) { return d.value });
+
+                    d3.select('#power_line svg')
+                        .datum(self.processPowerData(data))
+                        .call(chart);
+
+                    nv.utils.windowResize(chart.update);
+
+                    return chart;
+                });
+            },
+
             rideBreakdown: function(data) {
                 nv.addGraph(function() {
                     var chart = nv.models.pieChart()
@@ -79,7 +96,6 @@ define(function(require) {
 
                     d3.select("#pie svg")
                         .datum(self.processBreakdown(data))
-                        .transition().duration(350)
                         .call(chart);
 
                     return chart;
@@ -104,6 +120,56 @@ define(function(require) {
                     key: '2015 Monthly Ride Totals',
                     values: vals
                 };
+
+                return res;
+            },
+
+            processPowerData: function(data) {
+                var x = 0,
+                    len = data.values.length,
+                    cumulativePower = 0,
+                    averages = [],
+                    res = null,
+                    averageData = null;
+
+                data.values.forEach(function(val, i) {
+                    var value = $.extend({}, val);
+
+                    cumulativePower += parseInt(value.value);
+
+                    if (i == 0) {
+                        averages.push(value);
+                    }
+
+                    if (x == 6) {
+                        value.value = cumulativePower / 7;
+                        averages.push(value);
+
+                        x = 0;
+                        cumulativePower = 0;
+                    }
+
+                    if ((i + 1) == len) {
+                        value.value = cumulativePower / (x);
+                        averages.push(value);
+                    }
+
+                    x += 1;
+                });
+
+                averageData = {
+                    values: averages,
+                    key: '7 day average power',
+                    color: '#ff7f0e'
+                };
+
+                data = {
+                    values: data.values,
+                    key: 'Ride Average Power',
+                    color: '#7777ff'
+                };
+
+                res = [averageData, data];
 
                 return res;
             },
