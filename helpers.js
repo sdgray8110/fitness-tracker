@@ -281,6 +281,10 @@ var helpers = (function() {
                 activity.power[key] = activity[key];
                 delete(activity[key]);
             });
+        },
+
+        isLocal: function(req) {
+            return req.headers.host === 'localhost:3000';
         }
     };
 

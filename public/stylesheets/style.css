@@ -93,7 +93,7 @@ button, input[type='submit'], input[type='button'] {
   background-color: transparent;
   background-image: none;
   border-radius: 0;
-  font-family: "Open Sans";
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 /* line 91, ../sass/base/_reset.scss */
@@ -104,7 +104,7 @@ var {
 /* line 1, ../sass/base/_global.scss */
 body {
   background: #efefef;
-  font-family: "Open Sans";
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 /* line 6, ../sass/base/_global.scss */
