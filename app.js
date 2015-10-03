@@ -12,9 +12,9 @@ process.env.TZ = 'GMT';
 // Database
 var mongo = require('mongoskin');
 // Local
-var db = mongo.db("mongodb://localhost:27017/fitness-tracker", {native_parser:true});
+//var db = mongo.db("mongodb://localhost:27017/fitness-tracker", {native_parser:true});
 // MongoLabs
-//var db = mongo.db("mongodb://gray8110:bronco79@ds031551.mongolab.com:31551/heroku_app32434726", {native_parser:true});
+var db = mongo.db("mongodb://gray8110:bronco79@ds031551.mongolab.com:31551/heroku_app32434726", {native_parser:true});
 
 
 // view engine setup
