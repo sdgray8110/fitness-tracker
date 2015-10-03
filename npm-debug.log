@@ -7,13 +7,13 @@
 6 info start fitness-tracker@0.0.0
 7 verbose unsafe-perm in lifecycle true
 8 info fitness-tracker@0.0.0 Failed to exec start script
-9 error fitness-tracker@0.0.0 start: `node ./bin/www`
+9 error fitness-tracker@0.0.0 start: `node /bin/www`
 9 error Exit status 8
 10 error Failed at the fitness-tracker@0.0.0 start script.
 10 error This is most likely a problem with the fitness-tracker package,
 10 error not with npm itself.
 10 error Tell the author that this fails on your system:
-10 error     node ./bin/www
+10 error     node /bin/www
 10 error You can get their info via:
 10 error     npm owner ls fitness-tracker
 10 error There is likely additional logging output above.
