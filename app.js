@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var RoutesController = require('./controllers/routes');
 
 var app = express();
+process.env.TZ = 'GMT';
 
 // Database
 var mongo = require('mongoskin');
