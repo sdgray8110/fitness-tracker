@@ -315,7 +315,9 @@ var RideCollection = (function() {
                 delete(ride.rideID);
 
                 db.collection('rides').insert(ride, function(err, result) {
-                    var newRide = result[0]  ;
+                    console.log(result.ops[0]);
+
+                    var newRide = result.ops[0]  ;
                     self.processRide(newRide, 0);
 
                     callback(newRide);

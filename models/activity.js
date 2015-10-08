@@ -125,7 +125,7 @@ var ActivityCollection = (function() {
                 delete(activity.activityID);
 
                 db.collection('activities').insert(activity, function(err, result) {
-                    var newActivity = result[0]  ;
+                    var newActivity = result.ops[0]  ;
                     self.processActivity(newActivity, 0);
 
                     callback(newActivity);
