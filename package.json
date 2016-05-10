@@ -21,8 +21,5 @@
     "q": "~1.0.1",
     "compass": "~0.1.0",
     "apm": "*"
-  },
-  "devDependencies": {
-    "moment-timezone": "^0.3.1"
   }
 }
