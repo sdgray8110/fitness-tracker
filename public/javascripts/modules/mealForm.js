@@ -96,6 +96,7 @@ define(function(require) {
                 //self.dom.deleteActivity.on('click', self.delete);
                 self.dom.form.on('click', '.select_food', self.selectFood);
                 self.dom.form.on('keyup', '.foodQuantity', self.updateQuantity);
+                self.dom.form.on('click', '.delete_item', self.removeItemFromMeal)
                 self.applyValidation();
             },
 
@@ -196,11 +197,15 @@ define(function(require) {
             save: function() {
                 var formData = $.extend(self.dom.form.serializeObject(), {
                     foods: JSON.stringify(self.model.selectedFoods),
-                    totals: JSON.stringify(self.model.selectedFoodTotals)
+                    totals: JSON.stringify(self.model.selectedFoodTotals),
+                   
                 }),
                     keys = Object.keys(formData);
 
-                delete(formData.mealID);
+                if(!formData.mealID) {
+                    delete(formData.mealID);
+                }
+                
                 delete(formData.food_selection);
 
                 keys.forEach(function(key) {
@@ -258,6 +263,29 @@ define(function(require) {
                 var view = $(Mustache.render(selectedFoods, self.model));
 
                 $('#selected_foods').html(view);
+            },
+
+            removeItemFromMeal: function (e) {
+                var clicked = $(e.target),
+                    id = clicked.data('id');
+
+
+                self.deleteMatchedFoodById(id);
+                self.updateTotals();
+                self.renderMeal();
+
+            },
+
+            deleteMatchedFoodById: function (id) {
+                var items = [];
+
+                self.model.selectedFoods.forEach(function (foodItem, i) {
+                    if(foodItem._id !== id) {
+                        items.push(foodItem);
+                    }
+                });
+
+                self.model.selectedFoods = items;
             },
 
             close: function() {

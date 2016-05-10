@@ -219,8 +219,9 @@ define(function(require) {
                     model = self.processEncodedMeal(clicked.data('meal')),
                     row = clicked.parent().parent(),
                     wrapper = row.next().find('.meal_edit'),
-                    id = model._id,
-                    action = 'api/meal/' + id;
+                    action = 'api/meal/edit';
+
+                model.action = action;
 
                 formModule.mealForm.init({
                     model: model,

@@ -60,7 +60,8 @@
 
     .edit-ride,
     .duplicate-ride,
-    .edit-activity {
+    .edit-activity,
+    .delete_item {
         cursor: pointer;
         -webkit-transition: opacity .5s;
         transition: opacity .5s;

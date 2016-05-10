@@ -174,5 +174,11 @@ router.get('/food/deleteall', function(req, res) {
     });
 });
 
+router.post('/meal/edit', function(req, res) {
+    NutritionCollection.dataAccess.editMeal(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 
 module.exports = router;

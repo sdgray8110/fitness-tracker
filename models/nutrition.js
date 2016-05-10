@@ -53,6 +53,8 @@ var NutritionCollection = (function() {
                 db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
                     model.meals = self.processMeals(meals);
 
+                    console.log(meals);
+
                     callback(model);
                 });
             },
@@ -113,6 +115,21 @@ var NutritionCollection = (function() {
                 db.collection('food').find().toArray(function(err, foods) {
                     callback(foods);
                 });
+            },
+
+            editMeal: function (req, res, callback) {
+                var db = req.db,
+                    model = req.body,
+                    id = model.mealID;
+
+                model.meal_date = moment(model.meal_date).toDate();
+
+                db.collection('meals').update({'_id': new ObjectID(id)}, model, {safe: true}, function(err, result) {
+                    db.collection('meals').find().toArray(function(err, foods) {
+                        callback(foods);
+                    });
+                });
+
             }
         },
 
