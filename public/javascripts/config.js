@@ -26,6 +26,8 @@ require.config({
         // Modules
         rideForm: 'modules/rideForm',
         activityForm: 'modules/activityForm',
+        foodForm: 'modules/foodForm',
+        mealForm: 'modules/mealForm',
         validation: 'modules/validation'
     }
 }); // end require.config

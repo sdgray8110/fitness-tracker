@@ -1,0 +1,9 @@
+<select id="food_selection" name="food_selection" class="select select-fill-width food_selection" data-validation="required" data-validation-message="Please select at least one food.">
+    <option value="">Select Food ...</option>
+    {{#foods}}
+    <option data-index="{{index}}" value="{{_id}}">{{food_name}}</option>
+    {{/foods}}
+</select>
+
+<button class="select_food btn pill gray pull-right" type="button">Add Food</button>
+

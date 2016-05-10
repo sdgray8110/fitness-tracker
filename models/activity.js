@@ -76,6 +76,8 @@ var ActivityCollection = (function() {
                             tabs: {method: 'processTabs', data: dateObj}
                         };
 
+                    console.log(activities);
+
                     req.fields.forEach(function(field) {
                         var association = fieldAssociation[field];
 

@@ -3,6 +3,7 @@ var router = express.Router();
 var Config = require('../models/config');
 var RideCollection = require('../models/rides');
 var ActivityCollection = require('../models/activity');
+var NutritionCollection = require('../models/nutrition');
 var RideGraphs = require('../models/graphs');
 var moment = require('moment');
 
@@ -143,10 +144,29 @@ router.post('/activity/update', function(req, res) {
     });
 });
 
-router.post('/activity/delete', function(req, res) {
-    ActivityCollection.dataAccess.deleteActivity(req, res, function(message) {
+router.get('/foods', function(req, res) {
+    NutritionCollection.dataAccess.fetchFoods(req, res, function(message) {
         res.json(message);
     });
 });
+
+router.post('/food/new', function(req, res) {
+    NutritionCollection.dataAccess.postNewFood(req, res, function(message) {
+        res.json(message);
+    });
+});
+
+router.post('/meal/new', function(req, res) {
+    NutritionCollection.dataAccess.postNewMeal(req, res, function(message) {
+        res.json(message);
+    });
+});
+
+router.get('/meal/deleteall', function(req, res) {
+    NutritionCollection.dataAccess.clearMeals(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 
 module.exports = router;

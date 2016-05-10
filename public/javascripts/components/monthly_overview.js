@@ -6,7 +6,7 @@ define(function(require) {
     var helpers = require('helpers'),
         Mustache = require('mustache'),
         moment = require('moment'),
-        formModule = null,
+        formModule = {},
         rideTemplate = require('text!/templates/partials/rides/ride'),
         activityTemplate = require('text!/templates/partials/activities/activity'),
         addtlInfoTemplate = require('text!/templates/partials/rides/additionalInfo'),
@@ -24,6 +24,10 @@ define(function(require) {
                 self.dom.tabButtons = self.dom.tabs.find('button');
                 self.dom.yearSelection = $('#yearSelection');
                 self.dom.newRide = $('#new_ride');
+                self.dom.newFoodItem = $('#new_food');
+                self.dom.newMeal = $('#new_meal');
+                self.dom.newFoodItemPrecedent = self.dom.newFoodItem.parents('header');
+
                 self.dom.newRidePrecedent = self.dom.newRide.parents('header');
                 self.dom.activityList = self.dom.component.find('.activity-list');
                 self.dom.newActivity = $('#new_activity');
@@ -41,7 +45,7 @@ define(function(require) {
             attachHandlers: function() {
                 self.dom.tabButtons.on('click', self.navigateToMonth);
                 self.dom.yearSelection.on('change', self.navigateToYear);
-                self.dom.component.on('click', '.expand-row', self.expandRow);
+                self.dom.component.on('click', '.expand-row, .view_meal', self.expandRow);
 
                 /* Ride View */
                 self.dom.newRide.on('click', self.toggleNewRide);
@@ -49,23 +53,39 @@ define(function(require) {
                 self.dom.component.on('click', '.duplicate-ride', self.duplicateRide);
 
                 /* Activity View */
-                self.dom.newActivity.on('click', self.toggleNewActivity)
+                self.dom.newActivity.on('click', self.toggleNewActivity);
                 self.dom.component.on('click', '.edit-activity', self.editActivity);
+
+                /* New Food Item View */
+                self.dom.newFoodItem.on('click', self.toggleNewFood);
+
+                /*  New Meal View */
+                self.dom.newMeal.on('click', self.toggleNewMeal);
+
             },
 
             loadFormModule: function() {
                 var relationships = [
                     {rideForm: self.dom.newRide},
-                    {activityForm: self.dom.newActivity}
+                    {activityForm: self.dom.newActivity},
+                    {foodForm: self.dom.newFoodItem, double: true},
+                    {mealForm: self.dom.newMeal, double: true}
                 ];
 
                 relationships.forEach(function(item) {
                     var key = Object.keys(item)[0];
 
                     if (item[key].length) {
-                        require([key], function(module) {
-                            formModule = module;
-                        });
+                        if (item.double) {
+                            require([key], function(module) {
+                                formModule = Object.keys(formModule).length ? formModule : {};
+                                formModule[key] = module;
+                            });
+                        } else {
+                            require([key], function(module) {
+                                formModule = module;
+                            });
+                        }
 
                         return;
                     }
@@ -76,7 +96,7 @@ define(function(require) {
                 e.preventDefault();
 
                 var clicked = $(e.currentTarget),
-                    row = clicked.parents('tr'),
+                    row = clicked.parents('tr').eq(0),
                     siblings = row.siblings();
 
                 siblings.removeClass('open');
@@ -309,6 +329,81 @@ define(function(require) {
                         delete(self.dom.update);
                 });
             },
+
+            /*************/
+            /* Food View */
+            /*************/
+
+            toggleNewFood: function(e) {
+                e.preventDefault();
+
+                self.genericNewFoodForm();
+            },
+
+            genericNewFoodForm: function (model) {
+                self.dom.update = {};
+
+                model = $.extend(model, {
+                    date: {formatted: moment().format('MM/DD/YYYY')},
+                    action: '/api/food/new'
+                });
+
+                formModule.foodForm.init({
+                    model: model,
+                    formInsertEl: self.dom.newFoodItemPrecedent,
+                    insertMethod: 'after',
+                    animate: true,
+                    openCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                    },
+                    closeCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                    },
+                    saveCallback: self.saveNewFood
+                });
+            },
+
+            saveNewFood: function(food) {
+                self.dom.newMeal.data('foods', food);
+            },
+
+            /*************/
+            /* Meal View */
+            /*************/
+
+            toggleNewMeal: function(e) {
+                e.preventDefault();
+
+                self.genericNewMealForm();
+            },
+
+            genericNewMealForm: function (model) {
+                self.dom.update = {};
+
+                model = $.extend(model, {
+                    date: {formatted: moment().format('MM/DD/YYYY')},
+                    action: '/api/meal/new'
+                });
+
+                formModule.mealForm.init({
+                    model: model,
+                    formInsertEl: self.dom.newFoodItemPrecedent,
+                    insertMethod: 'after',
+                    animate: true,
+                    openCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                    },
+                    closeCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                    },
+                    saveCallback: self.saveNewFood
+                });
+            },
+
+            saveNewMeal: function(food) {
+
+            },
+
 
             /*****************/
             /* Activity View */
