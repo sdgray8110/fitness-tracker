@@ -62,6 +62,26 @@ tbody {
     tr {
         &.open {
             + .additional-info {
+                .additional-info td {
+                    display: none;
+                }
+
+
+                .open {
+                    + .additional-info {
+
+                        table {
+                            margin: 15px 0 0;
+                        }
+
+                        td{
+                            display: table-cell;
+                        }
+                    }
+                }
+            }
+
+            + .additional-info {
                 table {
                     margin-bottom: 20px;
                 }

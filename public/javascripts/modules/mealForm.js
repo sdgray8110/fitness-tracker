@@ -54,7 +54,7 @@ define(function(require) {
             setModel: function() {
                 self.model = $.extend(self.options.model, formConfig);
                 self.model.foods = self.getFoods();
-                self.model.selectedFoods = [];
+                self.model.selectedFoods = self.model.selectedFoods || [];
             },
 
             resetModel: function() {

@@ -103,6 +103,16 @@ var NutritionCollection = (function() {
                 db.collection('meals').find().toArray(function(err, foods) {
                     callback(foods);
                 });
+            },
+
+            clearFoods: function(req, res, callback) {
+                var db = req.db;
+
+                db.collection('food').remove();
+
+                db.collection('food').find().toArray(function(err, foods) {
+                    callback(foods);
+                });
             }
         },
 
@@ -127,6 +137,7 @@ var NutritionCollection = (function() {
                 meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
                 meal.foods = JSON.parse(meal.foods);
                 meal.totals = JSON.parse(meal.totals);
+                meal.meal_encoded = JSON.stringify(meal);
 
                 if(!dailyMeals[meal.meal_date]) {
                     dailyMeals[meal.meal_date] = {

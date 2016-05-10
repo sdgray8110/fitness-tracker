@@ -55,6 +55,7 @@ define(function(require) {
                 /* Activity View */
                 self.dom.newActivity.on('click', self.toggleNewActivity);
                 self.dom.component.on('click', '.edit-activity', self.editActivity);
+                self.dom.component.on('click', '.edit_meal', self.editMeal);
 
                 /* New Food Item View */
                 self.dom.newFoodItem.on('click', self.toggleNewFood);
@@ -210,6 +211,32 @@ define(function(require) {
                         });
                     });
                 }
+            },
+
+            editMeal: function (e) {
+                e.preventDefault();
+                var clicked = $(e.currentTarget),
+                    model = self.processEncodedMeal(clicked.data('meal')),
+                    row = clicked.parent().parent(),
+                    wrapper = row.next().find('.meal_edit'),
+                    id = model._id,
+                    action = 'api/meal/' + id;
+
+                formModule.mealForm.init({
+                    model: model,
+                    formInsertEl: wrapper,
+                    insertMethod: 'html',
+                    animate: false,
+                    openCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                        row.addClass('open');
+                        formModule.mealForm.renderMeal();
+                    },
+                    closeCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                    },
+                    saveCallback: self.saveNewFood
+                });
             },
 
             saveNewRide: function(ride) {
@@ -508,6 +535,17 @@ define(function(require) {
                 self.restripe();
 
                 delete(self.dom.update);
+            },
+
+            processEncodedMeal: function (meal) {
+                meal.inProgress = true;
+                meal.selectedFoods = meal.foods;
+                meal.date = {
+                    formatted: meal.meal_date
+                };
+
+
+                return meal;
             }
         };
 

@@ -41,10 +41,16 @@
                         </thead>
                         <tbody class="meal-list">
                         <tr>
-                            <td class="details"><a class="view_meal">View Meal Details</a></td>
+                            <td class="details"><a data-meal="{{meal_encoded}}" class="edit_meal">View Meal Details</a></td>
                             <td>{{totals.food_protein}}</td>
                             <td>{{totals.food_calories}}</td>
                             <td>{{totals.food_sugar}}</td>
+                        </tr>
+
+                        <tr class="additional-info">
+                            <td class="meal_edit" colspan="4">
+
+                            </td>
                         </tr>
                         </tbody>
                     </table>
