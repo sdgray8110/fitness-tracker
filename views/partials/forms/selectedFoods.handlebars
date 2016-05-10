@@ -1,0 +1,29 @@
+{{#inProgress}}
+<table>
+    <thead>
+        <th>Food Name</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Servings</th>
+    </thead>
+    <tbody>
+{{#selectedFoods}}
+        <tr>
+            <td>{{food_name}}</td>
+            <td>{{food_calories}}</td>
+            <td>{{food_protein}}</td>
+            <td><input name="count_{{_id}}" type="text" class="inputText foodQuantity"  data-validation="number" data-validation-message="Please enter a valid number for Servings" value="{{count}}" /> </td>
+        </tr>
+{{/selectedFoods}}
+    </tbody>
+    <tfoot class="totals">
+    <tr>
+        <td class="header_cell">Meal Totals</td>
+        <td>{{selectedFoodTotals.food_calories}}</td>
+        <td>{{selectedFoodTotals.food_protein}}</td>
+        <td></td>
+    </tr>
+    </tfoot>
+
+</table>
+{{/inProgress}}

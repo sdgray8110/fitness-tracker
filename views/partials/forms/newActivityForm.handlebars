@@ -1,12 +1,12 @@
 <form class="new-activity-form" id="newActivityForm" action="{{action}}" method="POST">
-    <fieldset class="activity-type">
-        <select id="activity_type" name="type" class="select select-fill-width" data-validation="required" data-validation-message="Please select an activity type.">
-            <option value="">Choose activity type ...</option>
-            {{#activityTypes}}
+        <fieldset class="activity-type">
+            <select id="activity_type" name="type" class="select select-fill-width" data-validation="required" data-validation-message="Please select an activity type.">
+                <option value="">Choose activity type ...</option>
+                {{#activityTypes}}
                 <option data-index="{{index}}" {{#selected}} selected="selected" {{/selected}}value="{{type}}">{{name}}</option>
-            {{/activityTypes}}
-        </select>
-    </fieldset>
+                {{/activityTypes}}
+            </select>
+        </fieldset>
 
     <div class="groupset">
         <div id="activity-form-data-fields"></div>

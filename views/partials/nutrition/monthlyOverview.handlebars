@@ -1,0 +1,61 @@
+{{> activities/monthlyTabs}}
+
+<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}">
+    <header class="clearfix">
+        <h1 class="pull-left">Meals for {{content.displayMonth}}</h1>
+
+        <button id="new_food" class="btn pill gray pull-right">Create New Food Item</button>
+        <button id="new_meal" data-foods="{{foods}}" class="btn pill gray pull-right">Enter New Meal</button>
+    </header>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Daily Totals</th>
+            <th>Date</th>
+            <th>Protein</th>
+            <th>Calories</th>
+        </tr>
+        </thead>
+        <tbody class="meal-list">
+        {{#meals}}
+            <tr>
+                <td class="details"><a class="view_meal">View Daily Details</a></td>
+                <td>{{meal_date}}</td>
+                <td {{#proteinWarning}}class="warning"{{/proteinWarning}}>{{totals.food_protein}}</td>
+                <td {{#calorieWarning}}class="warning"{{/calorieWarning}}>{{totals.food_calories}}</td>
+            </tr>
+
+            <tr class="additional-info">
+                <td colspan="4">
+                    {{#meals}}
+                    <h2>{{meal_name}}</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Meal Summary</th>
+                            <th>Protein</th>
+                            <th>Calories</th>
+                            <th>Sugar</th>
+                        </tr>
+                        </thead>
+                        <tbody class="meal-list">
+                        <tr>
+                            <td class="details"><a class="view_meal">View Meal Details</a></td>
+                            <td>{{totals.food_protein}}</td>
+                            <td>{{totals.food_calories}}</td>
+                            <td>{{totals.food_sugar}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {{/meals}}
+                </td>
+            </tr>
+        {{/meals}}
+        </tbody>
+    </table>
+</section>
+
+<var class="js_components hidden">
+    monthly_overview
+</var>

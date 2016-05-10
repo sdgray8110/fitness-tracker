@@ -11,6 +11,13 @@
     width: 33%;
     padding: 0 20px;
 
+    &.controls {
+        float: right;
+        clear: both;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
     &:only-child:before {
         content: "";
         vertical-align: top;
@@ -143,6 +150,9 @@ legend {
     width: 100%;
 }
 
+.select.food_selection {
+    margin-bottom: 10px;
+}
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     /*---- fixes padding in chrome-----*/
     select {
