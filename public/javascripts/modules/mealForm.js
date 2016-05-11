@@ -3,7 +3,8 @@
 define(function(require) {
     'use strict';
 
-    var Mustache = require('mustache'),
+    var helpers = require('helpers'),
+        Mustache = require('mustache'),
         maskedInput = require('maskedInput'),
         serializeObject = require('serializeObject'),
         validation = require('validation'),
@@ -114,7 +115,7 @@ define(function(require) {
                 self.renderMeal();
             },
 
-            updateQuantity: function (e) {
+            updateQuantity: helpers.debounce(function(e) {
                 var changed = $(e.target),
                     id = changed.attr('name').replace('count_', '');
 
@@ -126,7 +127,7 @@ define(function(require) {
 
                 self.updateTotals();
                 self.renderMeal();
-            },
+            }, 750),
 
             processSelectedFoods: function(item) {
                 var match = false;
