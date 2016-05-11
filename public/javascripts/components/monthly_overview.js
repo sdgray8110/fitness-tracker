@@ -545,7 +545,7 @@ define(function(require) {
                 meal.date = {
                     formatted: meal.meal_date
                 };
-
+                meal.edit = true;
 
                 return meal;
             }
