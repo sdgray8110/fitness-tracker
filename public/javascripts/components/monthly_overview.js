@@ -236,7 +236,10 @@ define(function(require) {
                     closeCallback: function() {
                         self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
                     },
-                    saveCallback: self.saveNewFood
+                    saveCallback: function () {
+                        self.saveNewFood();
+                        location.reload();
+                    }
                 });
             },
 
@@ -387,7 +390,10 @@ define(function(require) {
                     closeCallback: function() {
                         self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
                     },
-                    saveCallback: self.saveNewFood
+                    saveCallback: function () {
+                        self.saveNewFood();
+                        location.reload();
+                    }
                 });
             },
 
