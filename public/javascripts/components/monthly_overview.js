@@ -239,6 +239,7 @@ define(function(require) {
                     saveCallback: function () {
                         self.saveNewFood();
                         location.reload();
+                        
                     }
                 });
             },
