@@ -541,6 +541,7 @@ define(function(require) {
             processEncodedMeal: function (meal) {
                 meal.inProgress = true;
                 meal.selectedFoods = meal.foods;
+                meal.selectedFoodTotals = meal.totals;
                 meal.date = {
                     formatted: meal.meal_date
                 };
