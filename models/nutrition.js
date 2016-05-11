@@ -53,8 +53,6 @@ var NutritionCollection = (function() {
                 db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
                     model.meals = self.processMeals(meals);
 
-                    console.log(meals);
-
                     callback(model);
                 });
             },
