@@ -1,6 +1,7 @@
 <form class="new-activity-form" id="newFoodForm" action="{{action}}" method="POST">
-
+    {{#editFood}}
     {{> foodsList}}
+    {{/editFood}}
 
     <div id="food_form_container">
     {{> foodForm}}

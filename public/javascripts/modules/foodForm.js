@@ -151,6 +151,7 @@ define(function(require) {
             },
 
             render: function() {
+                self.model.form_populated = true;
                 self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);
@@ -161,6 +162,7 @@ define(function(require) {
             },
 
             renderPopulated: function(food) {
+                food.form_populated = true;
                 self.selectFoodUnit(food);
                 self.model = $.extend(self.model, food);
 
