@@ -208,7 +208,7 @@ define(function(require) {
 
             destroy: function() {
                 self.resetModel();
-                self.dom.foodForm.remove();
+                $('#newFoodForm').remove();
                 self.options.closeCallback();
                 self.isOpen = false;
             }
