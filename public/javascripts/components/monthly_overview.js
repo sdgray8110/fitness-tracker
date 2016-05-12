@@ -231,12 +231,12 @@ define(function(require) {
                     insertMethod: 'html',
                     animate: false,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
                         row.addClass('open');
                         formModule.mealForm.renderMeal();
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
@@ -398,10 +398,10 @@ define(function(require) {
                     insertMethod: 'after',
                     animate: true,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
@@ -420,7 +420,7 @@ define(function(require) {
                var changed = $(e.target),
                    selected = changed.find(':selected'),
                    index = selected.data('index');
-                
+
                 formModule.foodForm.renderPopulated(self.foods[index])
             },
 
@@ -448,10 +448,10 @@ define(function(require) {
                     insertMethod: 'after',
                     animate: true,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
