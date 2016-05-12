@@ -60,6 +60,18 @@
     }
   ],
   "formFields": {
+    "physicalTherapy": [
+      "name",
+      "date",
+      "duration",
+      "description"
+    ],
+    "occupationalTherapy": [
+      "name",
+      "date",
+      "duration",
+      "description"
+    ],
     "ride": [
       "rideName",
       "date",
