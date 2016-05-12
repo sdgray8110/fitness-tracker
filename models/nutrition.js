@@ -31,7 +31,7 @@ var NutritionCollection = (function() {
                     },
                     model = {};
 
-                db.collection('food').find().toArray(function(err, foods) {
+                db.collection('food').find().sort({food_name: 1}).toArray(function(err, foods) {
                     foodlist = JSON.stringify(foods);
 
                     req.fields.forEach(function(field) {
@@ -60,7 +60,7 @@ var NutritionCollection = (function() {
             fetchFoods: function(req, res, callback) {
                 var db = req.db;
 
-                db.collection('food').find().toArray(function(err, foods) {
+                db.collection('food').find().sort({food_name: 1}).toArray(function(err, foods) {
 
                     callback(foods);
                 });
@@ -138,7 +138,7 @@ var NutritionCollection = (function() {
                 delete(model.food_id);
 
                 db.collection('food').update({'_id': new ObjectID(id)}, model, {safe: true}, function(err, result) {
-                    db.collection('food').find().toArray(function(err, foods) {
+                    db.collection('food').find().sort({food_name: 1}).toArray(function(err, foods) {
                         callback(foods);
                     });
                 });
