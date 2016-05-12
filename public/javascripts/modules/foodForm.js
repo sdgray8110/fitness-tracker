@@ -152,6 +152,7 @@ define(function(require) {
 
             render: function() {
                 self.model.form_populated = !self.model.editFood;
+                self.selectFoodUnit(self.model);
                 self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);

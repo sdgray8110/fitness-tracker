@@ -49,6 +49,14 @@
     {
       "type": "ride",
       "name": "Outdoor Ride"
+    },
+    {
+      "type": "physicalTherapy",
+      "name": "Physical Therapy"
+    },
+    {
+      "type": "occupationalTherapy",
+      "name": "Occupational Therapy"
     }
   ],
   "formFields": {
