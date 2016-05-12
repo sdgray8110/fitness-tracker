@@ -48,6 +48,8 @@ define(function(require) {
                 foods.forEach(function(food, i) {
                    food.index = i;
                 });
+                
+                
 
                 return foods;
             },

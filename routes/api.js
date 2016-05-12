@@ -180,5 +180,10 @@ router.post('/meal/edit', function(req, res) {
     });
 });
 
+router.post('/food/edit', function(req, res) {
+    NutritionCollection.dataAccess.editFood(req, res, function(message) {
+        res.json(message);
+    });
+});
 
 module.exports = router;

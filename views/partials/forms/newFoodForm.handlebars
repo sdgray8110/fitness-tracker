@@ -1,46 +1,9 @@
 <form class="new-activity-form" id="newFoodForm" action="{{action}}" method="POST">
-<div class="groupset">
-    <div id="food-form-data-fields">
-        <div class="group">
-            <label for="food_name">Food Name</label>
-            <input id="food_name" name="food_name" type="text" class="inputText" value="{{food_name}}" data-validation="required" data-validation-message="Please enter the food name." />
-        </div>
 
-        <div class="group">
-            <label for="food_calories">Calories</label>
-            <input id="food_calories" name="food_calories" type="text" class="inputText" value="{{food_calories}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's calories" />
+    {{> foodsList}}
 
-            <label for="food_protein">Protein</label>
-            <input id="food_protein" name="food_protein" type="text" class="inputText" value="{{food_protein}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's protein" />
-
-            <label for="food_carbs">Carbohydrates</label>
-            <input id="food_carbs" name="food_carbs" type="text" class="inputText" value="{{food_carbs}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's carbohydrates" />
-
-            <label for="food_fat">Fat</label>
-            <input id="food_fat" name="food_fat" type="text" class="inputText" value="{{food_fat}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's fat" />
-
-            <label for="food_fiber">Fiber</label>
-            <input id="food_fiber" name="food_fiber" type="text" class="inputText" value="{{food_fiber}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's fiber" />
-
-            <label for="food_sugar">Sugar</label>
-            <input id="food_sugar" name="food_sugar" type="text" class="inputText" value="{{food_sugar}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's sugar" />
-
-            {{#fields.descriptionField}}
-            <label for="description">Description</label>
-            <textarea class="inputText" id="description" name="description">{{description}}</textarea>
-            {{/fields.descriptionField}}
-        </div>
-
-        <div class="group">
-            <button class="btn gray pill pull-right" id="save_food">Save Food</button>
-            {{#deleteAction}}
-            <button type="button" class="btn gray pill pull-right" id="delete_food">Delete</button>
-            {{/deleteAction}}
-            <button type="button" class="btn gray pill pull-right" id="close_food_form">Cancel</button>
-            <input type="hidden" name="activityID" value="{{_id}}" />
-
-            <div class="food-messaging"></div>
-        </div>
+    <div id="food_form_container">
+    {{> foodForm}}
     </div>
-</div>
+
 </form>

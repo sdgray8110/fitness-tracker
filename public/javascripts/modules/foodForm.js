@@ -8,6 +8,8 @@ define(function(require) {
         serializeObject = require('serializeObject'),
         validation = require('validation'),
         newFoodForm = require('text!/templates/partials/forms/newFoodForm'),
+        foodForm = require('text!/templates/partials/forms/foodForm'),
+        foodsList = require('text!/templates/partials/forms/foodsList'),
         formConfig = require('json!/api/form-config');
 
     return (function () {
@@ -81,7 +83,7 @@ define(function(require) {
             },
 
             attachHandlers: function() {
-                self.dom.close.on('click', self.close);
+                self.dom.form.on('click', '#close_food_form', self.close);
                 //self.dom.deleteActivity.on('click', self.delete);
                 self.applyValidation();
             },
@@ -149,15 +151,44 @@ define(function(require) {
             },
 
             render: function() {
-                self.dom.foodForm = $(Mustache.render(newFoodForm, self.model));
+                self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);
-                //self.setActivityType();
 
                 if (self.options.animate) {
                     self.dom.foodForm.slideDown(400);
                 }
             },
+
+            renderPopulated: function(food) {
+                self.selectFoodUnit(food);
+                self.model = $.extend(self.model, food);
+
+                self.dom.foodForm = $(Mustache.render(foodForm, self.model));
+
+                $('#food_form_container').html(self.dom.foodForm);
+                self.cacheDom();
+                self.attachHandlers();
+
+                self.isOpen = true;
+            },
+
+            selectFoodUnit: function (food) {
+                food.serving_size_types = [
+                    {title: 'Cup(s)', value: 'cup'},
+                    {title: 'Gram(s)', value: 'gram'},
+                    {title: 'Package(s)', value: 'package'}
+                ];
+
+                food.food_serving_size = food.food_serving_size || 1;
+                food.serving_size_type = food.serving_size_type || 'cup';
+
+                food.serving_size_types.forEach(function (type) {
+                    if (food.serving_size_type === type.value)
+                        type.selected = true;
+                });
+            },
+
 
             close: function() {
                 var deferred = new $.Deferred();

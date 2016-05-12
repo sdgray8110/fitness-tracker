@@ -1,0 +1,55 @@
+<div class="groupset">
+    <div id="food-form-data-fields">
+        <div class="group">
+            <label for="food_name">Food Name</label>
+            <input id="food_name" name="food_name" type="text" class="inputText" value="{{food_name}}" data-validation="required" data-validation-message="Please enter the food name." />
+
+            <label for="food_description">Description</label>
+            <textarea class="inputText" id="food_description" name="food_description">{{food_description}}</textarea>
+        </div>
+
+        <div class="group">
+            <div class="field_group">
+                <label for="food_serving_size">Serving Size</label>
+                <input id="food_serving_size" name="food_serving_size" type="text" class="inputText" value="{{food_serving_size}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's serving size" />
+
+                <div class="select_wrapper pull-right">
+                    <select id="serving_size_type" name="serving_size_type" class="select select-fill-width">
+                        {{#serving_size_types}}
+                        <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{title}}</option>
+                        {{/serving_size_types}}
+                     </select>
+                </div>
+            </div>
+
+            <label for="food_calories">Calories</label>
+            <input id="food_calories" name="food_calories" type="text" class="inputText" value="{{food_calories}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's calories" />
+
+            <label for="food_protein">Protein</label>
+            <input id="food_protein" name="food_protein" type="text" class="inputText" value="{{food_protein}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's protein" />
+
+            <label for="food_carbs">Carbohydrates</label>
+            <input id="food_carbs" name="food_carbs" type="text" class="inputText" value="{{food_carbs}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's carbohydrates" />
+
+            <label for="food_fat">Fat</label>
+            <input id="food_fat" name="food_fat" type="text" class="inputText" value="{{food_fat}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's fat" />
+
+            <label for="food_fiber">Fiber</label>
+            <input id="food_fiber" name="food_fiber" type="text" class="inputText" value="{{food_fiber}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's fiber" />
+
+            <label for="food_sugar">Sugar</label>
+            <input id="food_sugar" name="food_sugar" type="text" class="inputText" value="{{food_sugar}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's sugar" />
+        </div>
+
+        <div class="group">
+            <button class="btn gray pill pull-right" id="save_food">Save Food</button>
+            {{#deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="delete_food">Delete</button>
+            {{/deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="close_food_form">Cancel</button>
+            <input type="hidden" name="food_id" value="{{_id}}" />
+
+            <div class="food-messaging"></div>
+        </div>
+    </div>
+</div>

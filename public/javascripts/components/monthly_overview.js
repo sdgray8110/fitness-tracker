@@ -59,6 +59,8 @@ define(function(require) {
 
                 /* New Food Item View */
                 self.dom.newFoodItem.on('click', self.toggleNewFood);
+                self.dom.component.on('change', '.populate_food', self.populateFood);
+                self.dom.component.on('click', '.edit_food', self.editFood)
 
                 /*  New Meal View */
                 self.dom.newMeal.on('click', self.toggleNewMeal);
@@ -239,7 +241,7 @@ define(function(require) {
                     saveCallback: function () {
                         self.saveNewFood();
                         location.reload();
-                        
+
                     }
                 });
             },
@@ -372,12 +374,22 @@ define(function(require) {
                 self.genericNewFoodForm();
             },
 
+            editFood: function(e) {
+                e.preventDefault();
+
+                self.genericNewFoodForm({edit: true, editFood: true});
+            },
+
             genericNewFoodForm: function (model) {
                 self.dom.update = {};
+                self.foods = formModule.mealForm.getFoods();
+
+                var action = model && model.edit ? '/api/food/edit' : '/api/food/new';
 
                 model = $.extend(model, {
                     date: {formatted: moment().format('MM/DD/YYYY')},
-                    action: '/api/food/new'
+                    action: action,
+                    foods: self.foods
                 });
 
                 formModule.foodForm.init({
@@ -399,7 +411,17 @@ define(function(require) {
             },
 
             saveNewFood: function(food) {
-                self.dom.newMeal.data('foods', food);
+                if (food) {
+                    self.dom.newMeal.data('foods', food);
+                }
+            },
+
+            populateFood: function (e) {
+               var changed = $(e.target),
+                   selected = changed.find(':selected'),
+                   index = selected.data('index');
+                
+                formModule.foodForm.renderPopulated(self.foods[index])
             },
 
             /*************/

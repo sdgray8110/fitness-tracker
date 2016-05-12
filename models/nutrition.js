@@ -128,6 +128,21 @@ var NutritionCollection = (function() {
                     });
                 });
 
+            },
+
+            editFood: function (req, res, callback) {
+                var db = req.db,
+                    model = req.body,
+                    id = model.food_id;
+
+                delete(model.food_id);
+
+                db.collection('food').update({'_id': new ObjectID(id)}, model, {safe: true}, function(err, result) {
+                    db.collection('food').find().toArray(function(err, foods) {
+                        callback(foods);
+                    });
+                });
+
             }
         },
 
