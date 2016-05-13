@@ -121,7 +121,7 @@ define(function(require) {
 
                 self.model.selectedFoods.forEach(function(food) {
                     if (food._id === id) {
-                        food.count = changed.val();
+                        food.count = (changed.val() * 1);
                     }
                 });
 
