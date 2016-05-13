@@ -170,7 +170,7 @@ define(function(require) {
 
                 if($.inArray(key, exclude) < 0) {
                     self.model.selectedFoods.forEach(function(item) {
-                        value = value || 0;
+                        value = value ? value * 1 : 0;
 
                         value = (item[key] * item.count) + value
                     });
