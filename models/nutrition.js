@@ -239,6 +239,7 @@ var NutritionCollection = (function() {
                 year = parseInt(date.format('YYYY')),
                 month = currentMonth,
                 months = [];
+            
 
             while (month > 0) {
                 var model = {
