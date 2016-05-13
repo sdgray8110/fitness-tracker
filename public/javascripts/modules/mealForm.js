@@ -136,7 +136,7 @@ define(function(require) {
 
                 self.model.selectedFoods.forEach(function(food) {
                     if(item._id === food._id) {
-                        food.count += 1;
+                        food.count = (food.count * 1) + 1;
                         match = true;
                     }
                 });
