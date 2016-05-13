@@ -23,41 +23,49 @@ td {
 }
 
 tbody {
-    td {
-        background: #fff;
-        color: $dark-gray;
+    .activity-data,
+    .meal-list {
+        &.even,
+        &.odd {
+            td,
+            > td {
+                background: #fff;
+                color: $dark-gray;
 
-        &.warning {
-            color: #b94a48;
-            background: #efcbcc;
-        }
-
-        &.details {
-            width: 150px;
-            text-align: center;
-
-            a {
-                cursor: pointer;
-                display: inline-block;
-
-                &:hover {
-                    text-decoration: underline;
+                &.warning {
+                    color: #b94a48;
+                    background: #efcbcc;
                 }
 
-                &:after {
-                    content: "";
-                    display: inline-block;
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: 4px 0 4px 5px;
-                    border-color: transparent transparent transparent $dark-gray;
-                    margin-left: 5px;
+                &.details {
+                    width: 150px;
+                    text-align: center;
+
+                    a {
+                        cursor: pointer;
+                        display: inline-block;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                        &:after {
+                            content: "";
+                            display: inline-block;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 4px 0 4px 5px;
+                            border-color: transparent transparent transparent $dark-gray;
+                            margin-left: 5px;
+                        }
+                    }
+
                 }
             }
-
         }
     }
+
 
     tr {
         &.open {
@@ -109,9 +117,10 @@ tbody {
         }
     }
 
-    .activity-data {
+    .activity-data,
+    .meal-list {
         &.even {
-            td {
+            > td {
                 background: $mid-light-gray;
             }
         }

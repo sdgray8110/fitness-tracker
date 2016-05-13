@@ -146,6 +146,12 @@ var NutritionCollection = (function() {
             }
         },
 
+        uiModel: function(day, i) {
+            day.ui = {
+                className: i % 2 === 0 ? 'even' : 'odd'
+            };
+        },
+
         processMeta: function(req) {
             return {title: req.title + ' | Nutrition' }
         },
@@ -161,7 +167,8 @@ var NutritionCollection = (function() {
         processMeals: function(meals) {
             var dailyMeals = {},
                 keys = [],
-                model = [];
+                model = [],
+                i = 0;
 
             meals.forEach(function (meal) {
                 meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
@@ -174,11 +181,12 @@ var NutritionCollection = (function() {
                         meals: [],
                         totals: {},
                         meal_date: meal.meal_date
-
                     };
+                    i += 1;
                 }
 
                 dailyMeals[meal.meal_date].meals.push(meal);
+                self.uiModel(dailyMeals[meal.meal_date], i);
             });
 
             keys = Object.keys(dailyMeals);

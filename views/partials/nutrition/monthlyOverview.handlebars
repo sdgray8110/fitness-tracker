@@ -9,7 +9,7 @@
         <button id="new_meal" data-foods="{{foods}}" class="btn pill gray pull-right">Enter New Meal</button>
     </header>
 
-    <table>
+    <table class="daily_nutrition">
         <thead>
         <tr>
             <th>Daily Totals</th>
@@ -18,9 +18,9 @@
             <th>Calories</th>
         </tr>
         </thead>
-        <tbody class="meal-list">
+        <tbody>
         {{#meals}}
-            <tr>
+            <tr class="meal-list {{ui.className}}">
                 <td class="details"><a class="view_meal">View Daily Details</a></td>
                 <td>{{meal_date}}</td>
                 <td {{#proteinWarning}}class="warning"{{/proteinWarning}}>{{totals.food_protein}}</td>
