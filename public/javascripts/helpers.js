@@ -61,11 +61,11 @@ define(function(require) {
 
         selectFoodUnit: function (food) {
             food.serving_size_types = [
-                {title: 'Cup(s)', value: 'cup'},
-                {title: 'Gram(s)', value: 'gram'},
-                {title: 'Ounce(s)', value: 'ounce'},
-                {title: 'Tablespoon(s)', value: 'tablespoon'},
-                {title: 'Package(s) / Item(s)', value: 'package'}
+                {title: 'Cup(s)', singular: 'Cup', plural: 'Cups', value: 'cup'},
+                {title: 'Gram(s)', singular: 'Gram', plural: 'Grams', value: 'gram'},
+                {title: 'Ounce(s)', singular: 'Ounce', plural: 'Ounces',  value: 'ounce'},
+                {title: 'Tablespoon(s)', singular: 'Tablespoon', plural: 'Tablespoons',  value: 'tablespoon'},
+                {title: 'Package(s) / Item(s)', singular: 'Package / Item', plural: 'Packages / Items',  value: 'package'}
             ];
 
             food.food_serving_size = food.food_serving_size || 1;
@@ -73,6 +73,7 @@ define(function(require) {
 
             food.serving_size_types.forEach(function (type) {
                 if (food.serving_size_type === type.value)
+                    food.serving_size_applied = (food.food_serving_size * 1) === 1 ? type.singular : type.plural;
                     type.selected = true;
             });
         },
