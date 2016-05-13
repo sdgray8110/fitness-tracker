@@ -46,28 +46,10 @@ define(function(require) {
                 var foods = $('#new_meal').data('foods');
 
                 foods.forEach(function(food, i) {
-                   food.index = i;
-                    self.selectFoodUnit(food);
+                   food.index = i;helpers.selectFoodUnit(food);
                 });
 
                 return foods;
-            },
-
-            selectFoodUnit: function (food) {
-                food.serving_size_types = [
-                    {title: 'Cup(s)', value: 'cup'},
-                    {title: 'Gram(s)', value: 'gram'},
-                    {title: 'Ounce(s)', value: 'ounce'},
-                    {title: 'Package(s) / Item(s)', value: 'package'}
-                ];
-
-                food.food_serving_size = food.food_serving_size || 1;
-                food.serving_size_type = food.serving_size_type || 'cup';
-
-                food.serving_size_types.forEach(function (type) {
-                    if (food.serving_size_type === type.value)
-                        type.selected = true;
-                });
             },
 
             setModel: function() {

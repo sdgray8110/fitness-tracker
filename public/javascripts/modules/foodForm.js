@@ -3,7 +3,8 @@
 define(function(require) {
     'use strict';
 
-    var Mustache = require('mustache'),
+    var helpers = require('helpers'),
+        Mustache = require('mustache'),
         maskedInput = require('maskedInput'),
         serializeObject = require('serializeObject'),
         validation = require('validation'),
@@ -152,7 +153,7 @@ define(function(require) {
 
             render: function() {
                 self.model.form_populated = !self.model.editFood;
-                self.selectFoodUnit(self.model);
+                helpers.selectFoodUnit(self.model);
                 self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);
@@ -164,7 +165,7 @@ define(function(require) {
 
             renderPopulated: function(food) {
                 food.form_populated = true;
-                self.selectFoodUnit(food);
+                helpers.selectFoodUnit(food);
                 self.model = $.extend(self.model, food);
 
                 self.dom.foodForm = $(Mustache.render(foodForm, self.model));
@@ -174,23 +175,6 @@ define(function(require) {
                 self.attachHandlers();
 
                 self.isOpen = true;
-            },
-
-            selectFoodUnit: function (food) {
-                food.serving_size_types = [
-                    {title: 'Cup(s)', value: 'cup'},
-                    {title: 'Gram(s)', value: 'gram'},
-                    {title: 'Ounce(s)', value: 'ounce'},
-                    {title: 'Package(s) / Item(s)', value: 'package'}
-                ];
-
-                food.food_serving_size = food.food_serving_size || 1;
-                food.serving_size_type = food.serving_size_type || 'cup';
-
-                food.serving_size_types.forEach(function (type) {
-                    if (food.serving_size_type === type.value)
-                        type.selected = true;
-                });
             },
 
 
