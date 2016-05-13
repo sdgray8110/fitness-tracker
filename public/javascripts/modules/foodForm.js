@@ -180,6 +180,7 @@ define(function(require) {
                 food.serving_size_types = [
                     {title: 'Cup(s)', value: 'cup'},
                     {title: 'Gram(s)', value: 'gram'},
+                    {title: 'Ounce(s)', value: 'ounce'},
                     {title: 'Package(s) / Item(s)', value: 'package'}
                 ];
 
