@@ -125,7 +125,7 @@ var ActivityCollection = (function() {
                 var db = req.db,
                     activity = helpers.processActivityPost(req.body);
                 delete(activity.activityID);
-
+                
                 db.collection('activities').insert(activity, function(err, result) {
                     var newActivity = result.ops[0]  ;
                     self.processActivity(newActivity, 0);

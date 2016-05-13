@@ -125,6 +125,14 @@
     ]
   },
   "metrics": {
+    "physicalTherapy": [
+      "Date",
+      "Duration"
+    ],
+    "occupationalTherapy": [
+      "Date",
+      "Duration"
+    ],
     "ride": [
       "Date",
       "Duration",
