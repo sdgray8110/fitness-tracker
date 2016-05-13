@@ -190,7 +190,7 @@ var NutritionCollection = (function() {
                     dailyMeals[key].calorieWarning = true;
                 }
 
-                if (dailyMeals[key].totals.food_protein < 100) {
+                if (dailyMeals[key].totals.food_protein < 95) {
                     dailyMeals[key].proteinWarning = true;
                 }
 
