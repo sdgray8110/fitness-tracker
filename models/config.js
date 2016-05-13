@@ -53,6 +53,10 @@ var Config = (function() {
                     formFields: self.setFieldTypes(AppConfig.formFields),
                     activityTypes: self.setActivityTypes()
                 });
+            },
+            
+            property: function (prop) {
+                return AppConfig[prop];
             }
         }
     };

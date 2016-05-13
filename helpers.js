@@ -59,6 +59,8 @@ var helpers = (function() {
             return x1 + x2;
         },
 
+        foodUnits: config.dataAccess.property('foodUnits'),
+
         monthName: function(date, short) {
             var month = typeof(date) === 'number' ? date - 1 : date.getMonth(),
                 type = short ? 'abbr' : 'full',

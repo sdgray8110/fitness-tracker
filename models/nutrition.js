@@ -49,6 +49,7 @@ var NutritionCollection = (function() {
                 var db = req.db;
 
                 model.meals = {};
+                model.foodUnits = JSON.stringify(helpers.foodUnits);
 
                 db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
                     model.meals = self.processMeals(meals);
