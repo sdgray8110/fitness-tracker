@@ -169,7 +169,7 @@ var NutritionCollection = (function() {
             var dailyMeals = {},
                 keys = [],
                 model = [],
-                i = 0;
+                i = 1;
 
             meals.forEach(function (meal) {
                 meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
