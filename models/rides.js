@@ -18,29 +18,7 @@ var RideCollection = (function() {
             return rides;
         },
 
-        processTabs: function(date) {
-            var now = helpers.today(),
-                selectedMonth = parseInt(date.format('M')),
-                currentMonth = date.year() === now.year() ? parseInt(now.format('M')) : 12,
-                year = parseInt(date.format('YYYY')),
-                month = currentMonth,
-                months = [];
-
-            while (month > 0) {
-                var model = {
-                    month: month,
-                    year: year,
-                    name: helpers.monthName(month),
-                    className: month === selectedMonth ? 'active' : null
-                };
-
-                months.push(model);
-
-                month -= 1;
-            };
-
-            return months.reverse();
-        },
+        processTabs: helpers.processTabs,
 
         processMeta: function(data) {
             return {title: data.title + ' | ' + data.displayMonth}

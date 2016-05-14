@@ -165,7 +165,7 @@ var NutritionCollection = (function() {
             return data;
         },
 
-        processMeals: function(meals) {
+        processMeals: function(meals) {0
             var dailyMeals = {},
                 keys = [],
                 model = [],
@@ -243,30 +243,7 @@ var NutritionCollection = (function() {
             return value;
         },
 
-        processTabs: function(date) {
-            var now = moment(),
-                selectedMonth = parseInt(date.format('M')),
-                currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
-                year = parseInt(date.format('YYYY')),
-                month = currentMonth,
-                months = [];
-            
-
-            while (month > 0) {
-                var model = {
-                    month: month,
-                    year: year,
-                    name: helpers.monthName(month),
-                    className: month === selectedMonth ? 'active' : null
-                };
-
-                months.push(model);
-
-                month -= 1;
-            };
-
-            return months.reverse();
-        },
+        processTabs: helpers.processTabs
     };
 
     return self;

@@ -287,6 +287,31 @@ var helpers = (function() {
 
         isLocal: function(req) {
             return req.headers.host === 'localhost:3000';
+        },
+
+        processTabs: function(date) {
+            var now = moment(),
+                selectedMonth = parseInt(date.format('M')),
+                currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
+                year = parseInt(date.format('YYYY')),
+                month = currentMonth,
+                months = [];
+
+
+            while (month > 0) {
+                var model = {
+                    month: month,
+                    year: year,
+                    name: self.monthName(month),
+                    className: month === selectedMonth ? 'active' : null
+                };
+
+                months.push(model);
+
+                month -= 1;
+            };
+
+            return months.reverse();
         }
     };
 

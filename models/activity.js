@@ -26,29 +26,7 @@ var ActivityCollection = (function() {
             return data;
         },
 
-        processTabs: function(date) {
-            var now = moment(),
-                selectedMonth = parseInt(date.format('M')),
-                currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
-                year = parseInt(date.format('YYYY')),
-                month = currentMonth,
-                months = [];
-
-            while (month > 0) {
-                var model = {
-                    month: month,
-                    year: year,
-                    name: helpers.monthName(month),
-                    className: month === selectedMonth ? 'active' : null
-                };
-
-                months.push(model);
-
-                month -= 1;
-            };
-
-            return months.reverse();
-        },
+        processTabs: helpers.processTabs,
 
         uiModel: function(activity, i) {
             activity.ui = {
@@ -125,7 +103,7 @@ var ActivityCollection = (function() {
                 var db = req.db,
                     activity = helpers.processActivityPost(req.body);
                 delete(activity.activityID);
-                
+
                 db.collection('activities').insert(activity, function(err, result) {
                     var newActivity = result.ops[0]  ;
                     self.processActivity(newActivity, 0);
