@@ -65,8 +65,7 @@ define(function(require) {
                 } else if (newMeal) {
                     self.model.foods = self.getFoods();
                 }
-
-                //self.model.foods = self.getFoods();
+                
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
 
