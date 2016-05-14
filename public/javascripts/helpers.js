@@ -60,13 +60,7 @@ define(function(require) {
         },
 
         selectFoodUnit: function (food) {
-            food.serving_size_types = [
-                {title: 'Cup(s)', singular: 'Cup', plural: 'Cups', value: 'cup'},
-                {title: 'Gram(s)', singular: 'Gram', plural: 'Grams', value: 'gram'},
-                {title: 'Ounce(s)', singular: 'Ounce', plural: 'Ounces',  value: 'ounce'},
-                {title: 'Tablespoon(s)', singular: 'Tablespoon', plural: 'Tablespoons',  value: 'tablespoon'},
-                {title: 'Package(s) / Item(s)', singular: 'Package / Item', plural: 'Packages / Items',  value: 'package'}
-            ];
+            food.serving_size_types = helpers.foodUnits();
 
             food.food_serving_size = food.food_serving_size || 1;
             food.serving_size_type = food.serving_size_type || 'cup';
