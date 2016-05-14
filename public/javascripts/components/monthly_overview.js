@@ -225,7 +225,7 @@ define(function(require) {
 
                 model.action = action;
 
-                if (!row.hasClass('open')) {
+                if (!formModule.mealForm.isOpen) {
                     formModule.mealForm.init({
                         model: model,
                         formInsertEl: wrapper,
@@ -245,6 +245,8 @@ define(function(require) {
 
                         }
                     });
+                } else {
+                    formModule.mealForm.close();
                 }
 
             },
