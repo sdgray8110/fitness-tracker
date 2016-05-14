@@ -60,7 +60,7 @@ define(function(require) {
         },
 
         selectFoodUnit: function (food) {
-            food.serving_size_types = helpers.foodUnits();
+            food.serving_size_types = $('#monthlyOverview').data('foodUnits');
 
             food.food_serving_size = food.food_serving_size || 1;
             food.serving_size_type = food.serving_size_type || 'cup';
