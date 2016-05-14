@@ -56,10 +56,16 @@ define(function(require) {
                 self.model = $.extend(self.options.model, formConfig);
                 self.model.meal_edit = false;
 
-                if (self.model.action.match('edit').length) {
+                var edit = self.model.action.match('edit');
+                var newMeal = self.model.action.match('new');
+
+                if (edit) {
                     self.model.meal_edit = true;
                     self.model.meal_foods = self.getFoods();
+                } else if (newMeal) {
+                    self.model.foods = self.getFoods();
                 }
+
                 //self.model.foods = self.getFoods();
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
