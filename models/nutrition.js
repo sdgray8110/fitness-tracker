@@ -53,7 +53,7 @@ var NutritionCollection = (function() {
 
                 db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
                     model.meals = self.processMeals(meals);
-
+                    
                     callback(model);
                 });
             },
@@ -173,8 +173,19 @@ var NutritionCollection = (function() {
 
             meals.forEach(function (meal) {
                 meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
-                meal.foods = JSON.parse(meal.foods);
-                meal.totals = JSON.parse(meal.totals);
+                if (typeof(meal.foods) != 'undefined') {
+                    meal.foods = JSON.parse(meal.foods);
+                } else {
+                    meal.foods = {};
+                }
+
+
+                if (typeof(meal.totals) != 'undefined') {
+                    meal.totals = JSON.parse(meal.totals);
+                } else {
+                    meal.totals = {};
+                }
+
                 meal.meal_encoded = JSON.stringify(meal);
 
                 if(!dailyMeals[meal.meal_date]) {
