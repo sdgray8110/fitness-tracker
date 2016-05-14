@@ -20,6 +20,11 @@
     "plural": "Tablespoons",
     "value": "tablespoon"
   }, {
+    "title": "Scoop(s)",
+    "singular": "Scoop",
+    "plural": "Scoops",
+    "value": "scoop"
+  }, {
     "title": "Package(s) / Item(s)",
     "singular": "Package / Item",
     "plural": "Packages / Items",
