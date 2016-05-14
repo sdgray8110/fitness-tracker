@@ -217,7 +217,7 @@ define(function(require) {
 
             editMeal: function (e) {
                 e.preventDefault();
-                var clicked = $(e.currentTarget),
+                var clicked = $(e.target),
                     model = self.processEncodedMeal(clicked.data('meal')),
                     row = clicked.parent().parent(),
                     wrapper = row.next().find('.meal_edit'),
@@ -244,7 +244,7 @@ define(function(require) {
                             location.reload();
 
                         }
-                    });
+                    }, true);
                 } else {
                     formModule.mealForm.close();
                 }
@@ -417,7 +417,7 @@ define(function(require) {
 
             saveNewFood: function(food) {
                 if (food) {
-                    self.dom.newMeal.data('foods', food);
+                    $('#new_meal').data('foods', food);
                 }
             },
 

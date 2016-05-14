@@ -54,18 +54,18 @@ define(function(require) {
 
             setModel: function() {
                 self.model = $.extend(self.options.model, formConfig);
-                self.model.foods = self.getFoods();
+                self.model.meal_edit = false;
+
+                if (self.model.action.match('edit').length) {
+                    self.model.meal_edit = true;
+                    self.model.meal_foods = self.getFoods();
+                }
+                //self.model.foods = self.getFoods();
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
 
             resetModel: function() {
                 self.model = {};
-
-                formConfig.activityTypes.forEach(function(type) {
-                    if (type.selected) {
-                        delete(type.selected);
-                    }
-                });
             },
 
             init: function(options) {
