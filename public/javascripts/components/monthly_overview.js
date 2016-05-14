@@ -238,6 +238,7 @@ define(function(require) {
                         },
                         closeCallback: function() {
                             self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                            row.removeClass('open');
                         },
                         saveCallback: function () {
                             self.saveNewFood();
