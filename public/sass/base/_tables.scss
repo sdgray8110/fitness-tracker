@@ -41,7 +41,8 @@ tbody {
                     width: 150px;
                     text-align: center;
 
-                    a {
+                    a,
+                    .edit_meal {
                         cursor: pointer;
                         display: inline-block;
 

@@ -225,25 +225,28 @@ define(function(require) {
 
                 model.action = action;
 
-                formModule.mealForm.init({
-                    model: model,
-                    formInsertEl: wrapper,
-                    insertMethod: 'html',
-                    animate: false,
-                    openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
-                        row.addClass('open');
-                        formModule.mealForm.renderMeal();
-                    },
-                    closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
-                    },
-                    saveCallback: function () {
-                        self.saveNewFood();
-                        location.reload();
+                if (!row.hasClass('open')) {
+                    formModule.mealForm.init({
+                        model: model,
+                        formInsertEl: wrapper,
+                        insertMethod: 'html',
+                        animate: false,
+                        openCallback: function() {
+                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                            row.addClass('open');
+                            formModule.mealForm.renderMeal();
+                        },
+                        closeCallback: function() {
+                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                        },
+                        saveCallback: function () {
+                            self.saveNewFood();
+                            location.reload();
 
-                    }
-                });
+                        }
+                    });
+                }
+
             },
 
             saveNewRide: function(ride) {
