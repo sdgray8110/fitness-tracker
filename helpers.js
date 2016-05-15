@@ -141,9 +141,8 @@ var helpers = (function() {
         },
 
         formatDecimal: function(val, floatLen) {
-            val = Number(val);
-            floatLen = typeof(floatLen) !== 'undefined' ? floatLen  : 2;
-
+            console.log(val, floatLen)  ;          
+            
             return {
                 formatted: self.commify(val.toFixed(floatLen)),
                 raw: val

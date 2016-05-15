@@ -46,7 +46,8 @@ define(function(require) {
                 var foods = $('#new_meal').data('foods');
 
                 foods.forEach(function(food, i) {
-                   food.index = i;helpers.selectFoodUnit(food);
+                   food.index = i;
+                    helpers.selectFoodUnit(food);
                 });
 
                 return foods;
@@ -110,7 +111,15 @@ define(function(require) {
             selectFood: function(e) {
                 var selected = $('#food_selection').find(':selected'),
                     index = selected.data('index'),
+                    item;
+                var edit = self.model.action.match('edit');
+                var newMeal = self.model.action.match('new');
+
+                if (edit) {
+                    item = self.model.meal_foods[index];
+                } else if (newMeal) {
                     item = self.model.foods[index];
+                }
 
                 if (selected.val()) {
                     self.processSelectedFoods(item);
