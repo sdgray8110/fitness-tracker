@@ -554,76 +554,78 @@ tbody tr.open + .additional-info table {
   margin-bottom: 20px;
 }
 /* line 100, ../sass/base/_tables.scss */
+tbody tr.open + .additional-info th,
 tbody tr.open + .additional-info td {
   display: table-cell;
+  text-align: left;
 }
-/* line 104, ../sass/base/_tables.scss */
+/* line 106, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .ride-details {
   display: block;
 }
-/* line 112, ../sass/base/_tables.scss */
+/* line 114, ../sass/base/_tables.scss */
 tbody tr.open td, tbody tr.open.even td {
   background: #c7dee9;
 }
-/* line 115, ../sass/base/_tables.scss */
+/* line 117, ../sass/base/_tables.scss */
 tbody tr.open td.warning, tbody tr.open.even td.warning {
   color: #b94a48;
   background: #efcbcc;
 }
-/* line 126, ../sass/base/_tables.scss */
+/* line 128, ../sass/base/_tables.scss */
 tbody .activity-data.even > td,
 tbody .meal-list.even > td {
   background: #ebebeb;
 }
-/* line 133, ../sass/base/_tables.scss */
+/* line 135, ../sass/base/_tables.scss */
 tbody .additional-info td {
   border-top: 1px solid #bebebe;
   border-bottom: 1px solid #bebebe;
 }
-/* line 138, ../sass/base/_tables.scss */
+/* line 140, ../sass/base/_tables.scss */
 tbody .additional-info td,
 tbody .additional-info .ride-details {
   display: none;
 }
 
-/* line 147, ../sass/base/_tables.scss */
+/* line 149, ../sass/base/_tables.scss */
 tfoot tr:first-of-type td {
   border-top: 1px solid #818c94;
 }
-/* line 152, ../sass/base/_tables.scss */
+/* line 154, ../sass/base/_tables.scss */
 tfoot .null-row {
   border: none;
   background: #818c94;
 }
-/* line 157, ../sass/base/_tables.scss */
+/* line 159, ../sass/base/_tables.scss */
 tfoot .label {
   background: #818c94;
   color: #fff;
   font-weight: 600;
 }
-/* line 164, ../sass/base/_tables.scss */
+/* line 166, ../sass/base/_tables.scss */
 tfoot.totals td {
   background: #000;
   color: #fff;
 }
-/* line 168, ../sass/base/_tables.scss */
+/* line 170, ../sass/base/_tables.scss */
 tfoot.totals td.header_cell {
   font-weight: 600;
 }
 
-/* line 175, ../sass/base/_tables.scss */
+/* line 177, ../sass/base/_tables.scss */
 .expand-row {
   width: 50px;
   padding: 0;
 }
-/* line 179, ../sass/base/_tables.scss */
+/* line 181, ../sass/base/_tables.scss */
 .expand-row button {
   width: 100%;
   height: 100%;
   text-indent: -9999px;
   position: relative;
 }
-/* line 185, ../sass/base/_tables.scss */
+/* line 187, ../sass/base/_tables.scss */
 .expand-row button:before {
   content: "";
   display: block;
@@ -638,7 +640,7 @@ tfoot.totals td.header_cell {
   margin-top: -2px;
   margin-left: -2px;
 }
-/* line 201, ../sass/base/_tables.scss */
+/* line 203, ../sass/base/_tables.scss */
 .expand-row button:hover:before, .open .expand-row button:before {
   border-width: 5px 4px 0 4px;
   border-color: #818c94 transparent transparent transparent;

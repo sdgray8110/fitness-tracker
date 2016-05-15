@@ -144,6 +144,16 @@ var NutritionCollection = (function() {
                     });
                 });
 
+            },
+
+            deleteMeal: function (req, res, callback) {
+                var db = req.db,
+                    model = req.body,
+                    id = model.mealID;
+
+                db.collection('meals').remove({'_id': new ObjectID(id)}, {justOne: true}, function(err, result) {
+                    callback(result);
+                });                
             }
         },
 

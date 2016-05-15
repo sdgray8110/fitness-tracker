@@ -180,6 +180,12 @@ router.post('/meal/edit', function(req, res) {
     });
 });
 
+router.post('/meal/delete', function(req, res) {
+    NutritionCollection.dataAccess.deleteMeal(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 router.post('/food/edit', function(req, res) {
     NutritionCollection.dataAccess.editFood(req, res, function(message) {
         res.json(message);

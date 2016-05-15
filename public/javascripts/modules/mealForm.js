@@ -65,7 +65,7 @@ define(function(require) {
                 } else if (newMeal) {
                     self.model.foods = self.getFoods();
                 }
-                
+
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
 
@@ -102,7 +102,8 @@ define(function(require) {
                 //self.dom.deleteActivity.on('click', self.delete);
                 self.dom.form.on('click', '.select_food', self.selectFood);
                 self.dom.form.on('keyup', '.foodQuantity', self.updateQuantity);
-                self.dom.form.on('click', '.delete_item', self.removeItemFromMeal)
+                self.dom.form.on('click', '.delete_item', self.removeItemFromMeal);
+                self.dom.form.on('click', '#delete_meal', self.deleteMeal);
                 self.applyValidation();
             },
 
@@ -232,19 +233,18 @@ define(function(require) {
                 });
             },
 
-            delete: function(e) {
+
+            deleteMeal: function(e) {
                 e.preventDefault();
 
                 var formData = self.dom.form.serializeObject();
 
                 $.ajax({
-                    url: self.model.deleteAction,
+                    url: '/api/meal/delete',
                     type: 'POST',
                     data: formData
                 }).done(function(res) {
-                    self.close().done(function() {
-                        self.options.deleteCallback(res);
-                    });
+                    location.reload();
                 });
             },
 
