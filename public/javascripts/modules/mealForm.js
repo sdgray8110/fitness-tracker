@@ -11,6 +11,8 @@ define(function(require) {
         mealForm = require('text!/templates/partials/forms/mealForm'),        
         foodsList = require('text!/templates/partials/forms/foodsList'),
         selectedFoods = require('text!/templates/partials/forms/selectedFoods'),
+        targetForm = require('text!/templates/partials/forms/targetForm'),
+        dataFields = require('text!/templates/partials/forms/formDataFields'),        
         formConfig = require('json!/api/form-config');
 
     return (function () {
@@ -70,6 +72,11 @@ define(function(require) {
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
 
+            setTargetsModel: function () {
+                self.model = $.extend(self.options.model, formConfig);
+                self.model.fields = formConfig.formFields.targets;
+            },
+
             resetModel: function() {
                 self.model = {};
             },
@@ -81,6 +88,16 @@ define(function(require) {
                     });
                 } else {
                     self.open(options);
+                }
+            },
+
+            targetsInit: function(options) {
+                if (self.isOpen) {
+                    self.close().done(function() {
+                        self.openTargets(options);
+                    });
+                } else {
+                    self.openTargets(options);
                 }
             },
 
@@ -98,6 +115,22 @@ define(function(require) {
                 return self;
             },
 
+            openTargets: function(options) {
+                self.dom = {};
+                self.options = $.extend(self.settings, options);
+                self.setTargetsModel();
+                self.renderTargets();
+                self.cacheDom();
+
+                self.dom.form = $('#dailyTargetForm');
+
+                self.attachHandlers();
+
+                self.isOpen = true;
+                self.options.openCallback();
+                return self;
+            },
+
             attachHandlers: function() {
                 self.dom.close.on('click', self.close);
                 //self.dom.deleteActivity.on('click', self.delete);
@@ -105,6 +138,8 @@ define(function(require) {
                 self.dom.form.on('keyup', '.foodQuantity', self.updateQuantity);
                 self.dom.form.on('click', '.delete_item', self.removeItemFromMeal);
                 self.dom.form.on('click', '#delete_meal', self.deleteMeal);
+                self.dom.form.on('click', '#close_targets', self.closeTargets);
+
                 self.applyValidation();
             },
 
@@ -236,7 +271,9 @@ define(function(require) {
                     type: 'POST',
                     data: formData
                 }).done(function(res) {
-                    self.close().done(function() {
+                    var method = self.dom.mealForm && self.dom.mealForm.length ? self.close : self.closeTargets;
+
+                    method().done(function() {
                         self.options.saveCallback(res);
                     });
                 });
@@ -268,6 +305,18 @@ define(function(require) {
                 }
             },
 
+            renderTargets: function () {
+                self.dom.targetsForm = $(Mustache.render(targetForm, self.model, {
+                    dataFields: dataFields
+                }));
+
+                self.options.formInsertEl[self.options.insertMethod](self.dom.targetsForm);
+
+                if (self.options.animate) {
+                    self.dom.targetsForm.slideDown(400);
+                }   
+            },
+            
             renderFoodSelect: function() {
                 var select = $(Mustache.render(foodsList, self.model));
 
@@ -319,9 +368,32 @@ define(function(require) {
                 return deferred;
             },
 
+            closeTargets: function() {
+                var deferred = new $.Deferred();
+
+                if (self.options.animate) {
+                    self.dom.targetsForm.slideUp(400, function() {
+                        self.destroy();
+                        deferred.resolve();
+                    });
+                } else {
+                    self.destroy();
+                    deferred.resolve();
+                }
+
+                return deferred;
+            },
+
             destroy: function() {
                 self.resetModel();
-                self.dom.mealForm.remove();
+                if (self.dom.mealForm && self.dom.mealForm.length) {
+                    self.dom.mealForm.remove();
+                }
+
+                if (self.dom.targetsForm && self.dom.targetsForm.length) {
+                    self.dom.targetsForm.remove();
+                }
+
                 self.options.closeCallback();
                 self.isOpen = false;
             }

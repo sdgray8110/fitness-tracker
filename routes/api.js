@@ -192,4 +192,10 @@ router.post('/food/edit', function(req, res) {
     });
 });
 
+router.post('/targets', function(req, res) {
+    NutritionCollection.dataAccess.setTargets(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 module.exports = router;

@@ -32,6 +32,7 @@ define(function(require) {
                 self.dom.activityList = self.dom.component.find('.activity-list');
                 self.dom.newActivity = $('#new_activity');
                 self.dom.newActivityPrecedent = self.dom.newActivity.parents('header');
+                self.dom.dailyTarget = $('#daily_target');
             },
 
             init: function() {
@@ -64,6 +65,7 @@ define(function(require) {
 
                 /*  New Meal View */
                 self.dom.newMeal.on('click', self.toggleNewMeal);
+                self.dom.dailyTarget.on('click', self.toggleTargets);
 
             },
 
@@ -433,6 +435,11 @@ define(function(require) {
             /*************/
             /* Meal View */
             /*************/
+            toggleTargets: function(e) {
+                e.preventDefault();
+
+                self.dailyTargetsForm();
+            },
 
             toggleNewMeal: function(e) {
                 e.preventDefault();
@@ -449,6 +456,34 @@ define(function(require) {
                 });
 
                 formModule.mealForm.init({
+                    model: model,
+                    formInsertEl: self.dom.newFoodItemPrecedent,
+                    insertMethod: 'after',
+                    animate: true,
+                    openCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                    },
+                    closeCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                    },
+                    saveCallback: function () {
+                        self.saveNewFood();
+                        location.reload();
+                    }
+                });
+            },
+
+            dailyTargetsForm: function (model) {
+                self.dom.update = {};
+
+                model = $.extend(model, {
+                    date: {formatted: moment().format('MM/DD/YYYY')},
+                    action: '/api/targets',
+                    type: 'targets',
+                    targets: self.dom.component.data('targets')
+                });
+
+                formModule.mealForm.targetsInit({
                     model: model,
                     formInsertEl: self.dom.newFoodItemPrecedent,
                     insertMethod: 'after',

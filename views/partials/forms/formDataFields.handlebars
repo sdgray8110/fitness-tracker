@@ -1,7 +1,12 @@
 <div class="group">
+    {{#fields.calorieTargetField}}
+    <label for="calorie_target">Daily Calorie Target</label>
+    <input id="calorie_target" name="calorie_target" type="text" class="inputText" value="{{targets.calorie_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Calories" />
+    {{/fields.calorieTargetField}}
+
     {{#fields.rideNameField}}
     <label for="ride_name">Name</label>
-    <input id="ride_name" name="ride_name" type="text" class="inputText" value="{{ride_name}}" data-validation="required" data-validation-message="Please enter the ride name." />
+    <input id="ride_name" name="ride_name" type="text" class="inputText" value="{{targets.ride_name}}" data-validation="required" data-validation-message="Please enter the ride name." />
     {{/fields.rideNameField}}
 
     {{#fields.nameField}}
@@ -57,6 +62,11 @@
 </div>
 
 <div class="group">
+    {{#fields.proteinTargetField}}
+    <label for="protein_target">Daily Protein</label>
+    <input id="protein_target" name="protein_target" type="text" class="inputText" value="{{targets.protein_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for protein" />
+    {{/fields.proteinTargetField}}
+
     {{#fields.kjField}}
     <label for="kj">Kilojoules</label>
     <input id="kj" name="kj" type="text" class="inputText" value="{{kj}}" data-validation="number" data-validation-message="Please enter a valid number for Kilojoules" />
@@ -81,4 +91,5 @@
     <label for="description">Description</label>
     <textarea class="inputText" id="description" name="description">{{description}}</textarea>
     {{/fields.descriptionField}}
+
 </div>

@@ -1,12 +1,13 @@
 {{> nutrition/monthlyTabs}}
 
-<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}" data-food-units="{{foodUnits}}">
+<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}" data-targets="{{targetsEncoded}}" data-food-units="{{foodUnits}}">
     <header class="clearfix">
         <h1 class="pull-left">Meals for {{content.displayMonth}}</h1>
 
         <button id="edit_food" class="edit_food btn pill gray pull-right">Edit Existing Food Item</button>
         <button id="new_food" class="btn pill gray pull-right">Create New Food Item</button>
         <button id="new_meal" data-foods="{{foods}}" class="btn pill gray pull-right">Enter New Meal</button>
+        <button id="daily_target" class="btn pill gray pull-right">Set Daily Targets</button>
     </header>
 
     <table class="daily_nutrition">

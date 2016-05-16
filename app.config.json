@@ -154,9 +154,15 @@
       "duration",
       "calories",
       "description"
+    ],
+    "targets": [
+      "calorieTarget",
+      "proteinTarget"
     ]
+
   },
   "metrics": {
+    "targets": [],
     "physicalTherapy": [
       "Date",
       "Duration"

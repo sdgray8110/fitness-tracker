@@ -50,11 +50,15 @@ var NutritionCollection = (function() {
 
                 model.meals = {};
                 model.foodUnits = JSON.stringify(helpers.foodUnits);
-
-                db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
-                    model.meals = self.processMeals(meals);
+                self.dataAccess.getTargets(req, res, function (targets) {
+                    model.targets = targets;
+                    model.targetsEncoded = JSON.stringify(targets);
                     
-                    callback(model);
+                    db.collection('meals').find({meal_date: dateRange}).sort({meal_date: 1}).toArray(function(err, meals) {
+                        model.meals = self.processMeals(meals, model.targets);
+
+                        callback(model);
+                    });                    
                 });
             },
 
@@ -154,6 +158,29 @@ var NutritionCollection = (function() {
                 db.collection('meals').remove({'_id': new ObjectID(id)}, {justOne: true}, function(err, result) {
                     callback(result);
                 });                
+            },
+
+            getTargets: function (req, res, callback) {
+                var db = req.db,
+                    model = req.body;
+
+                db.collection('targets').find().toArray(function(err, targets) {
+                    callback(targets[0]);
+                });
+            },
+
+            setTargets: function (req, res, callback) {
+                var db = req.db,
+                    model = req.body,
+                    id;
+
+                db.collection('targets').find().toArray(function(err, targets) {
+                    id = targets[0]._id;
+
+                    db.collection('targets').update({'_id': new ObjectID(id)}, model, {safe: true}, function(err, result) {
+                        callback(targets[0]);
+                    });
+                });
             }
         },
 
@@ -175,7 +202,7 @@ var NutritionCollection = (function() {
             return data;
         },
 
-        processMeals: function(meals) {0
+        processMeals: function(meals, targets) {0
             var dailyMeals = {},
                 keys = [],
                 model = [],
@@ -216,11 +243,11 @@ var NutritionCollection = (function() {
             model = keys.map(function(key) {
                 dailyMeals[key].totals = self.sumDaily(dailyMeals[key]);
                 
-                if (dailyMeals[key].totals.food_calories < 2000) {
+                if (dailyMeals[key].totals.food_calories < targets.calorie_target) {
                     dailyMeals[key].calorieWarning = true;
                 }
 
-                if (dailyMeals[key].totals.food_protein < 95) {
+                if (dailyMeals[key].totals.food_protein < targets.protein_target) {
                     dailyMeals[key].proteinWarning = true;
                 }
 
