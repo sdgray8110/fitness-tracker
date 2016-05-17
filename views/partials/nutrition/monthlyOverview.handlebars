@@ -24,8 +24,8 @@
             <tr class="meal-list {{ui.className}}">
                 <td class="details"><a class="view_meal">View Daily Details</a></td>
                 <td>{{meal_date}}</td>
-                <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}}".{{/proteinWarning}}>{{totals.food_protein}}</td>
-                <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}}"{{/calorieWarning}}>{{totals.food_calories}}</td>
+                <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.food_protein}}</td>
+                <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.food_calories}}</td>
             </tr>
 
             <tr class="additional-info">
