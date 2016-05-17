@@ -244,10 +244,12 @@ var NutritionCollection = (function() {
                 dailyMeals[key].totals = self.sumDaily(dailyMeals[key]);
                 
                 if (dailyMeals[key].totals.food_calories < targets.calorie_target) {
+                    dailyMeals[key].calorie_target = targets.calorie_target
                     dailyMeals[key].calorieWarning = true;
                 }
 
                 if (dailyMeals[key].totals.food_protein < targets.protein_target) {
+                    dailyMeals[key].protein_target = targets.protein_target;
                     dailyMeals[key].proteinWarning = true;
                 }
 
