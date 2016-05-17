@@ -105,9 +105,10 @@ var {
 body {
   background: #efefef;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  min-width: 1111px;
 }
 
-/* line 6, ../sass/base/_global.scss */
+/* line 7, ../sass/base/_global.scss */
 *,
 *:before,
 *:after {
@@ -116,15 +117,14 @@ body {
   box-sizing: border-box;
 }
 
-/* line 14, ../sass/base/_global.scss */
+/* line 15, ../sass/base/_global.scss */
 .hidden {
   display: none;
 }
 
-/* line 18, ../sass/base/_global.scss */
+/* line 19, ../sass/base/_global.scss */
 .main-content {
   padding: 40px;
-  min-width: 1111px;
 }
 
 /* line 23, ../sass/base/_global.scss */
