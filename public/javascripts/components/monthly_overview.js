@@ -406,10 +406,10 @@ define(function(require) {
                     insertMethod: 'after',
                     animate: true,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).attr('disabled', 'disabled');
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
@@ -461,10 +461,10 @@ define(function(require) {
                     insertMethod: 'after',
                     animate: true,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).attr('disabled', 'disabled');
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
@@ -489,10 +489,10 @@ define(function(require) {
                     insertMethod: 'after',
                     animate: true,
                     openCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).attr('disabled', 'disabled');
                     },
                     closeCallback: function() {
-                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).removeAttr('disabled');
                     },
                     saveCallback: function () {
                         self.saveNewFood();
