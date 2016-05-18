@@ -15,6 +15,7 @@
         <tr>
             <th>Daily Totals</th>
             <th>Date</th>
+            <th>Sugar</th>
             <th>Protein</th>
             <th>Calories</th>
         </tr>
@@ -24,12 +25,13 @@
             <tr class="meal-list {{ui.className}}">
                 <td class="details"><a class="view_meal">View Daily Details</a></td>
                 <td>{{meal_date}}</td>
+                <td>{{totals.food_sugar}}</td>
                 <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.food_protein}}</td>
                 <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.food_calories}}</td>
             </tr>
 
             <tr class="additional-info">
-                <td colspan="4">
+                <td colspan="5">
                     {{#meals}}
                     <h2>{{meal_name}}</h2>
                     <table>
