@@ -200,14 +200,14 @@ body {
 }
 /* line 50, ../sass/base/_forms.scss */
 .group label {
-  width: 30%;
+  width: 35%;
   padding-right: 15px;
   text-align: right;
 }
 /* line 56, ../sass/base/_forms.scss */
 .group input[type=text],
 .group textarea {
-  width: 70%;
+  width: 65%;
 }
 
 /* line 62, ../sass/base/_forms.scss */
