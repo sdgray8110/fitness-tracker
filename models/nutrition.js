@@ -253,6 +253,11 @@ var NutritionCollection = (function() {
                     dailyMeals[key].proteinWarning = true;
                 }
 
+                if (dailyMeals[key].totals.food_sugar > Number(targets.sugar_target)) {
+                    dailyMeals[key].sugar_target = targets.sugar_target;
+                    dailyMeals[key].sugarWarning = true;
+                }
+
                 return dailyMeals[key];
             });
 

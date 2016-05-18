@@ -157,7 +157,8 @@
     ],
     "targets": [
       "calorieTarget",
-      "proteinTarget"
+      "proteinTarget",
+      "sugarTarget"
     ]
 
   },

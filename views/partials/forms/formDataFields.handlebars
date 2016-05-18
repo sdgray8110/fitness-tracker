@@ -1,8 +1,13 @@
 <div class="group">
     {{#fields.calorieTargetField}}
-    <label for="calorie_target">Daily Calorie Target</label>
+    <label for="calorie_target">Daily Calories</label>
     <input id="calorie_target" name="calorie_target" type="text" class="inputText" value="{{targets.calorie_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Calories" />
     {{/fields.calorieTargetField}}
+
+    {{#fields.sugarTargetField}}
+    <label for="sugar_target">Sugar Limit</label>
+    <input id="sugar_target" name="sugar_target" type="text" class="inputText" value="{{targets.sugar_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Sugar" />
+    {{/fields.sugarTargetField}}
 
     {{#fields.rideNameField}}
     <label for="ride_name">Name</label>
