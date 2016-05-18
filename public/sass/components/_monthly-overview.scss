@@ -45,6 +45,12 @@
         display: block;
     }
 
+    .additional-info {
+        h2 {
+            font-weight: 700;
+        }
+    }
+
     .additional-info .new-ride-form,
     .additional-info .new-activity-form,
     .additional-info .new-meal-form {

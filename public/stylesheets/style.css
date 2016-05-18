@@ -1798,7 +1798,11 @@ Interactive Layer
   width: 100%;
   display: block;
 }
-/* line 48, ../sass/components/_monthly-overview.scss */
+/* line 49, ../sass/components/_monthly-overview.scss */
+.monthly-overview .additional-info h2 {
+  font-weight: 700;
+}
+/* line 54, ../sass/components/_monthly-overview.scss */
 .monthly-overview .additional-info .new-ride-form,
 .monthly-overview .additional-info .new-activity-form,
 .monthly-overview .additional-info .new-meal-form {
@@ -1807,11 +1811,11 @@ Interactive Layer
   margin-top: 5px;
   border-top: 1px solid #ebebeb;
 }
-/* line 57, ../sass/components/_monthly-overview.scss */
+/* line 63, ../sass/components/_monthly-overview.scss */
 .monthly-overview .open + .additional-info .new-meal-form {
   display: block;
 }
-/* line 61, ../sass/components/_monthly-overview.scss */
+/* line 67, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride,
 .monthly-overview .duplicate-ride,
 .monthly-overview .edit-activity,
@@ -1820,14 +1824,14 @@ Interactive Layer
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
 }
-/* line 69, ../sass/components/_monthly-overview.scss */
+/* line 75, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride:hover,
 .monthly-overview .duplicate-ride:hover,
 .monthly-overview .edit-activity:hover,
 .monthly-overview .delete_item:hover {
   text-decoration: underline;
 }
-/* line 73, ../sass/components/_monthly-overview.scss */
+/* line 79, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride.disabled,
 .monthly-overview .duplicate-ride.disabled,
 .monthly-overview .edit-activity.disabled,
@@ -1835,14 +1839,14 @@ Interactive Layer
   cursor: default;
   opacity: 0;
 }
-/* line 79, ../sass/components/_monthly-overview.scss */
+/* line 85, ../sass/components/_monthly-overview.scss */
 .monthly-overview .ride-messaging,
 .monthly-overview .activity-messaging {
   float: left;
   width: 100%;
   clear: both;
 }
-/* line 86, ../sass/components/_monthly-overview.scss */
+/* line 92, ../sass/components/_monthly-overview.scss */
 .monthly-overview .activity-type {
   margin-bottom: 20px;
 }
