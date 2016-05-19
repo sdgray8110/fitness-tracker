@@ -17,4 +17,17 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
+    req.title = 'Fitness Tracker';
+    var viewModel = {
+        navigation: Navigation.construct('health')
+    };
+
+    HealthCollection.dataAccess.fetch(req, res, function(partialModel) {
+        viewModel = helpers.extend(viewModel, partialModel);
+
+        res.render('health', viewModel);
+    });
+});
+
 module.exports = router;
