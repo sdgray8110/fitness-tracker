@@ -37,6 +37,20 @@ tbody {
                 &.warning {
                     color: #b94a48;
                     background: #efcbcc;
+
+                    &:before {
+                        display: inline-block;
+                        content: '\2193';
+                        margin-right: 5px;
+                    }
+
+                    &.high {
+                        &:before {
+                            content: '\2191';
+                            margin-right: 5px;
+                        }
+
+                    }
                 }
 
                 &.details {
