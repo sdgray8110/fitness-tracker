@@ -42,6 +42,10 @@ tbody {
                         display: inline-block;
                         content: '\2193';
                         margin-right: 5px;
+                        font-weight: 700;
+                        font-size: 15px;
+                        position: relative;
+                        top: -2px;
                     }
 
                     &.high {
