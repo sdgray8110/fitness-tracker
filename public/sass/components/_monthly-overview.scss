@@ -48,6 +48,7 @@
     .additional-info {
         h2 {
             font-weight: 700;
+            font-size: 14px;
             color: $dark-gray;
         }
     }
@@ -68,7 +69,9 @@
     .edit-ride,
     .duplicate-ride,
     .edit-activity,
-    .delete_item {
+    .delete_item,
+    .edit-health,
+    .duplicate-health{
         cursor: pointer;
         -webkit-transition: opacity .5s;
         transition: opacity .5s;
