@@ -34,7 +34,7 @@ var moment = require('moment'),
                         model[field] = self[association.method](association.data);
                     });
 
-                    db.collection('health').find().toArray(function(err, health) {
+                    db.collection('health').find({date: dateRange}).sort({date: 1}).toArray(function(err, health) {
                         model.health = self.processHealth(health);
 
                         callback(model);
