@@ -91,6 +91,13 @@
       "name": "Occupational Therapy"
     }
   ],
+  "healthTypes": [
+    {
+      "type": "weight",
+      "name": "Weight"
+    }
+  ],
+
   "formFields": {
     "physicalTherapy": [
       "name",
@@ -159,10 +166,14 @@
       "calorieTarget",
       "proteinTarget",
       "sugarTarget"
+    ],
+    "weight": [
+      "weight",
+      "date"
     ]
-
   },
   "metrics": {
+    "weight": [],
     "targets": [],
     "physicalTherapy": [
       "Date",

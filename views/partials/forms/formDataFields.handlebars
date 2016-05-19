@@ -1,4 +1,9 @@
 <div class="group">
+    {{#fields.weightField}}
+    <label for="weight">Weight</label>
+    <input id="weight" name="weight" type="text" class="inputText" value="{{weight}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Weight." />
+    {{/fields.weightField}}
+
     {{#fields.calorieTargetField}}
     <label for="calorie_target">Daily Calories</label>
     <input id="calorie_target" name="calorie_target" type="text" class="inputText" value="{{targets.calorie_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Calories" />

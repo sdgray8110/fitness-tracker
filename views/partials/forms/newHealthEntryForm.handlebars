@@ -1,0 +1,25 @@
+<form class="new-activity-form" id="newHealthEntryForm" action="{{action}}" method="POST">
+    <fieldset class="activity-type">
+        <select id="health_type" name="type" class="select select-fill-width" data-validation="required" data-validation-message="Please select a health metric.">
+            <option value="">Choose health metric ...</option>
+            {{#healthTypes}}
+            <option data-index="{{index}}" {{#selected}} selected="selected" {{/selected}}value="{{type}}">{{name}}</option>
+            {{/healthTypes}}
+        </select>
+    </fieldset>
+
+    <div class="groupset">
+        <div id="health-form-data-fields"></div>
+
+        <div class="group">
+            <button class="btn gray pill pull-right" id="save_health" disabled="disabled">Save Health Entry</button>
+            {{#deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="delete_health">Delete</button>
+            {{/deleteAction}}
+            <button type="button" class="btn gray pill pull-right" id="close_health_form">Cancel</button>
+            <input type="hidden" name="activityID" value="{{_id}}" />
+
+            <div class="health-messaging"></div>
+        </div>
+    </div>
+</form>

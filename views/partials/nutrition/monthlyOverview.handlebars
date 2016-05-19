@@ -22,45 +22,45 @@
         </thead>
         <tbody>
         {{#meals}}
-            <tr class="meal-list {{ui.className}}">
-                <td class="details"><a class="view_meal">View Daily Details</a></td>
-                <td>{{meal_date}}</td>
-                <td {{#sugarWarning}}class="warning high" title="You have exceeded your target of {{sugar_target}} grams of sugar."{{/sugarWarning}}>{{totals.food_sugar}}</td>
-                <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.food_protein}}</td>
-                <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.food_calories}}</td>
-            </tr>
+        <tr class="meal-list {{ui.className}}">
+            <td class="details"><a class="view_meal">View Daily Details</a></td>
+            <td>{{meal_date}}</td>
+            <td {{#sugarWarning}}class="warning high" title="You have exceeded your target of {{sugar_target}} grams of sugar."{{/sugarWarning}}>{{totals.food_sugar}}</td>
+            <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.food_protein}}</td>
+            <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.food_calories}}</td>
+        </tr>
 
-            <tr class="additional-info">
-                <td colspan="5">
-                    {{#meals}}
-                    <h2>{{meal_name}}</h2>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Meal Summary</th>
-                            <th>Protein</th>
-                            <th>Calories</th>
-                            <th>Sugar</th>
-                        </tr>
-                        </thead>
-                        <tbody class="meal-list">
-                        <tr>
-                            <td class="details"><a data-meal="{{meal_encoded}}" class="edit_meal">View Meal Details</a></td>
-                            <td>{{totals.food_protein}}</td>
-                            <td>{{totals.food_calories}}</td>
-                            <td>{{totals.food_sugar}}</td>
-                        </tr>
+        <tr class="additional-info">
+            <td colspan="5">
+                {{#meals}}
+                <h2>{{meal_name}}</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Meal Summary</th>
+                        <th>Protein</th>
+                        <th>Calories</th>
+                        <th>Sugar</th>
+                    </tr>
+                    </thead>
+                    <tbody class="meal-list">
+                    <tr>
+                        <td class="details"><a data-meal="{{meal_encoded}}" class="edit_meal">View Meal Details</a></td>
+                        <td>{{totals.food_protein}}</td>
+                        <td>{{totals.food_calories}}</td>
+                        <td>{{totals.food_sugar}}</td>
+                    </tr>
 
-                        <tr class="additional-info">
-                            <td class="details meal_edit" colspan="4">
+                    <tr class="additional-info">
+                        <td class="details meal_edit" colspan="4">
 
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    {{/meals}}
-                </td>
-            </tr>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {{/meals}}
+            </td>
+        </tr>
         {{/meals}}
         </tbody>
     </table>

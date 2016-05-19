@@ -28,6 +28,16 @@ var Config = (function() {
             return activityTypes;
         },
 
+        setHealthTypes: function() {
+            var healthTypes = AppConfig.healthTypes;
+
+            healthTypes.forEach(function(item, i) {
+                item.index = i;
+            });
+
+            return healthTypes;
+        },
+
         getActivityTypeName: function(type) {
             var name = type;
 
@@ -51,12 +61,26 @@ var Config = (function() {
             formConfig: function(callback) {
                 callback({
                     formFields: self.setFieldTypes(AppConfig.formFields),
-                    activityTypes: self.setActivityTypes()
+                    activityTypes: self.setActivityTypes(),
+                    healthTypes: self.setHealthTypes()
                 });
             },
             
             property: function (prop) {
                 return AppConfig[prop];
+
+            },
+
+            healthTypeName: function (type) {
+                var name = '';
+
+                AppConfig.healthTypes.forEach(function (item) {
+                    if (type === item.type) {
+                        name = item.name;
+                    }
+                })
+
+                return name;
             }
         }
     };

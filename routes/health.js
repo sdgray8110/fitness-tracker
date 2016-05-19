@@ -6,7 +6,6 @@ var Navigation = require('../models/navigation');
 
 router.get('/', function(req, res) {
     req.title = 'Fitness Tracker';
-    req.fields = ['meta'];
     var viewModel = {
         navigation: Navigation.construct('health')
     };

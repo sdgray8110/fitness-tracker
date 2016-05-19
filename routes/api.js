@@ -4,6 +4,7 @@ var Config = require('../models/config');
 var RideCollection = require('../models/rides');
 var ActivityCollection = require('../models/activity');
 var NutritionCollection = require('../models/nutrition');
+var HealthCollection = require('../models/health');
 var RideGraphs = require('../models/graphs');
 var moment = require('moment');
 
@@ -194,6 +195,12 @@ router.post('/food/edit', function(req, res) {
 
 router.post('/targets', function(req, res) {
     NutritionCollection.dataAccess.setTargets(req, res, function(message) {
+        res.json(message);
+    });
+});
+
+router.post('/health', function(req, res) {
+    HealthCollection.dataAccess.saveHealthEntry(req, res, function(message) {
         res.json(message);
     });
 });

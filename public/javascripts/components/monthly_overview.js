@@ -33,6 +33,8 @@ define(function(require) {
                 self.dom.newActivity = $('#new_activity');
                 self.dom.newActivityPrecedent = self.dom.newActivity.parents('header');
                 self.dom.dailyTarget = $('#daily_target');
+                self.dom.addHealthEntry = $('#addHealthEntry');
+                self.dom.newHealthEntryPrecedent = self.dom.addHealthEntry.parents('header');
             },
 
             init: function() {
@@ -66,6 +68,9 @@ define(function(require) {
                 /*  New Meal View */
                 self.dom.newMeal.on('click', self.toggleNewMeal);
                 self.dom.dailyTarget.on('click', self.toggleTargets);
+                
+                /* Health Entry View */
+                self.dom.addHealthEntry.on('click', self.toggleNewHealthEntry);
 
             },
 
@@ -73,6 +78,7 @@ define(function(require) {
                 var relationships = [
                     {rideForm: self.dom.newRide},
                     {activityForm: self.dom.newActivity},
+                    {healthForm: self.dom.addHealthEntry},
                     {foodForm: self.dom.newFoodItem, double: true},
                     {mealForm: self.dom.newMeal, double: true}
                 ];
@@ -505,6 +511,38 @@ define(function(require) {
 
             },
 
+            /***************/
+            /* Health View */
+            /***************/            
+            
+            toggleNewHealthEntry: function (e) {
+                e.preventDefault();
+
+                self.genericNewHealthForm();                
+            },
+
+            genericNewHealthForm: function () {
+                self.dom.update = {};
+
+                var model = $.extend(model, {
+                    date: {formatted: moment().format('MM/DD/YYYY')},
+                    action: '/api/health'
+                });
+
+                formModule.init({
+                    model: model,
+                    formInsertEl: self.dom.newHealthEntryPrecedent,
+                    insertMethod: 'after',
+                    animate: true,
+                    openCallback: function() {
+                        self.dom.addHealthEntry.attr('disabled', 'disabled');
+                    },
+                    closeCallback: function() {
+                        self.dom.addHealthEntry.removeAttr('disabled');
+                    },
+                    saveCallback: self.saveNewActivity
+                });
+            },
 
             /*****************/
             /* Activity View */

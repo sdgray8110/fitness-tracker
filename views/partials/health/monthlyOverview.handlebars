@@ -1,0 +1,35 @@
+{{> health/monthlyTabs}}
+
+<section class="monthly-overview " id="monthlyOverview" data-month-start="{{content.dateString}}" >
+    <header class="clearfix">
+        <h1 class="pull-left">Health data for {{content.displayMonth}}</h1>
+
+        <button id="addHealthEntry" class="btn pill gray pull-right">Add Health Entry</button>
+
+    </header>
+
+    <table class="daily_health">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Metric Name</th>
+            <th>Date</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody class="activity-list">
+        {{#health}}
+        <tr class="activity-data {{ui.className}}" data-date="{{date.raw}}">
+            <td class="expand-row"><button>Expand</button></td>
+            <td>{{type}}</td>
+            <td>{{date.formatted}}</td>
+            <td>{{value}}</td>
+        </tr>
+        {{/health}}
+        </tbody>
+    </table>
+</section>
+
+<var class="js_components hidden">
+    monthly_overview
+</var>
