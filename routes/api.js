@@ -210,4 +210,10 @@ router.post('/health', function(req, res) {
     });
 });
 
+router.post('/health/edit', function(req, res) {
+    HealthCollection.dataAccess.editHealthEntry(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 module.exports = router;

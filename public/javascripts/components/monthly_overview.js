@@ -71,6 +71,8 @@ define(function(require) {
                 
                 /* Health Entry View */
                 self.dom.addHealthEntry.on('click', self.toggleNewHealthEntry);
+                self.dom.component.on('click', '.edit-health', self.editHealth);
+                self.dom.component.on('click', '.duplicate-health', self.duplicateHealth);
 
             },
 
@@ -522,18 +524,43 @@ define(function(require) {
                 self.genericNewHealthForm();                
             },
 
-            genericNewHealthForm: function () {
+            editHealth: function (e) {
+                e.preventDefault();
+
+                var clicked = $(e.currentTarget),
+                    wrapper = clicked.parents('td'),
+                    model = clicked.data('health');
+
+                model.formInsertEl = wrapper;
+                model.insertMethod =  'append';
+                model.edit = true;
+                model.action = '/api/health/edit';
+
+                self.genericNewHealthForm(model);
+            },
+
+            duplicateHealth: function (e) {
+                e.preventDefault();
+
+                var clicked = $(e.currentTarget),
+                    model = clicked.data('health');
+
+                model.edit = true;
+                self.genericNewHealthForm(model);
+            },
+
+            genericNewHealthForm: function (model) {
                 self.dom.update = {};
 
-                var model = $.extend(model, {
+                model = $.extend(model, {
                     date: {formatted: moment().format('MM/DD/YYYY')},
-                    action: '/api/health'
+                    action: model ? model.action : '/api/health'
                 });
 
                 formModule.init({
                     model: model,
-                    formInsertEl: self.dom.newHealthEntryPrecedent,
-                    insertMethod: 'after',
+                    formInsertEl: model.formInsertEl || self.dom.newHealthEntryPrecedent,
+                    insertMethod: model.insertMethod || 'after',
                     animate: true,
                     openCallback: function() {
                         self.dom.addHealthEntry.attr('disabled', 'disabled');
@@ -541,7 +568,7 @@ define(function(require) {
                     closeCallback: function() {
                         self.dom.addHealthEntry.removeAttr('disabled');
                     },
-                    saveCallback: self.saveNewActivity
+                    saveCallback: $.noop()
                 });
             },
 

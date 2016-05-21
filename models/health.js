@@ -56,6 +56,22 @@ var moment = require('moment'),
                             callback(health);
                         });
                     });
+                },
+
+                editHealthEntry: function(req, res, callback) {
+                    var db = req.db,
+                        model = req.body,
+                        id = model.activityID;
+
+                    model.date = moment(model.date).toDate();
+
+                    delete(model.activityID);
+
+                    db.collection('health').update({'_id': new ObjectID(id)}, model, {safe: true}, function(err, result) {
+                        db.collection('health').find().toArray(function(err, health) {
+                            callback(health);
+                        });
+                    });
                 }
             },
 
@@ -84,6 +100,17 @@ var moment = require('moment'),
                     formatted: moment(item.date).format('MM/DD/YYYY'),
                     raw: item.date
                 };
+
+                var duplicate = helpers.extend({}, item);
+                duplicate.date = {
+                        formatted: moment().format('MM/DD/YYYY'),
+                        raw: moment().toDate()
+                    };
+
+                delete(duplicate._id);
+
+                item.duplicate = JSON.stringify(duplicate);
+                item.encoded = JSON.stringify(item);
             },
 
             processMeta: function(req) {

@@ -44,6 +44,11 @@ define(function(require) {
 
             setModel: function() {
                 self.model = $.extend(self.options.model, formConfig);
+
+                if (self.model.edit) {
+                    self.setHealthType();
+                }
+
                 self.model.healthTypes.forEach(function(type) {
                     if (type.type === self.model.type) {
                         type.selected = true;
@@ -106,14 +111,28 @@ define(function(require) {
             },
 
             setHealthType: function() {
-                if (typeof(self.dom.form) === 'undefined') {
-                    self.cacheDom();
-                }
+                var type = (function() {
+                    var val = self.model.type;
+
+                    self.model.healthTypes.forEach(function (item) {
+                        if (item.name === val) {
+                            val = item.type;
+                        }
+                    });
+
+                    return val;
+                })();
+
+                self.model.type = type;
+
+                self.cacheDom();
+
 
                 if (self.model.type) {
+                    self.model.fields = self.model.formFields[self.model.type];
+
                     var template = Mustache.render(newFormDataFields, self.model);
 
-                    self.model.fields = self.model.formFields[self.model.type];
                     self.dom.formFieldContainer.html(template);
 
                     self.maskInputs();
@@ -121,6 +140,8 @@ define(function(require) {
 
                     self.dom.saveHealth.removeAttr('disabled');
                 }
+
+                self.cacheDom();
             },
 
             applyValidation: function() {
