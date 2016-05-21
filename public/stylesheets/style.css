@@ -740,7 +740,7 @@ tfoot.totals td.header_cell {
   text-decoration: none;
   position: relative;
   padding-left: 40px;
-  opacity: .75;
+  opacity: .5;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
 }
