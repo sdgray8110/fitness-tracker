@@ -403,6 +403,7 @@ define(function(require) {
                 model = $.extend(model, {
                     date: {formatted: moment().format('MM/DD/YYYY')},
                     action: action,
+                    deleteAction: '/api/food/delete',
                     foods: self.foods
                 });
 

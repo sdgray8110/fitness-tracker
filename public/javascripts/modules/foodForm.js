@@ -85,6 +85,7 @@ define(function(require) {
 
             attachHandlers: function() {
                 self.dom.form.on('click', '#close_food_form', self.close);
+                self.dom.form.on('click', '#delete_food', self.delete);
                 //self.dom.deleteActivity.on('click', self.delete);
                 self.applyValidation();
             },

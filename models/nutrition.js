@@ -120,6 +120,18 @@ var NutritionCollection = (function() {
                 });
             },
 
+            deleteFood: function (req, res, callback) {
+                var db = req.db,
+                    food = req.body,
+                    id = food.food_id;
+
+                db.collection('food').remove({'_id': new ObjectID(id)}, {justOne: true}, function(err, result) {
+                    food.message = 'Food ' + id + ' successfully removed';
+
+                    callback(food);
+                });
+            },
+
             editMeal: function (req, res, callback) {
                 var db = req.db,
                     model = req.body,
