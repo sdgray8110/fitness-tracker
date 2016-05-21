@@ -39,8 +39,6 @@ var moment = require('moment'),
 
                         callback(model);
                     });
-
-
                 },
 
                 saveHealthEntry: function(req, res, callback) {
@@ -61,11 +59,19 @@ var moment = require('moment'),
                 }
             },
 
+            uiModel: function(day, i) {
+                day.ui = {
+                    className: i % 2 === 0 ? 'even' : 'odd'
+                };
+            },
+
             processHealth: function (health) {
                 var healthConfig = AppConfig.setHealthTypes();
 
-                health.forEach(function (item) {
+                health.forEach(function (item, i ) {
                     self.setItemValue(item, healthConfig);
+
+                    self.uiModel(item, i);
                 });
 
                 return health;
