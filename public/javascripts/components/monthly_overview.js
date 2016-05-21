@@ -568,7 +568,10 @@ define(function(require) {
                     closeCallback: function() {
                         self.dom.addHealthEntry.removeAttr('disabled');
                     },
-                    saveCallback: $.noop()
+                    saveCallback: function() {
+                        self.dom.addHealthEntry.removeAttr('disabled');
+                        location.reload();
+                    }
                 });
             },
 
