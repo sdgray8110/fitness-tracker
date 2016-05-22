@@ -1,4 +1,4 @@
-<select id="food_selection" name="food_selection" class="select select-fill-width food_selection {{#editFood}}populate_food{{/editFood}}" {{^edit}} data-validation="required" data-validation-message="Please select at least one food." {{/edit}}>
+<select id="food_selection" name="food_selection" class="select select-fill-width food_selection {{#editFood}}populate_food{{/editFood}}" {{^inProgress}} data-validation="required" data-validation-message="Please select at least one food." {{/inProgress}}>
     <option value="">Select Food ...</option>
     {{#meal_edit}}
     {{#meal_foods}}
