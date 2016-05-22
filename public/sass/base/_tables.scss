@@ -58,6 +58,36 @@ tbody {
                     }
                 }
 
+                tfoot {
+                    tr:first-of-type {
+                        td {
+                            border-top: 1px solid $dark-gray;
+                        }
+                    }
+
+                    .null-row {
+                        border: none;
+                        background: $dark-gray;
+                    }
+
+                    .label {
+                        background: $dark-gray;
+                        color: #fff;
+                        font-weight: $semibold;
+                    }
+
+                    &.totals {
+                        td {
+                            background: #000;
+                            color: #fff;
+
+                            &.header_cell {
+                                font-weight: $semibold;
+                            }
+                        }
+                    }
+                }
+
                 &.details {
                     width: 150px;
                     text-align: center;
@@ -162,6 +192,7 @@ tbody {
         }
     }
 }
+
 
 tfoot {
     tr:first-of-type {
