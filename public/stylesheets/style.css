@@ -1903,13 +1903,13 @@ Interactive Layer
   margin-top: 6px;
 }
 /* line 12, ../sass/components/_monthly-overview.scss */
-.monthly-overview header + .new-ride-form, .monthly-overview header + .new-activity-form {
+.monthly-overview header + .new-ride-form, .monthly-overview header + .new-activity-form, .monthly-overview header + .new-meal-form {
   padding: 20px 7px 7px 7px;
   margin-top: 5px;
   border-top: 1px solid #ebebeb;
   display: none;
 }
-/* line 21, ../sass/components/_monthly-overview.scss */
+/* line 22, ../sass/components/_monthly-overview.scss */
 .monthly-overview h1 {
   height: 35px;
   line-height: 35px;
@@ -1917,32 +1917,32 @@ Interactive Layer
   font-size: 16px;
   color: #000;
 }
-/* line 29, ../sass/components/_monthly-overview.scss */
+/* line 30, ../sass/components/_monthly-overview.scss */
 .tabs + .monthly-overview {
   position: relative;
   z-index: 1;
   margin-top: -1px;
 }
-/* line 35, ../sass/components/_monthly-overview.scss */
+/* line 36, ../sass/components/_monthly-overview.scss */
 .monthly-overview .ride-name,
 .monthly-overview .activity-name {
   font-weight: 600;
   font-size: 16px;
   color: #818c94;
 }
-/* line 42, ../sass/components/_monthly-overview.scss */
+/* line 43, ../sass/components/_monthly-overview.scss */
 .monthly-overview .new-ride-form,
 .monthly-overview .new-activity-form {
   width: 100%;
   display: block;
 }
-/* line 49, ../sass/components/_monthly-overview.scss */
+/* line 50, ../sass/components/_monthly-overview.scss */
 .monthly-overview .additional-info h2 {
   font-weight: 700;
   font-size: 14px;
   color: #818c94;
 }
-/* line 56, ../sass/components/_monthly-overview.scss */
+/* line 57, ../sass/components/_monthly-overview.scss */
 .monthly-overview .additional-info .new-ride-form,
 .monthly-overview .additional-info .new-activity-form,
 .monthly-overview .additional-info .new-meal-form {
@@ -1951,11 +1951,11 @@ Interactive Layer
   margin-top: 5px;
   border-top: 1px solid #ebebeb;
 }
-/* line 65, ../sass/components/_monthly-overview.scss */
+/* line 66, ../sass/components/_monthly-overview.scss */
 .monthly-overview .open + .additional-info .new-meal-form {
   display: block;
 }
-/* line 69, ../sass/components/_monthly-overview.scss */
+/* line 70, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride,
 .monthly-overview .duplicate-ride,
 .monthly-overview .edit-activity,
@@ -1966,7 +1966,7 @@ Interactive Layer
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
 }
-/* line 79, ../sass/components/_monthly-overview.scss */
+/* line 80, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride:hover,
 .monthly-overview .duplicate-ride:hover,
 .monthly-overview .edit-activity:hover,
@@ -1975,7 +1975,7 @@ Interactive Layer
 .monthly-overview .duplicate-health:hover {
   text-decoration: underline;
 }
-/* line 83, ../sass/components/_monthly-overview.scss */
+/* line 84, ../sass/components/_monthly-overview.scss */
 .monthly-overview .edit-ride.disabled,
 .monthly-overview .duplicate-ride.disabled,
 .monthly-overview .edit-activity.disabled,
@@ -1985,14 +1985,14 @@ Interactive Layer
   cursor: default;
   opacity: 0;
 }
-/* line 89, ../sass/components/_monthly-overview.scss */
+/* line 90, ../sass/components/_monthly-overview.scss */
 .monthly-overview .ride-messaging,
 .monthly-overview .activity-messaging {
   float: left;
   width: 100%;
   clear: both;
 }
-/* line 96, ../sass/components/_monthly-overview.scss */
+/* line 97, ../sass/components/_monthly-overview.scss */
 .monthly-overview .activity-type {
   margin-bottom: 20px;
 }

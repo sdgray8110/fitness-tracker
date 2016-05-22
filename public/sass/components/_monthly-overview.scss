@@ -10,7 +10,8 @@
         }
 
         & + .new-ride-form,
-        & + .new-activity-form {
+        & + .new-activity-form,
+        & + .new-meal-form {
             padding: 20px 7px 7px 7px;
             margin-top: 5px;
             border-top: 1px solid $mid-light-gray;
