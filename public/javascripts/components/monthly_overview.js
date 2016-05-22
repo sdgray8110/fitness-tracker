@@ -68,6 +68,7 @@ define(function(require) {
                 /*  New Meal View */
                 self.dom.newMeal.on('click', self.toggleNewMeal);
                 self.dom.dailyTarget.on('click', self.toggleTargets);
+                self.dom.component.on('click', '#duplicate_meal', self.duplicateMeal)
                 
                 /* Health Entry View */
                 self.dom.addHealthEntry.on('click', self.toggleNewHealthEntry);
@@ -454,6 +455,18 @@ define(function(require) {
                 e.preventDefault();
 
                 self.genericNewMealForm();
+            },
+
+            duplicateMeal: function (e) {
+                e.preventDefault();
+
+                var clicked = $(e.currentTarget),
+                    dataContainer = clicked.closest('.additional-info'),
+                    model = dataContainer.data('duplicate');
+
+                dataContainer.removeClass('open');
+
+                self.genericNewMealForm(model);
             },
 
             genericNewMealForm: function (model) {

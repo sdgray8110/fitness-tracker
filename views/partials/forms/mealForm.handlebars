@@ -16,11 +16,18 @@
     <fieldset class="selected_foods" id="selected_foods"></fieldset>
 
     <div class="group controls">
+
         <button class="btn gray pill pull-right" id="save_food">Save Meal</button>
 
+        {{#edit}}
         <button type="button" class="btn gray pill pull-right" id="delete_meal">Delete Meal</button>
+        {{/edit}}
 
         <button type="button" class="btn gray pill pull-right" id="close_meal_form">Cancel</button>
+
+        {{#edit}}
+        <button class="btn gray pill pull-right" id="duplicate_meal">Duplicate Meal</button>
+        {{/edit}}
 
         <input type="hidden" name="mealID" value="{{_id}}" />
 

@@ -298,7 +298,11 @@ define(function(require) {
                 self.dom.mealForm = $(Mustache.render(mealForm, self.model));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.mealForm);
-                //self.setActivityType();
+
+
+                if (self.model.inProgress) {
+                    self.renderMeal();
+                }
 
                 if (self.options.animate) {
                     self.dom.mealForm.slideDown(400);

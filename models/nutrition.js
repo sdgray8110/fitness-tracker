@@ -235,7 +235,17 @@ var NutritionCollection = (function() {
                     meal.totals = {};
                 }
 
+                var duplicate = helpers.extend({}, meal);
+                duplicate.meal_date = moment().format('MM/DD/YYYY');
+                duplicate.selectedFoods = duplicate.foods;
+                duplicate.inProgress = true;
+                duplicate.selectedFoodTotals = duplicate.totals;
+
+                delete(duplicate._id);
+                delete(duplicate.totals);
+
                 meal.meal_encoded = JSON.stringify(meal);
+                meal.duplicate = JSON.stringify(duplicate);
 
                 if(!dailyMeals[meal.meal_date]) {
                     dailyMeals[meal.meal_date] = {
