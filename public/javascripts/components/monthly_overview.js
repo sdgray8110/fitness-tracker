@@ -484,6 +484,7 @@ define(function(require) {
                     animate: true,
                     openCallback: function() {
                         self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).attr('disabled', 'disabled');
+                        helpers.scrollToElement($('.main-header').eq(0));
                     },
                     closeCallback: function() {
                         self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).removeAttr('disabled');
