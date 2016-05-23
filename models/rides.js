@@ -226,8 +226,6 @@ var RideCollection = (function() {
                     self.dataAccess.fetchCurrentWeekStats(req, function(weeklyStats) {
                         model.year.weeklyStats = weeklyStats;
 
-                        console.log(model);
-
                         callback(model);
                     });
                 });
@@ -293,8 +291,6 @@ var RideCollection = (function() {
                 delete(ride.rideID);
 
                 db.collection('rides').insert(ride, function(err, result) {
-                    console.log(result.ops[0]);
-
                     var newRide = result.ops[0]  ;
                     self.processRide(newRide, 0);
 
