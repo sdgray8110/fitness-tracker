@@ -2,6 +2,7 @@
 <table>
     <thead>
         <th>Food Name</th>
+        <th>Sugar</th>
         <th>Calories</th>
         <th>Protein</th>
         <th>Servings</th>
@@ -10,6 +11,7 @@
 {{#selectedFoods}}
         <tr>
             <td>{{food_name}}  | <a data-id="{{_id}}" class="delete_item">Remove from Meal</a></td>
+            <td>{{food_sugar}}</td>
             <td>{{food_calories}}</td>
             <td>{{food_protein}}</td>
             <td><input name="count_{{_id}}" type="text" class="inputText foodQuantity"  data-validation="number" data-validation-message="Please enter a valid number for Servings" value="{{count}}" /> </td>
@@ -19,6 +21,7 @@
     <tfoot class="totals">
     <tr>
         <td class="header_cell">Meal Totals</td>
+        <td>{{selectedFoodTotals.food_sugar}}</td>
         <td>{{selectedFoodTotals.food_calories}}</td>
         <td>{{selectedFoodTotals.food_protein}}</td>
         <td></td>
