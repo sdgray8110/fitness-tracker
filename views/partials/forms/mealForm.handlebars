@@ -3,7 +3,7 @@
         <div id="food-form-data-fields">
             <div class="group">
                 <label for="meal_name">Meal Name</label>
-                <input id="meal_name" name="meal_name" type="text" class="inputText" value="{{meal_name}}" data-validation="uniqueMealName" data-validation-message="Please enter a unique name for this meal on this day." data-validation-message-required="Please enter a name for this meal" />
+                <input id="meal_name" name="meal_name" type="text" class="inputText" value="{{meal_name}}" {{#edit}}data-validation="required"{{/edit}} data-validation-message="Please enter a name for this meal"{{^edit}}data-validation="uniqueMealName" data-validation-message="Please enter a unique name for this meal on this day." data-validation-message-required="Please enter a name for this meal"{{/edit}} />
 
                 <label for="meal_date">Meal Date</label>
                 <input id="meal_date" name="meal_date" type="text" class="inputText" value="{{date.formatted}}" data-validation="required" data-validation-message="Please enter the meal's date." />
