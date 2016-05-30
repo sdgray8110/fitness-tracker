@@ -339,6 +339,7 @@ define(function(require) {
                             meals = $('.meal-list .edit_meal'),
                             name = item.el.attr('name'),
                             fieldModel = self.model.items[name],
+                            edit = item.el.data('edit'),
                             mealDate,
                             dailyMeals = [],
                             names;
@@ -358,6 +359,15 @@ define(function(require) {
                         });
 
                         if (names.indexOf(value) >= 0) {
+                            if (edit) {
+                                var editMeal = item.el.parents('.additional-info').find('.edit_meal').data('meal');
+
+                                if (editMeal.meal_name === value) {
+                                    return true;
+                                }
+                            }
+
+
                             fieldModel.applyDefaultMessage();
 
                             return false;
