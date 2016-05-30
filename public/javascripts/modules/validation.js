@@ -96,7 +96,13 @@ define(function(require) {
                                 errorEl: field,
                                 id: field.attr('id'),
                                 name: field.attr('name'),
-                                message: data.validationMessage
+                                message: data.validationMessage,
+                                applyAlternateMessage: function (key) {
+                                    item.message = data[key];
+                                },
+                                applyDefaultMessage: function () {
+                                    item.message = data.validationMessage
+                                }
                             };
 
                         self.setRelatedEl(item);
@@ -352,12 +358,12 @@ define(function(require) {
                         });
 
                         if (names.indexOf(value) >= 0) {
-                            fieldModel.message = item.el.data('validationMessage');
+                            fieldModel.applyDefaultMessage();
 
                             return false;
                         }
 
-                        fieldModel.message = item.el.data('validationMessageRequired');
+                        fieldModel.applyAlternateMessage('validationMessageRequired');
 
                         return $.trim(value) !== '';
                     },
