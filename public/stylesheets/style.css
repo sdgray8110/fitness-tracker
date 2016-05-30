@@ -1000,6 +1000,13 @@ textarea.validationError,
   border-color: #b94a48;
 }
 
+/* line 47, ../sass/modules/_validation.scss */
+.food-messaging {
+  clear: both;
+  float: right;
+  margin-bottom: 10px;
+}
+
 /********************
  * HTML CSS
  */
