@@ -235,7 +235,7 @@ var NutritionCollection = (function() {
                     meal.totals = {};
                 }
 
-                var duplicate = helpers.extend({}, meal);
+                var duplicate = helpers.extend({}, meal);;
                 duplicate.meal_date = moment().format('MM/DD/YYYY');
                 duplicate.selectedFoods = duplicate.foods;
                 duplicate.inProgress = true;
@@ -255,7 +255,6 @@ var NutritionCollection = (function() {
                     };
                     i += 1;
                 }
-
                 dailyMeals[meal.meal_date].meals.push(meal);
                 self.uiModel(dailyMeals[meal.meal_date], i);
             });
@@ -285,7 +284,7 @@ var NutritionCollection = (function() {
 
             return model;
         },
-        
+
         sumDaily: function(day) {
             var totals = {},
                 keys = Object.keys(day.meals[0].totals);

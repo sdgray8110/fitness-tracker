@@ -327,6 +327,35 @@ define(function(require) {
                         return value.length >= 5;
                     },
 
+                    uniqueMealName: function (item) {
+                        var value = item.el.val(),
+                            date = new Date($('#meal_date').val()),
+                            meals = $('.meal-list .edit_meal'),
+                            mealDate,
+                            dailyMeals = [],
+                            names;
+
+                        meals.each(function (i, item) {
+                            var el = $(item),
+                                meal = el.data('meal'),
+                                mealDate = new Date(meal.meal_date);
+
+                            if (date.toString() === mealDate.toString()) {
+                                dailyMeals.push(meal);
+                            }
+                        });
+
+                        names = dailyMeals.map(function(meal) {
+                            return meal.meal_name;
+                        });
+
+                        if (names.indexOf(value) >= 0) {
+                            return false;
+                        }
+
+                        return $.trim(value) !== '';
+                    },
+
                     passwordMatch: function(item) {
                         var value = item.el.val(),
                             fieldID = item.el.data('validation-compare-field'),
