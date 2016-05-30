@@ -331,6 +331,8 @@ define(function(require) {
                         var value = item.el.val(),
                             date = new Date($('#meal_date').val()),
                             meals = $('.meal-list .edit_meal'),
+                            name = item.el.attr('name'),
+                            fieldModel = self.model.items[name],
                             mealDate,
                             dailyMeals = [],
                             names;
@@ -350,8 +352,12 @@ define(function(require) {
                         });
 
                         if (names.indexOf(value) >= 0) {
+                            fieldModel.message = item.el.data('validationMessage');
+
                             return false;
                         }
+
+                        fieldModel.message = item.el.data('validationMessageRequired');
 
                         return $.trim(value) !== '';
                     },
