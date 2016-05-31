@@ -359,14 +359,9 @@ define(function(require) {
                         });
 
                         if (names.indexOf(value) >= 0) {
-                            if (edit) {
-                                var editMeal = item.el.parents('.additional-info').find('.edit_meal').data('meal');
-
-                                if (editMeal.meal_name === value) {
-                                    return true;
-                                }
+                            if (edit === value) {
+                                return true;
                             }
-
 
                             fieldModel.applyDefaultMessage();
 
