@@ -11,6 +11,10 @@
     width: 33%;
     padding: 0 20px;
 
+    &.wide {
+        width: 50%;
+    }
+
     .field_group {
         width: 100%;
         margin-bottom: 10px;
