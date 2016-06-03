@@ -15,6 +15,7 @@ var ActivityCollection = (function() {
             helpers.formattedDate(activity);
             helpers.formattedDuration(activity);
             helpers.formattedCalories(activity);
+            helpers.formatContent(activity);
             self.uiModel(activity, i);
         },
 
