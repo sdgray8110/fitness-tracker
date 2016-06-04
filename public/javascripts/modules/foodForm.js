@@ -50,6 +50,8 @@ define(function(require) {
                         type.selected = true;
                     }
                 });
+
+                self.model.checked = [];
             },
 
             resetModel: function() {
@@ -105,7 +107,47 @@ define(function(require) {
             },
 
             selectFoodToEdit: function (e) {
-                console.log($(e.target));
+                var item = $(e.target),
+                    index = item.data('index'),
+                    siblings = item.parents('.item').siblings().find('.checkbox input'),
+                    checked = item.is(':checked'),
+                    food,
+                    $el;
+
+
+                siblings.each(function (i, el) {
+                    $el = $(el);
+
+                    if ($el.data('index') !== index) {
+                        $el.attr('checked', false);
+                    }
+                })
+
+                if(checked && !item.is(self.model.checked)) {
+                    self.model.checked = item;
+                    food = self.model.unfilteredFoods[item.data('index')];
+                    food.form_populated = true;
+
+                    helpers.selectFoodUnit(food);
+                    self.editFood(food);
+                } else if (!checked) {
+                    self.model.checked = [];
+
+                    $('#food_form_container').html('');
+                    self.cacheDom();
+                    self.attachHandlers();
+                }
+
+            },
+
+            editFood: function (food) {
+                var component =$(Mustache.render(foodForm, food));
+
+                $('#food_form_container').html(component);
+                self.cacheDom();
+                self.attachHandlers();
+
+                self.isOpen = true;
             },
 
             changeActivityType: function(e) {
@@ -172,7 +214,6 @@ define(function(require) {
 
             render: function() {
                 self.model.form_populated = !self.model.editFood;
-                helpers.selectFoodUnit(self.model);
                 self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodlistitems': foodlistitems, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);
@@ -186,20 +227,6 @@ define(function(require) {
                 var component = $(Mustache.render(foodlistitems, self.model));
 
                 $('#foodlistitems').html(component);
-            },
-
-            renderPopulated: function(food) {
-                food.form_populated = true;
-                helpers.selectFoodUnit(food);
-                self.model = $.extend(self.model, food);
-
-                self.dom.foodForm = $(Mustache.render(foodForm, self.model));
-
-                $('#food_form_container').html(self.dom.foodForm);
-                self.cacheDom();
-                self.attachHandlers();
-
-                self.isOpen = true;
             },
 
 

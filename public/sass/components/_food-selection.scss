@@ -4,6 +4,10 @@
     border: 1px solid $dark-gray;
     padding-top: 20px;
 
+    & + #food_form_container {
+        margin-top: 20px;
+    }
+
     .food_selection_list {
         width: 100%;
         min-height: 65px;
