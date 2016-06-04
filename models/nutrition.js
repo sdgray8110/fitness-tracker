@@ -279,7 +279,7 @@ var NutritionCollection = (function() {
                     dailyMeals[key].sugarWarning = true;
                 }
 
-                if (dailyMeals[key].totals.food_fiber < Number(targets.fiber_target)) {
+                if ((dailyMeals[key].totals.food_fiber / parseInt(dailyMeals[key].totals.food_calories / 1000, 10)) < Number(targets.fiber_target)) {
                     dailyMeals[key].fiber_target = targets.fiber_target;
                     dailyMeals[key].fiberWarning = true;
                 }
