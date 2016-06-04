@@ -213,6 +213,7 @@ define(function(require) {
             },
 
             render: function() {
+                helpers.selectFoodUnit(self.model);
                 self.model.form_populated = !self.model.editFood;
                 self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodlistitems': foodlistitems, 'foodForm': foodForm}));
 
