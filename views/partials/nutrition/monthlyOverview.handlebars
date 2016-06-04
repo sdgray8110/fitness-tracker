@@ -33,13 +33,14 @@
         </tr>
 
         <tr class="additional-info">
-            <td colspan="5">
+            <td colspan="6">
                 {{#meals}}
                 <h2>{{meal_name}}</h2>
                 <table>
                     <thead>
                     <tr>
                         <th>Meal Summary</th>
+                        <th>Fiber</th>
                         <th>Protein</th>
                         <th>Calories</th>
                         <th>Sugar</th>
@@ -48,13 +49,14 @@
                     <tbody class="meal-list">
                     <tr>
                         <td class="details"><a data-meal="{{meal_encoded}}" class="edit_meal">View Meal Details</a></td>
+                        <td>{{totals.food_fiber}}</td>
                         <td>{{totals.food_protein}}</td>
                         <td>{{totals.food_calories}}</td>
                         <td>{{totals.food_sugar}}</td>
                     </tr>
 
                     <tr class="additional-info" data-duplicate="{{duplicate}}">
-                        <td class="details meal_edit" colspan="4">
+                        <td class="details meal_edit" colspan="5">
 
                         </td>
                     </tr>

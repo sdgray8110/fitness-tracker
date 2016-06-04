@@ -2,6 +2,7 @@
 <table>
     <thead>
         <th>Food Name</th>
+        <th>Fiber</th>
         <th>Sugar</th>
         <th>Calories</th>
         <th>Protein</th>
@@ -10,7 +11,8 @@
     <tbody>
 {{#selectedFoods}}
         <tr>
-            <td>{{food_name}}  | <a data-id="{{_id}}" class="delete_item">Remove from Meal</a></td>
+            <td class="meal_detail_link">{{food_name}}  | <a data-id="{{_id}}" class="delete_item">Remove from Meal</a></td>
+            <td>{{food_fiber}}</td>
             <td>{{food_sugar}}</td>
             <td>{{food_calories}}</td>
             <td>{{food_protein}}</td>
@@ -21,6 +23,7 @@
     <tfoot class="totals">
     <tr>
         <td class="header_cell">Meal Totals</td>
+        <td>{{selectedFoodTotals.food_fiber}}</td>
         <td>{{selectedFoodTotals.food_sugar}}</td>
         <td>{{selectedFoodTotals.food_calories}}</td>
         <td>{{selectedFoodTotals.food_protein}}</td>

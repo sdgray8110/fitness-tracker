@@ -99,9 +99,16 @@
     }
 
     .daily_nutrition {
-        th,
-        td {
-            width: 16%;
+        thead,
+        tbody {
+            th,
+            td {
+                width: 16%;
+
+                &.meal_detail_link {
+                    width: 33%;
+                }
+            }
         }
     }
 }

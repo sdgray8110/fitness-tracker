@@ -2007,10 +2007,19 @@ Interactive Layer
 .monthly-overview .activity-type {
   margin-bottom: 20px;
 }
-/* line 102, ../sass/components/_monthly-overview.scss */
-.monthly-overview .daily_nutrition th,
-.monthly-overview .daily_nutrition td {
+/* line 104, ../sass/components/_monthly-overview.scss */
+.monthly-overview .daily_nutrition thead th,
+.monthly-overview .daily_nutrition thead td,
+.monthly-overview .daily_nutrition tbody th,
+.monthly-overview .daily_nutrition tbody td {
   width: 16%;
+}
+/* line 108, ../sass/components/_monthly-overview.scss */
+.monthly-overview .daily_nutrition thead th.meal_detail_link,
+.monthly-overview .daily_nutrition thead td.meal_detail_link,
+.monthly-overview .daily_nutrition tbody th.meal_detail_link,
+.monthly-overview .daily_nutrition tbody td.meal_detail_link {
+  width: 33%;
 }
 
 /* line 1, ../sass/components/_food-selection.scss */
