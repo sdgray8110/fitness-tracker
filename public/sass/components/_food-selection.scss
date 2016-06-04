@@ -1,0 +1,79 @@
+.food_selection_component {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid $dark-gray;
+    padding-top: 20px;
+
+    .food_selection_list {
+        width: 100%;
+        min-height: 65px;
+        max-height: 200px;
+        overflow-y: scroll;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+57,c6c6c6+98 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 57%, #c6c6c6 98%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 57%,#c6c6c6 98%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 57%,#c6c6c6 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
+    }
+
+    .foods {
+        width: 50%;
+        display: block;
+        float: left;
+    }
+
+    .group {
+        clear: both;
+        display: block;
+        width: 100%;
+
+        .inputText {
+            width: 65%;
+        }
+
+        &.item {
+            width: 100%;
+            display: block;
+            float: left;
+
+            label,
+            .checkbox {
+                width: 90%;
+                display: block;
+                float: left;
+                margin-bottom: 0px;
+                line-height: 12px;
+                height: 15px;
+            }
+
+            .checkbox {
+                width: 5%;
+
+                input {
+                    display: block;
+                }
+
+            }
+        }
+    }
+
+    .food_info {
+        width: 45%;
+        display: block;
+        float: left;
+        margin-bottom: 0px;
+
+        .chosen_foods {
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}

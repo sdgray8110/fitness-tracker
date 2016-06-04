@@ -1,16 +1,13 @@
-<select id="food_selection" name="food_selection" class="select select-fill-width food_selection {{#editFood}}populate_food{{/editFood}}" {{^inProgress}} data-validation="required" data-validation-message="Please select at least one food." {{/inProgress}}>
-    <option value="">Select Food ...</option>
-    {{#meal_edit}}
-    {{#meal_foods}}
-    <option data-index="{{index}}" value="{{_id}}">{{food_name}} | {{food_serving_size}} {{serving_size_applied}}</option>
-    {{/meal_foods}}
-    {{/meal_edit}}
-    {{^meal_edit}}
-    {{#foods}}
-    <option data-index="{{index}}" value="{{_id}}">{{food_name}} | {{food_serving_size}} {{serving_size_applied}}</option>
-    {{/foods}}
-    {{/meal_edit}}
-</select>
+<div class="food_selection_component">
+    <div class="group">
+        <label for="search_foods">Search Foods </label>
+        <input id="search_foods" type="text" class="search_foods inputText" value="" />
+    </div>
+    <div id="foodlistitems" class="food_selection_list">
+        {{> foodlistitems}}
+    </div>
+
+</fieldset>
 
 {{^editFood}}
 <button class="select_food btn pill gray pull-right" type="button">Add Food</button>

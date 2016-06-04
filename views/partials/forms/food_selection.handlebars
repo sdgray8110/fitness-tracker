@@ -1,0 +1,12 @@
+<div class="foods">
+{{#filteredFoods}}
+<div class="group item">
+    <label for="food_{{_id}}">{{food_name}} | {{food_serving_size}} {{serving_size_applied}}</label>
+    <span class="checkbox">
+        <input id="food_{{_id}}" class="food_checkbox" type="checkbox" data-index="{{index}}" value="{{_id}}" />
+    </span>
+</div>
+{{/filteredFoods}}
+</div>
+
+<div id="food_info" class="food_info"></div>

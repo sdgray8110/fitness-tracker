@@ -2007,3 +2007,88 @@ Interactive Layer
 .monthly-overview .activity-type {
   margin-bottom: 20px;
 }
+
+/* line 1, ../sass/components/_food-selection.scss */
+.food_selection_component {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #818c94;
+  padding-top: 20px;
+}
+/* line 7, ../sass/components/_food-selection.scss */
+.food_selection_component .food_selection_list {
+  width: 100%;
+  min-height: 65px;
+  max-height: 200px;
+  overflow-y: scroll;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+57,c6c6c6+98 */
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 57%, #c6c6c6 98%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 57%, #c6c6c6 98%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 57%, #c6c6c6 98%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c6',GradientType=0 );
+  /* IE6-9 */
+}
+/* line 20, ../sass/components/_food-selection.scss */
+.food_selection_component .foods {
+  width: 50%;
+  display: block;
+  float: left;
+}
+/* line 26, ../sass/components/_food-selection.scss */
+.food_selection_component .group {
+  clear: both;
+  display: block;
+  width: 100%;
+}
+/* line 31, ../sass/components/_food-selection.scss */
+.food_selection_component .group .inputText {
+  width: 65%;
+}
+/* line 35, ../sass/components/_food-selection.scss */
+.food_selection_component .group.item {
+  width: 100%;
+  display: block;
+  float: left;
+}
+/* line 40, ../sass/components/_food-selection.scss */
+.food_selection_component .group.item label,
+.food_selection_component .group.item .checkbox {
+  width: 90%;
+  display: block;
+  float: left;
+  margin-bottom: 0px;
+  line-height: 12px;
+  height: 15px;
+}
+/* line 50, ../sass/components/_food-selection.scss */
+.food_selection_component .group.item .checkbox {
+  width: 5%;
+}
+/* line 53, ../sass/components/_food-selection.scss */
+.food_selection_component .group.item .checkbox input {
+  display: block;
+}
+/* line 61, ../sass/components/_food-selection.scss */
+.food_selection_component .food_info {
+  width: 45%;
+  display: block;
+  float: left;
+  margin-bottom: 0px;
+}
+/* line 67, ../sass/components/_food-selection.scss */
+.food_selection_component .food_info .chosen_foods {
+  margin-bottom: 15px;
+}
+/* line 71, ../sass/components/_food-selection.scss */
+.food_selection_component .food_info h2 {
+  font-weight: 700;
+}
+/* line 75, ../sass/components/_food-selection.scss */
+.food_selection_component .food_info p {
+  font-size: 12px;
+}

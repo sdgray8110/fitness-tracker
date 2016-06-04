@@ -12,7 +12,9 @@ define(function(require) {
         foodsList = require('text!/templates/partials/forms/foodsList'),
         selectedFoods = require('text!/templates/partials/forms/selectedFoods'),
         targetForm = require('text!/templates/partials/forms/targetForm'),
-        dataFields = require('text!/templates/partials/forms/formDataFields'),        
+        dataFields = require('text!/templates/partials/forms/formDataFields'),
+        foodlistitems = require('text!/templates/partials/forms/food_selection'),
+        foodDetails = require('text!/templates/partials/nutrition/food_info'),
         formConfig = require('json!/api/form-config');
 
     return (function () {
@@ -42,6 +44,7 @@ define(function(require) {
                 self.dom.close = $('#close_meal_form');
                 self.dom.date = $('#date');
                 self.dom.duration = $('#duration');
+                self.dom.search_foods = $('#search_foods');
             },
 
             getFoods: function() {
@@ -64,10 +67,11 @@ define(function(require) {
 
                 if (edit) {
                     self.model.meal_edit = true;
-                    self.model.meal_foods = self.getFoods();
-                } else if (newMeal) {
-                    self.model.foods = self.getFoods();
                 }
+
+                self.model.filteredFoods = self.getFoods();
+                self.model.unfilteredFoods = self.getFoods();
+                self.model.chosenFoods = [];
 
                 self.model.selectedFoods = self.model.selectedFoods || [];
             },
@@ -134,34 +138,52 @@ define(function(require) {
             attachHandlers: function() {
                 self.dom.close.on('click', self.close);
                 //self.dom.deleteActivity.on('click', self.delete);
-                self.dom.form.on('click', '.select_food', self.selectFood);
+                self.dom.form.on('click', '.select_food', self.applyChosenFoods);
                 self.dom.form.on('keyup', '.foodQuantity', self.updateQuantity);
                 self.dom.form.on('click', '.delete_item', self.removeItemFromMeal);
                 self.dom.form.on('click', '#delete_meal', self.deleteMeal);
                 self.dom.form.on('click', '#close_targets', self.closeTargets);
+                self.dom.form.on('keyup', '#search_foods', self.filterFoods);
+                self.dom.form.on('change', '.food_checkbox', self.selectFood);
 
                 self.applyValidation();
             },
 
+            filterFoods: function (e) {
+                var term = $(e.target).val().toLowerCase();
+
+                self.model.filteredFoods = self.model.unfilteredFoods.filter(function (food, i) {
+                    return food.food_name.toLowerCase().indexOf(term) >= 0;
+                });
+
+                self.renderFoodListComponent();
+            },
+
             selectFood: function(e) {
-                var selected = $('#food_selection').find(':selected'),
+                var selected = $(e.target),
+                    checked = selected.is(':checked'),
                     index = selected.data('index'),
-                    item;
-                var edit = self.model.action.match('edit');
-                var newMeal = self.model.action.match('new');
+                    item = self.model.unfilteredFoods[index];
 
-                if (edit) {
-                    item = self.model.meal_foods[index];
-                } else if (newMeal) {
-                    item = self.model.foods[index];
+                if (checked) {
+                    self.model.chosenFoods.push(item);
+                } else {
+                    self.deselectFood(item);
                 }
 
-                if (selected.val()) {
-                    self.processSelectedFoods(item);
-                    self.updateTotals();
-                    self.model.inProgress = true;
-                }
+                self.renderFoodDetails();
+            },
 
+            deselectFood: function (item) {
+                self.model.chosenFoods = self.model.chosenFoods.filter(function (food) {
+                    return food._id !== item._id
+                });
+            },
+
+            applyChosenFoods: function (e) {
+                self.processSelectedFoods();
+                self.updateTotals();
+                self.model.inProgress = true;
                 self.renderMeal();
             },
 
@@ -179,23 +201,25 @@ define(function(require) {
                 self.renderMeal();
             }, 750),
 
-            processSelectedFoods: function(item) {
+            processSelectedFoods: function() {
                 var match = false;
 
-                item.count = item.count || 1;
+                self.model.chosenFoods.forEach(function (item) {
+                    item.count = item.count || 1;
 
-                self.model.selectedFoods.forEach(function(food) {
-                    if(item._id === food._id) {
-                        food.count = (food.count * 1) + 1;
-                        match = true;
+                    self.model.selectedFoods.forEach(function(food) {
+                        if(item._id === food._id) {
+                            food.count = (food.count * 1) + 1;
+                            match = true;
+                        }
+                    });
+
+                    if(!match) {
+                        self.model.selectedFoods.push(item);
                     }
+
+                    return item;
                 });
-
-                if(!match) {
-                    self.model.selectedFoods.push(item);
-                }
-
-                return item;
             },
 
             updateTotals: function () {
@@ -322,9 +346,21 @@ define(function(require) {
             },
             
             renderFoodSelect: function() {
-                var select = $(Mustache.render(foodsList, self.model));
+                var select = $(Mustache.render(foodsList, self.model, {foodlistitems: foodlistitems}));
 
                 self.dom.foodSelectionContainer.html(select);
+            },
+
+            renderFoodListComponent: function () {
+                var component = $(Mustache.render(foodlistitems, self.model));
+
+                $('#foodlistitems').html(component);
+            },
+
+            renderFoodDetails: function () {
+                var component = $(Mustache.render(foodDetails, self.model));
+
+                $('#food_info').html(component);
             },
 
             renderMeal: function () {
