@@ -2014,3 +2014,10 @@ Interactive Layer
 .monthly-overview .daily_nutrition tbody td {
   width: 16%;
 }
+/* line 108, ../sass/components/_monthly-overview.scss */
+.monthly-overview .daily_nutrition thead th.meal_detail_link,
+.monthly-overview .daily_nutrition thead td.meal_detail_link,
+.monthly-overview .daily_nutrition tbody th.meal_detail_link,
+.monthly-overview .daily_nutrition tbody td.meal_detail_link {
+  width: 25%;
+}

@@ -104,6 +104,10 @@
             th,
             td {
                 width: 16%;
+
+                &.meal_detail_link {
+                    width: 25%;
+                }
             }
         }
     }
