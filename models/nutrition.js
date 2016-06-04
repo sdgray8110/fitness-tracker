@@ -279,6 +279,11 @@ var NutritionCollection = (function() {
                     dailyMeals[key].sugarWarning = true;
                 }
 
+                if (dailyMeals[key].totals.food_fiber < Number(targets.fiber_target)) {
+                    dailyMeals[key].fiber_target = targets.fiber_target;
+                    dailyMeals[key].fiberWarning = true;
+                }
+
                 return dailyMeals[key];
             });
 

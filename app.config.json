@@ -165,7 +165,8 @@
     "targets": [
       "calorieTarget",
       "proteinTarget",
-      "sugarTarget"
+      "sugarTarget",
+      "fiberTarget"
     ],
     "weight": [
       "weight",
