@@ -2028,12 +2028,13 @@ Interactive Layer
   overflow: hidden;
   border: 1px solid #818c94;
   padding-top: 20px;
+  margin-bottom: 10px;
 }
-/* line 7, ../sass/components/_food-selection.scss */
+/* line 8, ../sass/components/_food-selection.scss */
 .food_selection_component + #food_form_container {
   margin-top: 20px;
 }
-/* line 11, ../sass/components/_food-selection.scss */
+/* line 12, ../sass/components/_food-selection.scss */
 .food_selection_component .food_selection_list {
   width: 100%;
   min-height: 65px;
@@ -2051,29 +2052,29 @@ Interactive Layer
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6c6c6',GradientType=0 );
   /* IE6-9 */
 }
-/* line 24, ../sass/components/_food-selection.scss */
+/* line 25, ../sass/components/_food-selection.scss */
 .food_selection_component .foods {
   width: 50%;
   display: block;
   float: left;
 }
-/* line 30, ../sass/components/_food-selection.scss */
+/* line 31, ../sass/components/_food-selection.scss */
 .food_selection_component .group {
   clear: both;
   display: block;
   width: 100%;
 }
-/* line 35, ../sass/components/_food-selection.scss */
+/* line 36, ../sass/components/_food-selection.scss */
 .food_selection_component .group .inputText {
   width: 65%;
 }
-/* line 39, ../sass/components/_food-selection.scss */
+/* line 40, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item {
   width: 100%;
   display: block;
   float: left;
 }
-/* line 44, ../sass/components/_food-selection.scss */
+/* line 45, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item label,
 .food_selection_component .group.item .checkbox {
   width: 90%;
@@ -2083,31 +2084,31 @@ Interactive Layer
   line-height: 12px;
   height: 17px;
 }
-/* line 54, ../sass/components/_food-selection.scss */
+/* line 55, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item .checkbox {
   width: 5%;
 }
-/* line 57, ../sass/components/_food-selection.scss */
+/* line 58, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item .checkbox input {
   display: block;
   margin: 0;
 }
-/* line 66, ../sass/components/_food-selection.scss */
+/* line 67, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info {
   width: 45%;
   display: block;
   float: left;
   margin-bottom: 0px;
 }
-/* line 72, ../sass/components/_food-selection.scss */
+/* line 73, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info .chosen_foods {
   margin-bottom: 15px;
 }
-/* line 76, ../sass/components/_food-selection.scss */
+/* line 77, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info h2 {
   font-weight: 700;
 }
-/* line 80, ../sass/components/_food-selection.scss */
+/* line 81, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info p {
   font-size: 12px;
 }
