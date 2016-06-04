@@ -2007,8 +2007,10 @@ Interactive Layer
 .monthly-overview .activity-type {
   margin-bottom: 20px;
 }
-/* line 102, ../sass/components/_monthly-overview.scss */
-.monthly-overview .daily_nutrition th,
-.monthly-overview .daily_nutrition td {
+/* line 104, ../sass/components/_monthly-overview.scss */
+.monthly-overview .daily_nutrition thead th,
+.monthly-overview .daily_nutrition thead td,
+.monthly-overview .daily_nutrition tbody th,
+.monthly-overview .daily_nutrition tbody td {
   width: 16%;
 }
