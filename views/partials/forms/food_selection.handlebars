@@ -3,7 +3,7 @@
 <div class="group item">
     <label for="food_{{_id}}">{{food_name}} | {{food_serving_size}} {{serving_size_applied}}</label>
     <span class="checkbox">
-        <input id="food_{{_id}}" class="food_checkbox" type="checkbox" data-index="{{index}}" value="{{_id}}" />
+        <input id="food_{{_id}}" class="food_checkbox" type="checkbox" {{#checked}}checked="true"{{/checked}} data-index="{{index}}" value="{{_id}}" />
     </span>
 </div>
 {{/filteredFoods}}

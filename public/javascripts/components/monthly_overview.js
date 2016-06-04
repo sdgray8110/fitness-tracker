@@ -407,7 +407,8 @@ define(function(require) {
                     date: {formatted: moment().format('MM/DD/YYYY')},
                     action: action,
                     deleteAction: '/api/food/delete',
-                    foods: self.foods
+                    unfilteredFoods: self.foods,
+                    filteredFoods: self.foods
                 });
 
                 formModule.foodForm.init({

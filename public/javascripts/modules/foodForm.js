@@ -11,6 +11,8 @@ define(function(require) {
         newFoodForm = require('text!/templates/partials/forms/newFoodForm'),
         foodForm = require('text!/templates/partials/forms/foodForm'),
         foodsList = require('text!/templates/partials/forms/foodsList'),
+        foodlistitems = require('text!/templates/partials/forms/food_selection'),
+        foodDetails = require('text!/templates/partials/nutrition/food_info'),
         formConfig = require('json!/api/form-config');
 
     return (function () {
@@ -87,7 +89,23 @@ define(function(require) {
                 self.dom.form.on('click', '#close_food_form', self.close);
                 self.dom.form.on('click', '#delete_food', self.delete);
                 //self.dom.deleteActivity.on('click', self.delete);
+                self.dom.form.on('keyup', '#search_foods', self.filterFoods);
+                self.dom.form.on('change', '.checkbox input', self.selectFoodToEdit);
                 self.applyValidation();
+            },
+
+            filterFoods: function (e) {
+                var term = $(e.target).val().toLowerCase();
+
+                self.model.filteredFoods = self.model.unfilteredFoods.filter(function (food, i) {
+                    return food.food_name.toLowerCase().indexOf(term) >= 0;
+                });
+
+                self.renderFoodListComponent();
+            },
+
+            selectFoodToEdit: function (e) {
+                console.log($(e.target));
             },
 
             changeActivityType: function(e) {
@@ -155,13 +173,19 @@ define(function(require) {
             render: function() {
                 self.model.form_populated = !self.model.editFood;
                 helpers.selectFoodUnit(self.model);
-                self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodForm': foodForm}));
+                self.dom.foodForm = $(Mustache.render(newFoodForm, self.model, {'foodsList': foodsList, 'foodlistitems': foodlistitems, 'foodForm': foodForm}));
 
                 self.options.formInsertEl[self.options.insertMethod](self.dom.foodForm);
 
                 if (self.options.animate) {
                     self.dom.foodForm.slideDown(400);
                 }
+            },
+
+            renderFoodListComponent: function () {
+                var component = $(Mustache.render(foodlistitems, self.model));
+
+                $('#foodlistitems').html(component);
             },
 
             renderPopulated: function(food) {

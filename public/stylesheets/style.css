@@ -2068,7 +2068,7 @@ Interactive Layer
   float: left;
   margin-bottom: 0px;
   line-height: 12px;
-  height: 15px;
+  height: 17px;
 }
 /* line 50, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item .checkbox {
@@ -2077,23 +2077,24 @@ Interactive Layer
 /* line 53, ../sass/components/_food-selection.scss */
 .food_selection_component .group.item .checkbox input {
   display: block;
+  margin: 0;
 }
-/* line 61, ../sass/components/_food-selection.scss */
+/* line 62, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info {
   width: 45%;
   display: block;
   float: left;
   margin-bottom: 0px;
 }
-/* line 67, ../sass/components/_food-selection.scss */
+/* line 68, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info .chosen_foods {
   margin-bottom: 15px;
 }
-/* line 71, ../sass/components/_food-selection.scss */
+/* line 72, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info h2 {
   font-weight: 700;
 }
-/* line 75, ../sass/components/_food-selection.scss */
+/* line 76, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info p {
   font-size: 12px;
 }

@@ -150,9 +150,17 @@ define(function(require) {
             },
 
             filterFoods: function (e) {
-                var term = $(e.target).val().toLowerCase();
+                var term = $(e.target).val().toLowerCase(),
+                    chosenFoodList = self.model.chosenFoods.map(function (food) {
+                       return food._id;
+                    });
+
 
                 self.model.filteredFoods = self.model.unfilteredFoods.filter(function (food, i) {
+                    if (chosenFoodList.indexOf(food._id) >= 0) {
+                        food.checked = true;
+                    }
+
                     return food.food_name.toLowerCase().indexOf(term) >= 0;
                 });
 
@@ -355,6 +363,7 @@ define(function(require) {
                 var component = $(Mustache.render(foodlistitems, self.model));
 
                 $('#foodlistitems').html(component);
+                self.renderFoodDetails();
             },
 
             renderFoodDetails: function () {
