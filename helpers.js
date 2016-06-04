@@ -175,6 +175,7 @@ var helpers = (function() {
 
         formatContent: function(activity) {
             activity.formattedContent = self.linkify(activity.description);
+            activity.formattedContent = activity.formattedContent.replace(/(?:\r\n|\r|\n)/g, '<br />');
         },
 
         formattedDate: function(activity, returnVal) {
