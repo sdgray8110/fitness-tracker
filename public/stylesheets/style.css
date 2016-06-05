@@ -2107,8 +2107,10 @@ Interactive Layer
 /* line 77, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info h2 {
   font-weight: 700;
+  line-height: 18px;
 }
-/* line 81, ../sass/components/_food-selection.scss */
+/* line 82, ../sass/components/_food-selection.scss */
 .food_selection_component .food_info p {
   font-size: 12px;
+  line-height: 15px;
 }
