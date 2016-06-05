@@ -229,7 +229,8 @@ define(function(require) {
             editMeal: function (e) {
                 e.preventDefault();
                 var clicked = $(e.target),
-                    model = self.processEncodedMeal(clicked.data('meal')),
+                    meal = JSON.parse(clicked.attr('data-meal')),
+                    model = self.processEncodedMeal(meal),
                     row = clicked.parent().parent(),
                     wrapper = row.next().find('.meal_edit'),
                     action = 'api/meal/edit';
