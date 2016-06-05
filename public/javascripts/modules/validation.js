@@ -38,6 +38,7 @@ define(function(require) {
                     applyToLabel: false,
                     scrollToErrors: false,
                     scrollToPadding: 95,
+                    parentModuleModel: null, //
                     callback: null //
                 },
 
@@ -371,6 +372,10 @@ define(function(require) {
                         fieldModel.applyAlternateMessage('validationMessageRequired');
 
                         return $.trim(value) !== '';
+                    },
+
+                    meal_populated: function(item) {
+                        return self.options.parentModuleModel.selectedFoods.length > 0;
                     },
 
                     passwordMatch: function(item) {

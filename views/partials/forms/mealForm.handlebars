@@ -7,6 +7,8 @@
 
                 <label for="meal_date">Meal Date</label>
                 <input id="meal_date" name="meal_date" type="text" class="inputText" value="{{date.formatted}}" data-validation="required" data-validation-message="Please enter the meal's date." />
+
+                <input id="meal_populated" type="hidden" value="{{date.formatted}}" data-validation="meal_populated" data-validation-message="Please add food to the meal." />
             </div>
         </div>
     </div>

@@ -268,7 +268,8 @@ define(function(require) {
                     formEl: self.dom.form,
                     errorContainer: self.dom.errorContainer,
                     scrollToErrors: false,
-                    callback: self.save
+                    callback: self.save,
+                    parentModuleModel: self.model
                 });
             },
 
