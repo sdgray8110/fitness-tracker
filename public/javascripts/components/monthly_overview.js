@@ -68,7 +68,8 @@ define(function(require) {
                 /*  New Meal View */
                 self.dom.newMeal.on('click', self.toggleNewMeal);
                 self.dom.dailyTarget.on('click', self.toggleTargets);
-                self.dom.component.on('click', '#duplicate_meal', self.duplicateMeal)
+                self.dom.component.on('click', '#duplicate_meal', self.duplicateMeal);
+                self.dom.component.on('click', '#save_recipe', self.setRecipe);
                 
                 /* Health Entry View */
                 self.dom.addHealthEntry.on('click', self.toggleNewHealthEntry);
@@ -82,6 +83,7 @@ define(function(require) {
                     {rideForm: self.dom.newRide},
                     {activityForm: self.dom.newActivity},
                     {healthForm: self.dom.addHealthEntry},
+                    {recipeForm: self.dom.newFoodItem, double: true},
                     {foodForm: self.dom.newFoodItem, double: true},
                     {mealForm: self.dom.newMeal, double: true}
                 ];
@@ -224,44 +226,6 @@ define(function(require) {
                         });
                     });
                 }
-            },
-
-            editMeal: function (e) {
-                e.preventDefault();
-                var clicked = $(e.target),
-                    meal = JSON.parse(clicked.attr('data-meal')),
-                    model = self.processEncodedMeal(meal),
-                    row = clicked.parent().parent(),
-                    wrapper = row.next().find('.meal_edit'),
-                    action = 'api/meal/edit';
-
-                model.action = action;
-
-                if (!formModule.mealForm.isOpen) {
-                    formModule.mealForm.init({
-                        model: model,
-                        formInsertEl: wrapper,
-                        insertMethod: 'html',
-                        animate: false,
-                        openCallback: function() {
-                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
-                            row.addClass('open');
-                            formModule.mealForm.renderMeal();
-                        },
-                        closeCallback: function() {
-                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
-                            row.removeClass('open');
-                        },
-                        saveCallback: function () {
-                            self.saveNewFood();
-                            location.reload();
-
-                        }
-                    }, true);
-                } else {
-                    formModule.mealForm.close();
-                }
-
             },
 
             saveNewRide: function(ride) {
@@ -444,6 +408,53 @@ define(function(require) {
                 formModule.foodForm.renderPopulated(self.foods[index])
             },
 
+            /***************/
+            /* Recipe View */
+            /***************/
+            setRecipe: function (e) {
+                e.preventDefault();
+
+                var clicked = $(e.currentTarget),
+                    dataContainer = clicked.closest('.additional-info'),
+                    model = formModule.mealForm.model;
+
+                model.recipe = true;
+
+                dataContainer.removeClass('open');
+                formModule.mealForm.close();
+
+                self.genericNewRecipeForm(model);
+            },
+
+            genericNewRecipeForm: function (model) {
+                self.dom.update = {};
+
+                model = $.extend(model, {
+                    date: {formatted: moment().format('MM/DD/YYYY')},
+                    action: model && model.action ? model.action : '/api/recipe/new',
+                    type: 'recipe'
+                });
+
+                formModule.recipeForm.init({
+                    model: model,
+                    formInsertEl: self.dom.newFoodItemPrecedent,
+                    insertMethod: 'after',
+                    animate: true,
+                    openCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).attr('disabled', 'disabled');
+                        helpers.scrollToElement($('.main-header').eq(0));
+                    },
+                    closeCallback: function() {
+                        self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).add(self.dom.dailyTarget).removeAttr('disabled');
+                    },
+                    saveCallback: function () {
+                        self.saveNewFood();
+                        location.reload();
+                    }
+                });
+            },
+
+
             /*************/
             /* Meal View */
             /*************/
@@ -457,6 +468,44 @@ define(function(require) {
                 e.preventDefault();
 
                 self.genericNewMealForm();
+            },
+
+            editMeal: function (e) {
+                e.preventDefault();
+                var clicked = $(e.target),
+                    meal = JSON.parse(clicked.attr('data-meal')),
+                    model = self.processEncodedMeal(meal),
+                    row = clicked.parent().parent(),
+                    wrapper = row.next().find('.meal_edit'),
+                    action = 'api/meal/edit';
+
+                model.action = action;
+
+                if (!formModule.mealForm.isOpen) {
+                    formModule.mealForm.init({
+                        model: model,
+                        formInsertEl: wrapper,
+                        insertMethod: 'html',
+                        animate: false,
+                        openCallback: function() {
+                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).attr('disabled', 'disabled');
+                            row.addClass('open');
+                            formModule.mealForm.renderMeal();
+                        },
+                        closeCallback: function() {
+                            self.dom.newFoodItem.add(self.dom.newMeal).add($('#edit_food')).removeAttr('disabled');
+                            row.removeClass('open');
+                        },
+                        saveCallback: function () {
+                            self.saveNewFood();
+                            location.reload();
+
+                        }
+                    }, true);
+                } else {
+                    formModule.mealForm.close();
+                }
+
             },
 
             duplicateMeal: function (e) {
@@ -476,7 +525,7 @@ define(function(require) {
 
                 model = $.extend(model, {
                     date: {formatted: moment().format('MM/DD/YYYY')},
-                    action: '/api/meal/new'
+                    action: model && model.action ? model.action : '/api/meal/new'
                 });
 
                 formModule.mealForm.init({

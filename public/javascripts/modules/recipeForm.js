@@ -7,7 +7,7 @@ define(function(require) {
         maskedInput = require('maskedInput'),
         serializeObject = require('serializeObject'),
         validation = require('validation'),
-        newHealthEntryForm = require('text!/templates/partials/forms/newHealthEntryForm'),
+        recipeEntryForm = require('text!/templates/partials/forms/recipeForm'),
         newFormDataFields = require('text!/templates/partials/forms/formDataFields'),
         formConfig = require('json!/api/form-config');
 
@@ -31,39 +31,23 @@ define(function(require) {
             cacheDom: function () {
                 self.dom.formInsertLocation = $(self.options.formInsertEl);
                 self.dom.fieldContainer = $('#ride-form-data-fields');
-                self.dom.form = $('#newHealthEntryForm');
+                self.dom.form = $('#newRecipeForm');
                 self.dom.formFieldContainer = $('#health-form-data-fields');
                 self.dom.errorContainer = self.dom.form.find('.health-messaging');
-                self.dom.close = $('#close_health_form');
+                self.dom.close = $('#close_recipe_form');
                 self.dom.date = $('#date');
                 self.dom.duration = $('#duration');
                 self.dom.saveHealth = $('#save_health');
-                self.dom.deleteHealth = $('#delete_health');
-                self.dom.healthTypeSelection = $('#health_type');
+                self.dom.deleteRecipe = $('#delete_recipe');
             },
 
             setModel: function() {
                 self.model = $.extend(self.options.model, formConfig);
-
-                if (self.model.edit) {
-                    self.setHealthType();
-                }
-
-                self.model.healthTypes.forEach(function(type) {
-                    if (type.type === self.model.type) {
-                        type.selected = true;
-                    }
-                });
+                self.model.fields = formConfig.formFields.recipe;
             },
 
             resetModel: function() {
                 self.model = {};
-
-                formConfig.healthTypes.forEach(function(type) {
-                    if (type.selected) {
-                        delete(type.selected);
-                    }
-                });
             },
 
             init: function(options) {
@@ -90,7 +74,7 @@ define(function(require) {
 
             attachHandlers: function() {
                 self.dom.close.on('click', self.close);
-                self.dom.deleteHealth.on('click', self.delete);
+                self.dom.deleteRecipe.on('click', self.delete);
             },
 
             changeHealthType: function(e) {
@@ -107,40 +91,6 @@ define(function(require) {
                 self.model.type = model.type;
                 self.model.fields = self.model.formFields[model.type];
                 self.setHealthType();
-            },
-
-            setHealthType: function() {
-                var type = (function() {
-                    var val = self.model.type;
-
-                    self.model.healthTypes.forEach(function (item) {
-                        if (item.name === val) {
-                            val = item.type;
-                        }
-                    });
-
-                    return val;
-                })();
-
-                self.model.type = type;
-
-                self.cacheDom();
-
-
-                if (self.model.type) {
-                    self.model.fields = self.model.formFields[self.model.type];
-
-                    var template = Mustache.render(newFormDataFields, self.model);
-
-                    self.dom.formFieldContainer.html(template);
-
-                    self.maskInputs();
-                    self.applyValidation();
-
-                    self.dom.saveHealth.removeAttr('disabled');
-                }
-
-                self.cacheDom();
             },
 
             applyValidation: function() {
@@ -163,7 +113,7 @@ define(function(require) {
 
             save: function() {
                 var formData = self.dom.form.serializeObject();
-                
+
                 $.ajax({
                     url: self.model.action,
                     type: 'POST',
@@ -192,13 +142,13 @@ define(function(require) {
             },
 
             render: function() {
-                self.dom.healthForm = $(Mustache.render(newHealthEntryForm, self.model));
+                self.dom.recipeForm = $(Mustache.render(recipeEntryForm, self.model, {newFormDataFields: newFormDataFields}));
 
-                self.options.formInsertEl[self.options.insertMethod](self.dom.healthForm);
-                self.setHealthType();
+                self.options.formInsertEl[self.options.insertMethod](self.dom.recipeForm);
+                self.cacheDom();
 
                 if (self.options.animate) {
-                    self.dom.healthForm.slideDown(400);
+                    self.dom.recipeForm.slideDown(400);
                 }
             },
 
@@ -206,7 +156,7 @@ define(function(require) {
                 var deferred = new $.Deferred();
 
                 if (self.options.animate) {
-                    self.dom.healthForm.slideUp(400, function() {
+                    self.dom.recipeForm.slideUp(400, function() {
                         self.destroy();
                         deferred.resolve();
                     });
@@ -220,7 +170,7 @@ define(function(require) {
 
             destroy: function() {
                 self.resetModel();
-                self.dom.healthForm.remove();
+                self.dom.recipeForm.remove();
                 self.options.closeCallback();
                 self.isOpen = false;
             }

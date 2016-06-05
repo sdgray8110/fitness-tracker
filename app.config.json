@@ -123,6 +123,9 @@
       "rwgpsLink",
       "description"
     ],
+    "recipe": [
+      "recipeName"
+    ],
     "trainer": [
       "name",
       "date",

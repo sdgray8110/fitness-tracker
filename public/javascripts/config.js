@@ -28,6 +28,7 @@ require.config({
         activityForm: 'modules/activityForm',
         foodForm: 'modules/foodForm',
         mealForm: 'modules/mealForm',
+        recipeForm: 'modules/recipeForm',
         healthForm: 'modules/healthForm',
         validation: 'modules/validation'
     }
