@@ -234,6 +234,21 @@ var helpers = (function() {
             return month + '/1/' + year;
         },
 
+        nonUniqueArrayItems: function (arr) {
+            var i,
+                len=arr.length,
+                out=[],
+                obj={};
+
+            for (i=0;i<len;i++) {
+                obj[arr[i]]=0;
+            }
+            for (i in obj) {
+                out.push(i);
+            }
+            return out;
+        },
+
         formattedType: function(activity) {
             activity.typeName = config.getActivityTypeName(activity.type);
         },
@@ -242,6 +257,10 @@ var helpers = (function() {
             var kj = parseInt(kj);
 
             return parseInt((kj *.233) / .22);
+        },
+        
+        dupeArray: function (arr1, arr2) {
+            return arr1.toString() === arr2.toString();
         },
 
         processActivityPost: function(activity) {

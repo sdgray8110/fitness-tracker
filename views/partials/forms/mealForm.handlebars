@@ -9,6 +9,13 @@
                 <input id="meal_date" name="meal_date" type="text" class="inputText" value="{{date.formatted}}" data-validation="required" data-validation-message="Please enter the meal's date." />
 
                 {{^edit}}
+                <select id="common_meals" class="select select-fill-width">
+                    <option>Choose from common meals</option>
+                    {{#commonMeals}}
+                    <option data-index="{{index}}">{{name}}</option>
+                    {{/commonMeals}}
+                </select>
+
                 <input id="meal_populated" type="hidden" value="{{date.formatted}}" data-validation="meal_populated" data-validation-message="Please add food to the meal." />
                 {{/edit}}
             </div>
@@ -28,8 +35,6 @@
         {{/edit}}
 
         <button type="button" class="btn gray pill pull-right" id="close_meal_form">Cancel</button>
-
-        <button class="btn gray pill pull-right" id="save_recipe">Save Meal as Recipe</button>
 
         {{#edit}}
         <button class="btn gray pill pull-right" id="duplicate_meal">Duplicate Meal</button>

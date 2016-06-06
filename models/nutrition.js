@@ -31,17 +31,20 @@ var NutritionCollection = (function() {
                     },
                     model = {};
 
-                db.collection('food').find().sort({food_name: 1}).toArray(function(err, foods) {
-                    foodlist = JSON.stringify(foods);
+                self.dataAccess.selectCommonMeals(req, res, function (common) {
+                    model.commonMeals = JSON.stringify(common);
 
-                    req.fields.forEach(function(field) {
-                        var association = fieldAssociation(field);
+                    db.collection('food').find().sort({food_name: 1}).toArray(function(err, foods) {
+                        foodlist = JSON.stringify(foods);
 
-                        model[field] = self[association.method](association.data);
+                        req.fields.forEach(function(field) {
+                            var association = fieldAssociation(field);
+
+                            model[field] = self[association.method](association.data);
+                        });
+
+                        self.dataAccess.monthlyMealOverview(req, res, dateRange, callback);
                     });
-
-                    self.dataAccess.monthlyMealOverview(req, res, dateRange, callback);
-                    
                 });
             },
 
@@ -193,6 +196,59 @@ var NutritionCollection = (function() {
                         callback(targets[0]);
                     });
                 });
+            },
+
+            selectCommonMeals: function (req, res, callback) {
+                var db = req.db,
+                    ids = {},
+                    foods = [],
+                    observed = [],
+                    threshold = 2,
+                    common = [];
+
+
+                db.collection('meals').find().sort({meal_date: 1}).toArray(function(err, meals) {
+                    var theMeals = [];
+
+                    meals.forEach(function(meal, i) {
+                        var items = JSON.parse(meal.foods);
+                        theMeal = meal;
+                        items = items.sort(self.sortByCalories);
+
+                        ids = items.map(function (item) {
+                            return item._id;
+                        });
+
+                        foods.push({ids: ids.toString(), meal_index: i});
+                        meal.foods = items;
+                    });
+
+                    foods.forEach(function(id) {
+                        ids[id.ids] = ids[id.ids] ? ids[id.ids] + 1 : 1;
+
+                        if (ids[id.ids] >= threshold && observed.indexOf(ids) <= 0 && (meals[id.meal_index].foods.length >= 2)) {
+                            observed.push(id.ids);
+                            common.push(meals[id.meal_index]);
+                        }
+                    });
+
+                    callback(self.processRecipes(common));
+                });
+            },
+
+            backup: function (req, res, callback) {
+                var db = req.db,
+                    backup = require('../data/meals.json.js');
+
+                backup.forEach(function(meal) {
+                    db.collection('meals').insert(meal, function(err, result) {
+                        var newFood = result.ops[0];
+
+                    });
+                });
+
+                    callback(backup);
+
             }
         },
 
@@ -214,6 +270,62 @@ var NutritionCollection = (function() {
             return data;
         },
 
+        processRecipes: function(recipes) {
+            var updated = [];
+
+            recipes.forEach(function (recipe, i) {
+                updated.push(self.processRecipe(recipe, i));
+            });
+
+            return updated;
+        },
+
+        processRecipe: function (recipe, i) {
+            return {
+                    name: self.recipeName(recipe),
+                    foods: recipe,
+                    index: i
+                };
+        },
+
+        sortByCalories: function (a, b) {
+            if ((a.food_calories * a.food_serving_size) < (b.food_calories * b.food_serving_size)) {
+                return 1;
+            }
+
+            if ((a.food_calories * a.food_serving_size) > (b.food_calories * b.food_serving_size)) {
+                return -1;
+            }
+
+            return 0;
+        },
+
+        recipeName: function (recipe) {
+            var name = [];
+
+            recipe.foods.forEach(function (item) {
+                name.push(item.food_name.trim());
+            });
+
+            return self.delimitName(name);
+        },
+
+        delimitName: function (arr) {
+            var outStr = "";
+            if (arr.length === 1) {
+                outStr = arr[0];
+            } else if (arr.length === 2) {
+                //joins all with "and" but no commas
+                //example: "bob and sam"
+                outStr = arr.join(' and ');
+            } else if (arr.length > 2) {
+                //joins all with commas, but last one gets ", and" (oxford comma!)
+                //example: "bob, joe, and sam"
+                outStr = arr.slice(0, -1).join(', ') + ', and ' + arr.slice(-1);
+            }
+            return outStr;
+        },
+        
         processMeals: function(meals, targets) {0
             var dailyMeals = {},
                 keys = [],

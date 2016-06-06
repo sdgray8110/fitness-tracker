@@ -145,6 +145,8 @@ define(function(require) {
                 self.dom.form.on('click', '#close_targets', self.closeTargets);
                 self.dom.form.on('keyup', '#search_foods', self.filterFoods);
                 self.dom.form.on('change', '.food_checkbox', self.selectFood);
+                self.dom.form.on('click', '#save_recipe', self.saveAsRecipe);
+                self.dom.form.on('change', '#common_meals', self.applyCommonMeal);
 
                 self.applyValidation();
             },
@@ -190,6 +192,18 @@ define(function(require) {
 
             applyChosenFoods: function (e) {
                 self.processSelectedFoods();
+                self.updateTotals();
+                self.model.inProgress = true;
+                self.renderMeal();
+            },
+
+            applyCommonMeal: function (e) {
+                var changed = $(e.target),
+                    selected = changed.find(':selected'),
+                    index = selected.data('index'),
+                    meal = self.model.commonMeals[index];
+
+                self.model.selectedFoods = meal.foods.foods;
                 self.updateTotals();
                 self.model.inProgress = true;
                 self.renderMeal();
@@ -388,6 +402,12 @@ define(function(require) {
                 self.updateTotals();
                 self.renderMeal();
 
+            },
+
+            saveAsRecipe: function () {
+                self.model.action = '/api/recipe/new';
+
+                self.save();
             },
 
             deleteMatchedFoodById: function (id) {

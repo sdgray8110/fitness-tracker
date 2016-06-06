@@ -169,6 +169,18 @@ router.get('/meal/deleteall', function(req, res) {
     });
 });
 
+router.get('/meal/recipes', function(req, res) {
+    NutritionCollection.dataAccess.selectCommonMeals(req, res, function(message) {
+        res.json(message);
+    });
+});
+
+router.get('/meal/backup', function(req, res) {
+    NutritionCollection.dataAccess.backup(req, res, function(message) {
+        res.json(message);
+    });
+});
+
 router.get('/food/deleteall', function(req, res) {
     NutritionCollection.dataAccess.clearFoods(req, res, function(message) {
         res.json(message);
