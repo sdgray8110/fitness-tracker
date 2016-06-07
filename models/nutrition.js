@@ -300,11 +300,13 @@ var NutritionCollection = (function() {
         },
 
         sortByCalories: function (a, b) {
-            if ((a.food_calories * a.food_serving_size) < (b.food_calories * b.food_serving_size)) {
+            if ((Number(a.food_calories) * Number(a.count)) < (Number(b.food_calories) * Number(b.count))) {
+
                 return 1;
             }
 
-            if ((a.food_calories * a.food_serving_size) > (b.food_calories * b.food_serving_size)) {
+            if ((Number(a.food_calories) * Number(a.count)) > (Number(b.food_calories) * Number(b.count))) {
+
                 return -1;
             }
 
