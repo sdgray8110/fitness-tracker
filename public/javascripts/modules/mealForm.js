@@ -200,13 +200,16 @@ define(function(require) {
             applyCommonMeal: function (e) {
                 var changed = $(e.target),
                     selected = changed.find(':selected'),
-                    index = selected.data('index'),
-                    meal = self.model.commonMeals[index];
+                    valid = changed.val(),
+                    index = valid ? selected.data('index') : 0,
+                    meal = valid ? self.model.commonMeals[index] : {};
 
-                self.model.selectedFoods = meal.foods.foods;
-                self.updateTotals();
-                self.model.inProgress = true;
-                self.renderMeal();
+                if (valid) {
+                    self.model.selectedFoods = meal.foods.foods;
+                    self.updateTotals();
+                    self.model.inProgress = true;
+                    self.renderMeal();
+                }
             },
 
             updateQuantity: helpers.debounce(function(e) {
