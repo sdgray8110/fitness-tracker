@@ -273,14 +273,17 @@ var NutritionCollection = (function() {
         processRecipes: function(recipes) {
             var updated = [],
                 names = [],
-                theRecipe;
+                theRecipe,
+                i = 0;
 
-            recipes.forEach(function (recipe, i) {
+            recipes.forEach(function (recipe) {
                 theRecipe = self.processRecipe(recipe, i);
 
                 if (names.indexOf(theRecipe.name) < 0) {
                     updated.push(theRecipe);
                     names.push(theRecipe.name);
+
+                    i += 1;
                 }
             });
 

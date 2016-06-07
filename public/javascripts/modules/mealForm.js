@@ -200,7 +200,7 @@ define(function(require) {
             applyCommonMeal: function (e) {
                 var changed = $(e.target),
                     selected = changed.find(':selected'),
-                    valid = changed.val(),
+                    valid = typeof(selected.attr('value'))  !== 'undefined',
                     index = valid ? selected.data('index') : 0,
                     meal = valid ? self.model.commonMeals[index] : {};
 
