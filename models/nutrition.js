@@ -273,28 +273,29 @@ var NutritionCollection = (function() {
         processRecipes: function(recipes) {
             var updated = [],
                 names = [],
-                theRecipe,
-                i = 0;
+                theRecipe;
 
             recipes.forEach(function (recipe) {
-                theRecipe = self.processRecipe(recipe, i);
+                theRecipe = self.processRecipe(recipe);
 
                 if (names.indexOf(theRecipe.name) < 0) {
                     updated.push(theRecipe);
                     names.push(theRecipe.name);
-
-                    i += 1;
                 }
+            });
+
+            updated = updated.sort(self.sortByName);
+            updated.forEach(function(item, i) {
+                item.index = i;
             });
 
             return updated;
         },
 
-        processRecipe: function (recipe, i) {
+        processRecipe: function (recipe) {
             return {
                     name: self.recipeName(recipe),
-                    foods: recipe,
-                    index: i
+                    foods: recipe
                 };
         },
 
@@ -304,6 +305,18 @@ var NutritionCollection = (function() {
             }
 
             if ((a.food_calories * a.food_serving_size) > (b.food_calories * b.food_serving_size)) {
+                return -1;
+            }
+
+            return 0;
+        },
+
+        sortByName: function (a, b) {
+            if (a.name > b.name) {
+                return 1;
+            }
+
+            if (a.name < b.name) {
                 return -1;
             }
 
