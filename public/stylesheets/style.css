@@ -879,6 +879,34 @@ tfoot.totals td.header_cell {
   background-image: url('/images/graph.svg?1439097171');
 }
 
+/* line 1, ../sass/base/_main_footer.scss */
+.main-footer {
+  text-align: center;
+}
+/* line 4, ../sass/base/_main_footer.scss */
+.main-footer .navigation li {
+  display: inline-block;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid #006599;
+}
+/* line 10, ../sass/base/_main_footer.scss */
+.main-footer .navigation li:last-child {
+  padding-right: 0;
+  margin-right: 0;
+  border-right: none;
+}
+/* line 16, ../sass/base/_main_footer.scss */
+.main-footer .navigation li a {
+  font-size: 14px;
+  color: #006599;
+  text-decoration: none;
+}
+/* line 21, ../sass/base/_main_footer.scss */
+.main-footer .navigation li a:hover {
+  text-decoration: underline;
+}
+
 /* line 1, ../sass/modules/_buttons.scss */
 button {
   outline: none;

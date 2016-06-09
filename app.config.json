@@ -52,6 +52,10 @@
       "controllerPath": "../routes/graphs",
       "routePath": "/graphs"
     },
+    "settings": {
+      "controllerPath": "../routes/settings",
+      "routePath": "/settings"
+    },
     "api": {
       "controllerPath": "../routes/api",
       "routePath": "/api"
@@ -59,6 +63,42 @@
     "templates": {
       "controllerPath": "../routes/templates",
       "routePath": "/templates"
+    }
+  },
+  "navigation" : {
+    "header": {
+      "ride": {
+        "path": "/",
+        "title": "Ride Logger",
+        "className": "ride-logger"
+      },
+      "graphs": {
+        "path": "/graphs",
+        "title": "Ride Graphs",
+        "className": "graphs"
+      },
+      "activity": {
+        "path": "/activity",
+        "title": "Activity Tracker",
+        "className": "activity-tracker"
+      },
+      "nutrition": {
+        "path": "/nutrition",
+        "title": "Nutrition",
+        "className": "nutrition-tracker"
+      },
+      "health": {
+        "path": "/health",
+        "title": "Health",
+        "className": "health-tracker"
+      }
+    },
+    "footer": {
+      "settings": {
+        "path": "/settings",
+        "title": "Settings",
+        "className": "settings"
+      }
     }
   },
   "activityTypes": [

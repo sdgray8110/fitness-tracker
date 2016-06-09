@@ -1,0 +1,26 @@
+.main-footer {
+    text-align: center;
+
+    .navigation li {
+        display: inline-block;
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 1px solid $core-blue;
+
+        &:last-child {
+            padding-right: 0;
+            margin-right: 0;
+            border-right: none;
+        }
+
+        a {
+            font-size: 14px;
+            color: $core-blue;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

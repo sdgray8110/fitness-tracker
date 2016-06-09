@@ -8,11 +8,11 @@
 
     <nav class="main-navigation">
         <ul>
-        {{#navigation}}
+        {{#navigation.header}}
             <li class="{{className}}">
                 <a{{#active}} class="active"{{/active}} href="{{path}}">{{title}}</a>
             </li>
-        {{/navigation}}
+        {{/navigation.header}}
         </ul>
     </nav>
 </header>

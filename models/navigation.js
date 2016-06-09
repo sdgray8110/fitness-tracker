@@ -1,42 +1,25 @@
-var Navigation = (function() {
-    var pages = {
-            ride: {
-                path: '/',
-                title: 'Ride Logger',
-                className: 'ride-logger'
-            },
-            graphs: {
-                path: '/graphs',
-                title: 'Ride Graphs',
-                className: 'graphs'
-            },
-            activity: {
-                path: '/activity',
-                title: 'Activity Tracker',
-                className: 'activity-tracker'
-            },
-            nutrition: {
-                path: '/nutrition',
-                title: 'Nutrition',
-                className: 'nutrition-tracker'
-            },
-            health: {
-                path: '/health',
-                title: 'Health',
-                className: 'health-tracker'
-            }
-        },
-        self = {
+var AppConfig = require('../models/config'),
+    Navigation = (function() {
+    var self = {
             construct: function(selectedItem) {
-                var keys = Object.keys(pages),
-                    model = [];
+                var navStructure = AppConfig.dataAccess.property('navigation'),
+                    header = Object.keys(navStructure.header),
+                    footer = Object.keys(navStructure.footer),
+                    model = {
+                        header: header.map(function(key, i) {
+                            var item = navStructure.header[key];
+                            item.active = key === selectedItem;
 
-                keys.forEach(function(key, i) {
-                    var item = pages[key];
-                    item.active = key === selectedItem;
+                            return item;
+                        }),
+                        footer: footer.map(function(key, i) {
+                            var item = navStructure.footer[key];
+                            item.active = key === selectedItem;
 
-                    model.push(item);
-                });
+                            return item;
+                        })
+                    };
+
 
                 return model;
             }
