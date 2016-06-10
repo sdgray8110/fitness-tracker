@@ -20,10 +20,6 @@ var RideCollection = (function() {
 
         processTabs: helpers.processTabs,
 
-        processMeta: function(data) {
-            return {title: data.title + ' | ' + data.displayMonth}
-        },
-
         processContent: function(data) {
             return data;
         },

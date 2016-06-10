@@ -6,7 +6,7 @@ var Navigation = require('../models/navigation');
 
 router.get('/', function(req, res) {
     req.title = 'Fitness Tracker';
-    req.fields = ['activities', 'meta', 'content', 'tabs'];
+    req.fields = ['activities', 'content', 'tabs'];
     var viewModel = {
         navigation: Navigation.construct('activity')
     };
@@ -25,7 +25,7 @@ router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
         res.redirect(isFutureDate);
     } else {
         req.title = 'Fitness Tracker';
-        req.fields = ['activities', 'meta', 'content', 'tabs'];
+        req.fields = ['activities', 'content', 'tabs'];
         var viewModel = {
             navigation: Navigation.construct('activity')
         };

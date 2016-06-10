@@ -4,10 +4,6 @@ var moment = require('moment'),
 
 var NutritionCollection = (function() {
     var self = {
-        processMeta: function(data) {
-            return {title: data.title + ' | ' + 'Nutrition'}
-        },
-
         dataAccess: {
             fetchMonth: function(req, res, callback) {
                 var db = req.db,
@@ -21,7 +17,6 @@ var NutritionCollection = (function() {
                     foodlist = [];
                     fieldAssociation = function(field) {
                         var associations = {
-                                meta: {method: 'processMeta', data: {title: req.title, displayMonth: displayMonth}},
                                 content: {method: 'processContent', data: content},
                                 tabs: {method: 'processTabs', data: dateObj},
                                 foods: {method: 'processFoods', data: foodlist}

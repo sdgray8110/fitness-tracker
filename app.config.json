@@ -1,4 +1,5 @@
 {
+  "appName": "Fitness Tracker",
   "foodUnits": [{
     "title": "Cup(s)",
     "singular": "Cup",
@@ -96,7 +97,7 @@
     "footer": {
       "settings": {
         "path": "/settings",
-        "title": "Settings",
+        "title": "App Settings",
         "className": "settings"
       }
     }

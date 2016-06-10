@@ -13,6 +13,7 @@ router.get('/', function(req, res) {
     SettingsCollection.dataAccess.get(req, res, function(partialModel) {
         viewModel = helpers.extend(viewModel, partialModel);
 
+        //res.json(viewModel);
         res.render('settings', viewModel);
     });
 });

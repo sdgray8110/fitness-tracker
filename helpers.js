@@ -354,6 +354,7 @@ var helpers = (function() {
 
             return months.reverse();
         }
+
     };
 
     return self;

@@ -19,7 +19,20 @@ var AppConfig = require('../models/config'),
                             return item;
                         })
                     };
+                model.metaData = {};
+                
+                ['header', 'footer'].forEach(function (key) {
+                    var type = navStructure[key],
+                        typeKeys = Object.keys(type);
+                    
+                    typeKeys.forEach(function (typeKey) {
 
+                        if (type[typeKey].active) {
+                            model.pageTitle = type[typeKey].title;
+                            model.metaData.title = AppConfig.dataAccess.property('appName') + ' | ' + model.pageTitle;
+                        }
+                    })
+                })
 
                 return model;
             }

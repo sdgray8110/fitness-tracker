@@ -18,11 +18,6 @@ var ActivityCollection = (function() {
             helpers.formatContent(activity);
             self.uiModel(activity, i);
         },
-
-        processMeta: function(data) {
-            return {title: data.title + ' | ' + 'Activity'}
-        },
-
         processContent: function(data) {
             return data;
         },
@@ -50,7 +45,6 @@ var ActivityCollection = (function() {
                 db.collection('activities').find({date: dateRange}).sort({date: 1}).toArray(function(err, activities) {
                     var fieldAssociation = {
                             activities: {method: 'processActivities', data: activities},
-                            meta: {method: 'processMeta', data: {title: req.title, displayMonth: displayMonth}},
                             content: {method: 'processContent', data: content},
                             tabs: {method: 'processTabs', data: dateObj}
                         };

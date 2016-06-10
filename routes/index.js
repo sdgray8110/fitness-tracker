@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     };
 
     RideCollection.dataAccess.fetchYear(req, res, function(partialModel) {
-        req.fields = ['rides', 'stats', 'tabs', 'meta', 'content'];
+        req.fields = ['rides', 'stats', 'tabs', 'content'];
         viewModel = helpers.extend(viewModel, partialModel);
 
         RideCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
