@@ -31,8 +31,6 @@ router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
     SettingsCollection.dataAccess.fetchSettings(req, res, function(settings) {
         viewModel = helpers.extend(viewModel, settings);
 
-        console.log(viewModel);
-
         NutritionCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
             viewModel = helpers.extend(viewModel, partialModel);
 
