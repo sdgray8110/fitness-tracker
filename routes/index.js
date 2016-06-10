@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var helpers = require('../helpers');
 var RideCollection = require('../models/rides');
+var SettingsCollection = require('../models/settings');
 var Navigation = require('../models/navigation');
 
 router.get('/', function(req, res) {
@@ -11,15 +12,17 @@ router.get('/', function(req, res) {
         navigation: Navigation.construct('ride'),
         homepage: true
     };
-
-    RideCollection.dataAccess.fetchYear(req, res, function(partialModel) {
-        req.fields = ['rides', 'stats', 'tabs', 'content'];
-        viewModel = helpers.extend(viewModel, partialModel);
-
-        RideCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
+    SettingsCollection.dataAccess.fetchSettings(req, res, function(settings) {
+        viewModel = helpers.extend(viewModel, settings);
+        RideCollection.dataAccess.fetchYear(req, res, function(partialModel) {
+            req.fields = ['rides', 'stats', 'tabs', 'content'];
             viewModel = helpers.extend(viewModel, partialModel);
 
-            res.render('index', viewModel);
+            RideCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
+                viewModel = helpers.extend(viewModel, partialModel);
+
+                res.render('index', viewModel);
+            });
         });
     });
 });
@@ -35,14 +38,17 @@ router.get('/:year(\\d+)/:month(\\d+)', function(req, res) {
     if (isFutureDate) {
         res.redirect(isFutureDate);
     } else {
-        RideCollection.dataAccess.fetchYear(req, res, function(partialModel) {
-            req.fields = ['rides', 'stats', 'tabs', 'meta', 'content'];
-            viewModel = helpers.extend(viewModel, partialModel);
-
-            RideCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
+        SettingsCollection.dataAccess.fetchSettings(req, res, function(settings) {
+            viewModel = helpers.extend(viewModel, settings);
+            RideCollection.dataAccess.fetchYear(req, res, function(partialModel) {
+                req.fields = ['rides', 'stats', 'tabs', 'content'];
                 viewModel = helpers.extend(viewModel, partialModel);
 
-                res.render('index', viewModel);
+                RideCollection.dataAccess.fetchMonth(req, res, function(partialModel) {
+                    viewModel = helpers.extend(viewModel, partialModel);
+
+                    res.render('index', viewModel);
+                });
             });
         });
     }

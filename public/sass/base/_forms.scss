@@ -32,6 +32,16 @@
         clear: both;
         padding: 0;
         margin: 10px 0;
+
+        &.leftside {
+            float: left;
+            display: block;
+            padding: 0 20px;
+        }
+
+        &.half {
+            width: 50%;
+        }
     }
     
     &:only-child:before {
@@ -174,4 +184,8 @@ legend {
     select {
         padding-top: 0;
     }
+}
+
+.settings_form {
+    overflow: hidden;
 }

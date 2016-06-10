@@ -5,6 +5,7 @@ var RideCollection = require('../models/rides');
 var ActivityCollection = require('../models/activity');
 var NutritionCollection = require('../models/nutrition');
 var HealthCollection = require('../models/health');
+var SettingsCollection = require('../models/settings');
 var RideGraphs = require('../models/graphs');
 var moment = require('moment');
 
@@ -118,6 +119,12 @@ router.get('/graph/monthly-totals', function(req, res) {
 router.post('/new', function(req, res) {
     RideCollection.dataAccess.postNewRide(req, res, function(ride) {
         res.json(ride);
+    });
+});
+
+router.post('/settings', function(req, res) {
+    SettingsCollection.dataAccess.postSettings(req, res, function(message) {
+        res.json(message);
     });
 });
 

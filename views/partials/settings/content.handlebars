@@ -1,3 +1,17 @@
-<h1>
-    {{navigation.pageTitle}}
-</h1>
+<h1>{{navigation.pageTitle}}</h1>
+<div id="settings_messaging" class="settings_messaging"></div>
+
+<form class="settings_form" id="settings_form" action="{{action}}" method="POST">
+    <div class="groupset">
+    {{> forms/formDataFields }}
+    </div>
+    <div class="groupset">
+        <div class="group controls leftside half">
+            <button class="btn gray pill pull-right" id="save_settings">Save</button>
+        </div>
+    </div>
+</form>
+
+<var class="js_components hidden">
+    settings
+</var>

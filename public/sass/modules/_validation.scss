@@ -1,9 +1,14 @@
-.alert {
+.alert,
+.notice {
     color: #b94a48;
     background: #efcbcc;
     padding: 15px;
     margin-top: 20px;
     border: 1px solid #b94a48;
+
+    .settings_messaging & {
+        margin-bottom: 20px;
+    }
 
     .message {
         font-weight: 700;
@@ -33,6 +38,16 @@
     li {
         font-size: 12px;
         list-style-type: disc;
+    }
+}
+
+.notice {
+    color: #0a8d00;
+    background: #ddff8f;
+    border: 1px solid #0a8d00;
+
+    .message {
+        border-bottom: 1px solid #0a8d00;
     }
 }
 

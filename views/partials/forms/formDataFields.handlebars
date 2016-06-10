@@ -1,4 +1,13 @@
 <div class="group">
+    {{#fields.viewportContentField}}
+    <label for="viewport_content">Meta Viewport Content</label>
+    <input id="viewport_content" name="viewport_content" type="text" class="inputText" value="{{../settings.viewport_content}}" data-validation="required" data-validation-message="Please enter the value for the meta viewport content attribute." />
+    {{/fields.viewportContentField}}
+
+    {{#fields.settingsIDField}}
+    <input type="hidden" name="settingsID" id="settingsID" value="{{../settings._id}}" />
+    {{/fields.settingsIDField}}
+
     {{#fields.weightField}}
     <label for="weight">Weight</label>
     <input id="weight" name="weight" type="text" class="inputText" value="{{weight}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Weight." />

@@ -185,7 +185,17 @@ body {
   padding: 0;
   margin: 10px 0;
 }
-/* line 37, ../sass/base/_forms.scss */
+/* line 36, ../sass/base/_forms.scss */
+.group.controls.leftside {
+  float: left;
+  display: block;
+  padding: 0 20px;
+}
+/* line 42, ../sass/base/_forms.scss */
+.group.controls.half {
+  width: 50%;
+}
+/* line 47, ../sass/base/_forms.scss */
 .group:only-child:before {
   content: "";
   vertical-align: top;
@@ -193,7 +203,7 @@ body {
   width: 66%;
   padding: 0 20px;
 }
-/* line 45, ../sass/base/_forms.scss */
+/* line 55, ../sass/base/_forms.scss */
 .group input[type=text],
 .group label,
 .group textarea,
@@ -202,19 +212,19 @@ body {
   float: left;
   margin-bottom: 10px;
 }
-/* line 54, ../sass/base/_forms.scss */
+/* line 64, ../sass/base/_forms.scss */
 .group label {
   width: 35%;
   padding-right: 15px;
   text-align: right;
 }
-/* line 60, ../sass/base/_forms.scss */
+/* line 70, ../sass/base/_forms.scss */
 .group input[type=text],
 .group textarea {
   width: 65%;
 }
 
-/* line 66, ../sass/base/_forms.scss */
+/* line 76, ../sass/base/_forms.scss */
 label {
   font-size: 12px;
   color: #818c94;
@@ -222,7 +232,7 @@ label {
   line-height: 30px;
 }
 
-/* line 73, ../sass/base/_forms.scss */
+/* line 83, ../sass/base/_forms.scss */
 input[type=text],
 textarea {
   margin: 0;
@@ -234,44 +244,44 @@ textarea {
   font-size: 12px;
 }
 
-/* line 84, ../sass/base/_forms.scss */
+/* line 94, ../sass/base/_forms.scss */
 input[type=text] {
   height: 30px;
 }
 
-/* line 88, ../sass/base/_forms.scss */
+/* line 98, ../sass/base/_forms.scss */
 textarea {
   height: 108px;
 }
 
-/* line 92, ../sass/base/_forms.scss */
+/* line 102, ../sass/base/_forms.scss */
 legend {
   text-align: center;
 }
 
-/* line 96, ../sass/base/_forms.scss */
+/* line 106, ../sass/base/_forms.scss */
 .three-column {
   margin-top: 20px;
   float: left;
   width: 100%;
 }
-/* line 101, ../sass/base/_forms.scss */
+/* line 111, ../sass/base/_forms.scss */
 .three-column .columns {
   display: table;
   width: 100%;
 }
-/* line 106, ../sass/base/_forms.scss */
+/* line 116, ../sass/base/_forms.scss */
 .three-column li {
   display: table-cell;
   padding-left: 20px;
 }
-/* line 111, ../sass/base/_forms.scss */
+/* line 121, ../sass/base/_forms.scss */
 .three-column label {
   padding: 0;
   text-align: center;
   margin: 0;
 }
-/* line 117, ../sass/base/_forms.scss */
+/* line 127, ../sass/base/_forms.scss */
 .three-column label,
 .three-column input[type=text] {
   display: block;
@@ -281,7 +291,7 @@ legend {
 
 /* Selects
 ---------------------------------------------------------------------------- */
-/* line 127, ../sass/base/_forms.scss */
+/* line 137, ../sass/base/_forms.scss */
 .select {
   font-family: 'Open Sans', Arial, sans-serif;
   height: 30px;
@@ -300,12 +310,12 @@ legend {
   outline: none;
 }
 
-/* line 145, ../sass/base/_forms.scss */
+/* line 155, ../sass/base/_forms.scss */
 .select:focus {
   border: 1px solid #0290d7;
 }
 
-/* line 149, ../sass/base/_forms.scss */
+/* line 159, ../sass/base/_forms.scss */
 .select:disabled {
   background-color: #E2E2E2;
   color: #b2b2b2;
@@ -314,33 +324,38 @@ legend {
   cursor: default;
 }
 
-/* line 157, ../sass/base/_forms.scss */
+/* line 167, ../sass/base/_forms.scss */
 .select-sm {
   width: 135px;
 }
 
-/* line 161, ../sass/base/_forms.scss */
+/* line 171, ../sass/base/_forms.scss */
 .select-med {
   width: 170px;
 }
 
-/* line 165, ../sass/base/_forms.scss */
+/* line 175, ../sass/base/_forms.scss */
 .select-fill-width {
   width: 100%;
 }
 
-/* line 169, ../sass/base/_forms.scss */
+/* line 179, ../sass/base/_forms.scss */
 .select.food_selection {
   margin-bottom: 10px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   /*---- fixes padding in chrome-----*/
-  /* line 174, ../sass/base/_forms.scss */
+  /* line 184, ../sass/base/_forms.scss */
   select {
     padding-top: 0;
   }
 }
+/* line 189, ../sass/base/_forms.scss */
+.settings_form {
+  overflow: hidden;
+}
+
 /* line 1, ../sass/base/_tables.scss */
 table {
   background: #fff;
@@ -984,15 +999,22 @@ button {
 }
 
 /* line 1, ../sass/modules/_validation.scss */
-.alert {
+.alert,
+.notice {
   color: #b94a48;
   background: #efcbcc;
   padding: 15px;
   margin-top: 20px;
   border: 1px solid #b94a48;
 }
-/* line 8, ../sass/modules/_validation.scss */
-.alert .message {
+/* line 9, ../sass/modules/_validation.scss */
+.settings_messaging .alert, .settings_messaging
+.notice {
+  margin-bottom: 20px;
+}
+/* line 13, ../sass/modules/_validation.scss */
+.alert .message,
+.notice .message {
   font-weight: 700;
   font-size: 14px;
   border-bottom: 1px solid #b94a48;
@@ -1001,8 +1023,9 @@ button {
   padding-left: 22px;
   position: relative;
 }
-/* line 17, ../sass/modules/_validation.scss */
-.alert .message:before {
+/* line 22, ../sass/modules/_validation.scss */
+.alert .message:before,
+.notice .message:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1013,17 +1036,30 @@ button {
   background: url('/images/error.svg?1416182103') no-repeat;
   background-size: contain;
 }
-/* line 29, ../sass/modules/_validation.scss */
-.alert ul {
+/* line 34, ../sass/modules/_validation.scss */
+.alert ul,
+.notice ul {
   margin-left: 24px;
 }
-/* line 33, ../sass/modules/_validation.scss */
-.alert li {
+/* line 38, ../sass/modules/_validation.scss */
+.alert li,
+.notice li {
   font-size: 12px;
   list-style-type: disc;
 }
 
-/* line 39, ../sass/modules/_validation.scss */
+/* line 44, ../sass/modules/_validation.scss */
+.notice {
+  color: #0a8d00;
+  background: #ddff8f;
+  border: 1px solid #0a8d00;
+}
+/* line 49, ../sass/modules/_validation.scss */
+.notice .message {
+  border-bottom: 1px solid #0a8d00;
+}
+
+/* line 54, ../sass/modules/_validation.scss */
 input[type=text].validationError,
 textarea.validationError,
 .select.validationError {
@@ -1032,7 +1068,7 @@ textarea.validationError,
   border-color: #b94a48;
 }
 
-/* line 47, ../sass/modules/_validation.scss */
+/* line 62, ../sass/modules/_validation.scss */
 .food-messaging {
   clear: both;
   float: right;
