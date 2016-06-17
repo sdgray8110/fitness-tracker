@@ -91,6 +91,7 @@ define(function(require) {
             attachHandlers: function() {
                 self.dom.close.on('click', self.close);
                 self.dom.deleteHealth.on('click', self.delete);
+                self.dom.healthTypeSelection.on('change', self.changeHealthType);
             },
 
             changeHealthType: function(e) {
