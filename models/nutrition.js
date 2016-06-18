@@ -508,13 +508,15 @@ var NutritionCollection = (function() {
             });
 
             reqFoods.keys.forEach(function(key) {
-                if (reqFoods[key].appliedCount < reqFoods[key].count) {
+                var theFood = helpers.extend({}, reqFoods[key]);
+
+                if (theFood.appliedCount < theFood.count) {
                     dailyMeals.requiredFoodsWarning = true;
-                    dailyMeals.requiredFoodsTargets.push(reqFoods[key]);
+                    dailyMeals.requiredFoodsTargets.push(theFood);
                 }
             });
 
-            console.log(dailyMeals.requiredFoodsTargets);
+            console.log('foo', dailyMeals.requiredFoodsTargets);
         },
 
         processTabs: helpers.processTabs
