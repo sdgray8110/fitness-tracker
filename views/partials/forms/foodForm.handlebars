@@ -39,6 +39,9 @@
 
             <label for="food_sugar">Sugar</label>
             <input id="food_sugar" name="food_sugar" type="text" class="inputText" value="{{food_sugar}}" data-validation="number" data-required="true" data-validation-message="Please enter a valid number for the item's sugar" />
+
+            <label for="food_required">Required Daily?</label>
+            <input id="food_required" name="food_required" type="checkbox" value="1" {{#food_required_checked}}checked="checked"{{/food_required_checked}} />
         </div>
 
         <div class="group">

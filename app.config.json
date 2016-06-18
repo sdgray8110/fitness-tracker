@@ -30,6 +30,11 @@
     "singular": "Package / Item",
     "plural": "Packages / Items",
     "value": "package"
+  }, {
+    "title": "Capsule(s)",
+    "singular": "Capsule",
+    "plural": "Capsules",
+    "value": "capsule"
   }],
 
   "routes": {

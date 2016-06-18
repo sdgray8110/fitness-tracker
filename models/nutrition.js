@@ -14,7 +14,7 @@ var NutritionCollection = (function() {
                     displayMonth = dateObj.format('MMMM YYYY'),
                     dateRange = {'$gte': moment(dateStr).startOf('month').toDate(), '$lt': moment(dateStr).endOf('month').toDate()},
                     content = {displayMonth: displayMonth, dateString: dateStr},
-                    foodlist = [];
+                    foodlist = [],
                     fieldAssociation = function(field) {
                         var associations = {
                                 content: {method: 'processContent', data: content},
@@ -38,12 +38,12 @@ var NutritionCollection = (function() {
                             model[field] = self[association.method](association.data);
                         });
 
-                        self.dataAccess.monthlyMealOverview(req, res, dateRange, callback);
+                        self.dataAccess.monthlyMealOverview(req, res, dateRange, model, callback);
                     });
                 });
             },
 
-            monthlyMealOverview: function(req, res, dateRange, callback) {
+            monthlyMealOverview: function(req, res, dateRange, model, callback) {
                 var db = req.db;
 
                 model.meals = {};
@@ -175,7 +175,19 @@ var NutritionCollection = (function() {
                     model = req.body;
 
                 db.collection('targets').find().toArray(function(err, targets) {
-                    callback(targets[0]);
+                    self.dataAccess.getRequiredFoods(req, res, function(requiredFoods) {
+                        targets[0].requiredFoods = requiredFoods;
+
+                        callback(targets[0]);
+                    });
+                });
+            },
+
+            getRequiredFoods: function  (req, res, callback) {
+                var db = req.db;
+
+                db.collection('food').find({food_required: '1'}).toArray(function(err, requiredFoods) {
+                        callback(requiredFoods);
                 });
             },
 
@@ -261,8 +273,16 @@ var NutritionCollection = (function() {
             return data;
         },
 
-        processFoods: function(data) {
-            return data;
+        processFoods: function(foods) {
+            foods = JSON.parse(foods);
+
+            foods.forEach(function (food) {
+               if (food.food_required) {
+                   food.food_required_checked = true;
+               }
+            });
+
+            return JSON.stringify(foods);
         },
 
         processRecipes: function(recipes) {
