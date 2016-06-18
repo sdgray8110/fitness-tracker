@@ -353,6 +353,27 @@ var helpers = (function() {
             };
 
             return months.reverse();
+        },
+
+        selectFoodUnit: function (food) {
+            var units = self.extend({}, self.foodUnits),
+                keys = Object.keys(units);
+            food.serving_size_types = keys.map(function (key) {
+                return units[key];
+            });
+
+
+            food.food_serving_size = food.food_serving_size || 1;
+            food.serving_size_type = food.serving_size_type || 'cup';
+
+            food.serving_size_types.forEach(function (type) {
+                if (food.serving_size_type === type.value) {
+                    food.serving_size_applied = (food.count * 1) === 1 ? type.singular : type.plural;
+                    type.selected = true;
+                } else {
+                    type.selected = false;
+                }
+            });
         }
 
     };

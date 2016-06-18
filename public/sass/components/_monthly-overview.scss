@@ -105,6 +105,10 @@
             td {
                 width: 16%;
 
+                &.required_foods {
+                    width: 30px;
+                }
+
                 &.meal_detail_link {
                     width: 33%;
                 }

@@ -176,6 +176,7 @@ var NutritionCollection = (function() {
 
                 db.collection('targets').find().toArray(function(err, targets) {
                     self.dataAccess.getRequiredFoods(req, res, function(requiredFoods) {
+                        self.processRequiredFoods(requiredFoods, targets[0]);
                         targets[0].requiredFoods = requiredFoods;
 
                         callback(targets[0]);
@@ -187,7 +188,7 @@ var NutritionCollection = (function() {
                 var db = req.db;
 
                 db.collection('food').find({food_required: '1'}).toArray(function(err, requiredFoods) {
-                        callback(requiredFoods);
+                    callback(requiredFoods);
                 });
             },
 
@@ -314,6 +315,23 @@ var NutritionCollection = (function() {
                 };
         },
 
+        processRequiredFoods: function (foods, targets) {
+            var keys = Object.keys(targets),
+                id;
+
+            keys.forEach(function (key) {
+                if (key.match('required_food_')) {
+                    id = key.replace('required_food_', '');
+
+                    foods.forEach(function (food) {
+                        if (food._id == id) {
+                            food.count = targets[key];
+                        }
+                    });
+                }
+            });
+        },
+
         sortByCalories: function (a, b) {
             if ((Number(a.food_calories) * Number(a.count)) < (Number(b.food_calories) * Number(b.count))) {
 
@@ -436,6 +454,8 @@ var NutritionCollection = (function() {
                     dailyMeals[key].fiberWarning = true;
                 }
 
+                self.requiredFoodsWarning(dailyMeals[key], targets);
+
                 return dailyMeals[key];
             });
 
@@ -463,6 +483,38 @@ var NutritionCollection = (function() {
             });
 
             return value;
+        },
+
+        requiredFoodsWarning: function (dailyMeals, targets) {
+            var reqFoods = {
+                keys: []
+            };
+
+            dailyMeals.requiredFoodsTargets = [];
+
+                targets.requiredFoods.forEach(function (food) {
+                    helpers.selectFoodUnit(food);
+                    reqFoods[food._id] = food;
+                    reqFoods[food._id].appliedCount = 0;
+                    reqFoods.keys.push(food._id);
+                });
+            
+            dailyMeals.meals.forEach(function (meal) {
+                meal.foods.forEach(function (item) {
+                    if (reqFoods[item._id]) {
+                        reqFoods[item._id].appliedCount += Number(item.count);
+                    }
+                })
+            });
+
+            reqFoods.keys.forEach(function(key) {
+                if (reqFoods[key].appliedCount < reqFoods[key].count) {
+                    dailyMeals.requiredFoodsWarning = true;
+                    dailyMeals.requiredFoodsTargets.push(reqFoods[key]);
+                }
+            });
+
+            console.log(dailyMeals.requiredFoodsTargets);
         },
 
         processTabs: helpers.processTabs

@@ -34,6 +34,40 @@ tbody {
                 background: #fff;
                 color: $dark-gray;
 
+                &.required_foods {
+                    width: 30px;
+
+                    &:before {
+                        display: none;
+                    }
+
+                    .required_messaging {
+                        display: none;
+                    }
+
+                    &.show {
+                        .required_messaging {
+                            display: block;
+                            width: 250px;
+
+                            p {
+                                line-height: 15px;
+                                margin-bottom: 15px;
+                            }
+                        }
+                    }
+
+                    .icon {
+                        display: block;
+                        width: 25px;
+                        height: 21px;
+                        background: image-url('check.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin: 4px auto 0 auto;
+                    }
+                }
+
                 &.warning {
                     color: #b94a48;
                     background: #efcbcc;
@@ -46,6 +80,28 @@ tbody {
                         font-size: 15px;
                         position: relative;
                         top: -2px;
+                    }
+                    
+                    &.required_foods {
+                        width: 30px;
+
+                        &:before {
+                            display: none;
+                        }
+
+                        .icon {
+                            cursor: pointer;
+                            display: block;
+                            width: 25px;
+                            height: 21px;
+                            background: image-url('error.svg');
+                            margin: 4px auto 0 auto;
+                            transition: opacity .5s;
+
+                            &:hover {
+                                opacity: .5;
+                            }
+                        }
                     }
 
                     &.high {

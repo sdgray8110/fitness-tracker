@@ -212,7 +212,8 @@
       "calorieTarget",
       "proteinTarget",
       "sugarTarget",
-      "fiberTarget"
+      "fiberTarget",
+      "requiredFoods"
     ],
     "weight": [
       "weight",

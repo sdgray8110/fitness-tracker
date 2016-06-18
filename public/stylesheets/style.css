@@ -163,10 +163,16 @@ body {
   padding: 0 20px;
 }
 /* line 14, ../sass/base/_forms.scss */
+.group h2 {
+  margin: 20px 0 15px;
+  width: 100%;
+  float: left;
+}
+/* line 20, ../sass/base/_forms.scss */
 .group.wide {
   width: 50%;
 }
-/* line 18, ../sass/base/_forms.scss */
+/* line 24, ../sass/base/_forms.scss */
 .group .field_group {
   width: 100%;
   margin-bottom: 10px;
@@ -174,28 +180,28 @@ body {
   border-bottom: 1px solid #999999;
   overflow: hidden;
 }
-/* line 25, ../sass/base/_forms.scss */
+/* line 31, ../sass/base/_forms.scss */
 .group .field_group .select_wrapper {
   width: 70%;
 }
-/* line 30, ../sass/base/_forms.scss */
+/* line 36, ../sass/base/_forms.scss */
 .group.controls {
   float: right;
   clear: both;
   padding: 0;
   margin: 10px 0;
 }
-/* line 36, ../sass/base/_forms.scss */
+/* line 42, ../sass/base/_forms.scss */
 .group.controls.leftside {
   float: left;
   display: block;
   padding: 0 20px;
 }
-/* line 42, ../sass/base/_forms.scss */
+/* line 48, ../sass/base/_forms.scss */
 .group.controls.half {
   width: 50%;
 }
-/* line 47, ../sass/base/_forms.scss */
+/* line 53, ../sass/base/_forms.scss */
 .group:only-child:before {
   content: "";
   vertical-align: top;
@@ -203,7 +209,7 @@ body {
   width: 66%;
   padding: 0 20px;
 }
-/* line 55, ../sass/base/_forms.scss */
+/* line 61, ../sass/base/_forms.scss */
 .group input[type=text],
 .group label,
 .group textarea,
@@ -212,19 +218,19 @@ body {
   float: left;
   margin-bottom: 10px;
 }
-/* line 64, ../sass/base/_forms.scss */
+/* line 70, ../sass/base/_forms.scss */
 .group label {
-  width: 35%;
+  width: 40%;
   padding-right: 15px;
   text-align: right;
 }
-/* line 70, ../sass/base/_forms.scss */
+/* line 76, ../sass/base/_forms.scss */
 .group input[type=text],
 .group textarea {
-  width: 65%;
+  width: 60%;
 }
 
-/* line 76, ../sass/base/_forms.scss */
+/* line 82, ../sass/base/_forms.scss */
 label {
   font-size: 12px;
   color: #818c94;
@@ -232,7 +238,7 @@ label {
   line-height: 30px;
 }
 
-/* line 83, ../sass/base/_forms.scss */
+/* line 89, ../sass/base/_forms.scss */
 input[type=text],
 textarea {
   margin: 0;
@@ -244,44 +250,44 @@ textarea {
   font-size: 12px;
 }
 
-/* line 94, ../sass/base/_forms.scss */
+/* line 100, ../sass/base/_forms.scss */
 input[type=text] {
   height: 30px;
 }
 
-/* line 98, ../sass/base/_forms.scss */
+/* line 104, ../sass/base/_forms.scss */
 textarea {
   height: 108px;
 }
 
-/* line 102, ../sass/base/_forms.scss */
+/* line 108, ../sass/base/_forms.scss */
 legend {
   text-align: center;
 }
 
-/* line 106, ../sass/base/_forms.scss */
+/* line 112, ../sass/base/_forms.scss */
 .three-column {
   margin-top: 20px;
   float: left;
   width: 100%;
 }
-/* line 111, ../sass/base/_forms.scss */
+/* line 117, ../sass/base/_forms.scss */
 .three-column .columns {
   display: table;
   width: 100%;
 }
-/* line 116, ../sass/base/_forms.scss */
+/* line 122, ../sass/base/_forms.scss */
 .three-column li {
   display: table-cell;
   padding-left: 20px;
 }
-/* line 121, ../sass/base/_forms.scss */
+/* line 127, ../sass/base/_forms.scss */
 .three-column label {
   padding: 0;
   text-align: center;
   margin: 0;
 }
-/* line 127, ../sass/base/_forms.scss */
+/* line 133, ../sass/base/_forms.scss */
 .three-column label,
 .three-column input[type=text] {
   display: block;
@@ -291,7 +297,7 @@ legend {
 
 /* Selects
 ---------------------------------------------------------------------------- */
-/* line 137, ../sass/base/_forms.scss */
+/* line 143, ../sass/base/_forms.scss */
 .select {
   font-family: 'Open Sans', Arial, sans-serif;
   height: 30px;
@@ -310,12 +316,12 @@ legend {
   outline: none;
 }
 
-/* line 155, ../sass/base/_forms.scss */
+/* line 161, ../sass/base/_forms.scss */
 .select:focus {
   border: 1px solid #0290d7;
 }
 
-/* line 159, ../sass/base/_forms.scss */
+/* line 165, ../sass/base/_forms.scss */
 .select:disabled {
   background-color: #E2E2E2;
   color: #b2b2b2;
@@ -324,34 +330,34 @@ legend {
   cursor: default;
 }
 
-/* line 167, ../sass/base/_forms.scss */
+/* line 173, ../sass/base/_forms.scss */
 .select-sm {
   width: 135px;
 }
 
-/* line 171, ../sass/base/_forms.scss */
+/* line 177, ../sass/base/_forms.scss */
 .select-med {
   width: 170px;
 }
 
-/* line 175, ../sass/base/_forms.scss */
+/* line 181, ../sass/base/_forms.scss */
 .select-fill-width {
   width: 100%;
 }
 
-/* line 179, ../sass/base/_forms.scss */
+/* line 185, ../sass/base/_forms.scss */
 .select.food_selection {
   margin-bottom: 10px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   /*---- fixes padding in chrome-----*/
-  /* line 184, ../sass/base/_forms.scss */
+  /* line 190, ../sass/base/_forms.scss */
   select {
     padding-top: 0;
   }
 }
-/* line 189, ../sass/base/_forms.scss */
+/* line 195, ../sass/base/_forms.scss */
 .settings_form {
   overflow: hidden;
 }
@@ -404,6 +410,122 @@ tbody.meal-list tr > td {
   color: #818c94;
 }
 /* line 37, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods,
+tbody .activity-data.even > td.required_foods, tbody .activity-data.odd td.required_foods,
+tbody .activity-data.odd > td.required_foods,
+tbody .activity-data tr td.required_foods,
+tbody .activity-data tr > td.required_foods,
+tbody .meal-list.even td.required_foods,
+tbody .meal-list.even > td.required_foods,
+tbody .meal-list.odd td.required_foods,
+tbody .meal-list.odd > td.required_foods,
+tbody .meal-list tr td.required_foods,
+tbody .meal-list tr > td.required_foods, tbody.meal-list.even td.required_foods,
+tbody.meal-list.even > td.required_foods, tbody.meal-list.odd td.required_foods,
+tbody.meal-list.odd > td.required_foods,
+tbody.meal-list tr td.required_foods,
+tbody.meal-list tr > td.required_foods {
+  width: 30px;
+}
+/* line 40, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods:before,
+tbody .activity-data.even > td.required_foods:before, tbody .activity-data.odd td.required_foods:before,
+tbody .activity-data.odd > td.required_foods:before,
+tbody .activity-data tr td.required_foods:before,
+tbody .activity-data tr > td.required_foods:before,
+tbody .meal-list.even td.required_foods:before,
+tbody .meal-list.even > td.required_foods:before,
+tbody .meal-list.odd td.required_foods:before,
+tbody .meal-list.odd > td.required_foods:before,
+tbody .meal-list tr td.required_foods:before,
+tbody .meal-list tr > td.required_foods:before, tbody.meal-list.even td.required_foods:before,
+tbody.meal-list.even > td.required_foods:before, tbody.meal-list.odd td.required_foods:before,
+tbody.meal-list.odd > td.required_foods:before,
+tbody.meal-list tr td.required_foods:before,
+tbody.meal-list tr > td.required_foods:before {
+  display: none;
+}
+/* line 44, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods .required_messaging,
+tbody .activity-data.even > td.required_foods .required_messaging, tbody .activity-data.odd td.required_foods .required_messaging,
+tbody .activity-data.odd > td.required_foods .required_messaging,
+tbody .activity-data tr td.required_foods .required_messaging,
+tbody .activity-data tr > td.required_foods .required_messaging,
+tbody .meal-list.even td.required_foods .required_messaging,
+tbody .meal-list.even > td.required_foods .required_messaging,
+tbody .meal-list.odd td.required_foods .required_messaging,
+tbody .meal-list.odd > td.required_foods .required_messaging,
+tbody .meal-list tr td.required_foods .required_messaging,
+tbody .meal-list tr > td.required_foods .required_messaging, tbody.meal-list.even td.required_foods .required_messaging,
+tbody.meal-list.even > td.required_foods .required_messaging, tbody.meal-list.odd td.required_foods .required_messaging,
+tbody.meal-list.odd > td.required_foods .required_messaging,
+tbody.meal-list tr td.required_foods .required_messaging,
+tbody.meal-list tr > td.required_foods .required_messaging {
+  display: none;
+}
+/* line 49, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods.show .required_messaging,
+tbody .activity-data.even > td.required_foods.show .required_messaging, tbody .activity-data.odd td.required_foods.show .required_messaging,
+tbody .activity-data.odd > td.required_foods.show .required_messaging,
+tbody .activity-data tr td.required_foods.show .required_messaging,
+tbody .activity-data tr > td.required_foods.show .required_messaging,
+tbody .meal-list.even td.required_foods.show .required_messaging,
+tbody .meal-list.even > td.required_foods.show .required_messaging,
+tbody .meal-list.odd td.required_foods.show .required_messaging,
+tbody .meal-list.odd > td.required_foods.show .required_messaging,
+tbody .meal-list tr td.required_foods.show .required_messaging,
+tbody .meal-list tr > td.required_foods.show .required_messaging, tbody.meal-list.even td.required_foods.show .required_messaging,
+tbody.meal-list.even > td.required_foods.show .required_messaging, tbody.meal-list.odd td.required_foods.show .required_messaging,
+tbody.meal-list.odd > td.required_foods.show .required_messaging,
+tbody.meal-list tr td.required_foods.show .required_messaging,
+tbody.meal-list tr > td.required_foods.show .required_messaging {
+  display: block;
+  width: 250px;
+}
+/* line 53, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods.show .required_messaging p,
+tbody .activity-data.even > td.required_foods.show .required_messaging p, tbody .activity-data.odd td.required_foods.show .required_messaging p,
+tbody .activity-data.odd > td.required_foods.show .required_messaging p,
+tbody .activity-data tr td.required_foods.show .required_messaging p,
+tbody .activity-data tr > td.required_foods.show .required_messaging p,
+tbody .meal-list.even td.required_foods.show .required_messaging p,
+tbody .meal-list.even > td.required_foods.show .required_messaging p,
+tbody .meal-list.odd td.required_foods.show .required_messaging p,
+tbody .meal-list.odd > td.required_foods.show .required_messaging p,
+tbody .meal-list tr td.required_foods.show .required_messaging p,
+tbody .meal-list tr > td.required_foods.show .required_messaging p, tbody.meal-list.even td.required_foods.show .required_messaging p,
+tbody.meal-list.even > td.required_foods.show .required_messaging p, tbody.meal-list.odd td.required_foods.show .required_messaging p,
+tbody.meal-list.odd > td.required_foods.show .required_messaging p,
+tbody.meal-list tr td.required_foods.show .required_messaging p,
+tbody.meal-list tr > td.required_foods.show .required_messaging p {
+  line-height: 15px;
+  margin-bottom: 15px;
+}
+/* line 60, ../sass/base/_tables.scss */
+tbody .activity-data.even td.required_foods .icon,
+tbody .activity-data.even > td.required_foods .icon, tbody .activity-data.odd td.required_foods .icon,
+tbody .activity-data.odd > td.required_foods .icon,
+tbody .activity-data tr td.required_foods .icon,
+tbody .activity-data tr > td.required_foods .icon,
+tbody .meal-list.even td.required_foods .icon,
+tbody .meal-list.even > td.required_foods .icon,
+tbody .meal-list.odd td.required_foods .icon,
+tbody .meal-list.odd > td.required_foods .icon,
+tbody .meal-list tr td.required_foods .icon,
+tbody .meal-list tr > td.required_foods .icon, tbody.meal-list.even td.required_foods .icon,
+tbody.meal-list.even > td.required_foods .icon, tbody.meal-list.odd td.required_foods .icon,
+tbody.meal-list.odd > td.required_foods .icon,
+tbody.meal-list tr td.required_foods .icon,
+tbody.meal-list tr > td.required_foods .icon {
+  display: block;
+  width: 25px;
+  height: 21px;
+  background: url('/images/check.svg?1466276185');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 4px auto 0 auto;
+}
+/* line 71, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning,
 tbody .activity-data.even > td.warning, tbody .activity-data.odd td.warning,
 tbody .activity-data.odd > td.warning,
@@ -422,7 +544,7 @@ tbody.meal-list tr > td.warning {
   color: #b94a48;
   background: #efcbcc;
 }
-/* line 41, ../sass/base/_tables.scss */
+/* line 75, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning:before,
 tbody .activity-data.even > td.warning:before, tbody .activity-data.odd td.warning:before,
 tbody .activity-data.odd > td.warning:before,
@@ -446,7 +568,85 @@ tbody.meal-list tr > td.warning:before {
   position: relative;
   top: -2px;
 }
-/* line 52, ../sass/base/_tables.scss */
+/* line 85, ../sass/base/_tables.scss */
+tbody .activity-data.even td.warning.required_foods,
+tbody .activity-data.even > td.warning.required_foods, tbody .activity-data.odd td.warning.required_foods,
+tbody .activity-data.odd > td.warning.required_foods,
+tbody .activity-data tr td.warning.required_foods,
+tbody .activity-data tr > td.warning.required_foods,
+tbody .meal-list.even td.warning.required_foods,
+tbody .meal-list.even > td.warning.required_foods,
+tbody .meal-list.odd td.warning.required_foods,
+tbody .meal-list.odd > td.warning.required_foods,
+tbody .meal-list tr td.warning.required_foods,
+tbody .meal-list tr > td.warning.required_foods, tbody.meal-list.even td.warning.required_foods,
+tbody.meal-list.even > td.warning.required_foods, tbody.meal-list.odd td.warning.required_foods,
+tbody.meal-list.odd > td.warning.required_foods,
+tbody.meal-list tr td.warning.required_foods,
+tbody.meal-list tr > td.warning.required_foods {
+  width: 30px;
+}
+/* line 88, ../sass/base/_tables.scss */
+tbody .activity-data.even td.warning.required_foods:before,
+tbody .activity-data.even > td.warning.required_foods:before, tbody .activity-data.odd td.warning.required_foods:before,
+tbody .activity-data.odd > td.warning.required_foods:before,
+tbody .activity-data tr td.warning.required_foods:before,
+tbody .activity-data tr > td.warning.required_foods:before,
+tbody .meal-list.even td.warning.required_foods:before,
+tbody .meal-list.even > td.warning.required_foods:before,
+tbody .meal-list.odd td.warning.required_foods:before,
+tbody .meal-list.odd > td.warning.required_foods:before,
+tbody .meal-list tr td.warning.required_foods:before,
+tbody .meal-list tr > td.warning.required_foods:before, tbody.meal-list.even td.warning.required_foods:before,
+tbody.meal-list.even > td.warning.required_foods:before, tbody.meal-list.odd td.warning.required_foods:before,
+tbody.meal-list.odd > td.warning.required_foods:before,
+tbody.meal-list tr td.warning.required_foods:before,
+tbody.meal-list tr > td.warning.required_foods:before {
+  display: none;
+}
+/* line 92, ../sass/base/_tables.scss */
+tbody .activity-data.even td.warning.required_foods .icon,
+tbody .activity-data.even > td.warning.required_foods .icon, tbody .activity-data.odd td.warning.required_foods .icon,
+tbody .activity-data.odd > td.warning.required_foods .icon,
+tbody .activity-data tr td.warning.required_foods .icon,
+tbody .activity-data tr > td.warning.required_foods .icon,
+tbody .meal-list.even td.warning.required_foods .icon,
+tbody .meal-list.even > td.warning.required_foods .icon,
+tbody .meal-list.odd td.warning.required_foods .icon,
+tbody .meal-list.odd > td.warning.required_foods .icon,
+tbody .meal-list tr td.warning.required_foods .icon,
+tbody .meal-list tr > td.warning.required_foods .icon, tbody.meal-list.even td.warning.required_foods .icon,
+tbody.meal-list.even > td.warning.required_foods .icon, tbody.meal-list.odd td.warning.required_foods .icon,
+tbody.meal-list.odd > td.warning.required_foods .icon,
+tbody.meal-list tr td.warning.required_foods .icon,
+tbody.meal-list tr > td.warning.required_foods .icon {
+  cursor: pointer;
+  display: block;
+  width: 25px;
+  height: 21px;
+  background: url('/images/error.svg?1416182103');
+  margin: 4px auto 0 auto;
+  transition: opacity .5s;
+}
+/* line 101, ../sass/base/_tables.scss */
+tbody .activity-data.even td.warning.required_foods .icon:hover,
+tbody .activity-data.even > td.warning.required_foods .icon:hover, tbody .activity-data.odd td.warning.required_foods .icon:hover,
+tbody .activity-data.odd > td.warning.required_foods .icon:hover,
+tbody .activity-data tr td.warning.required_foods .icon:hover,
+tbody .activity-data tr > td.warning.required_foods .icon:hover,
+tbody .meal-list.even td.warning.required_foods .icon:hover,
+tbody .meal-list.even > td.warning.required_foods .icon:hover,
+tbody .meal-list.odd td.warning.required_foods .icon:hover,
+tbody .meal-list.odd > td.warning.required_foods .icon:hover,
+tbody .meal-list tr td.warning.required_foods .icon:hover,
+tbody .meal-list tr > td.warning.required_foods .icon:hover, tbody.meal-list.even td.warning.required_foods .icon:hover,
+tbody.meal-list.even > td.warning.required_foods .icon:hover, tbody.meal-list.odd td.warning.required_foods .icon:hover,
+tbody.meal-list.odd > td.warning.required_foods .icon:hover,
+tbody.meal-list tr td.warning.required_foods .icon:hover,
+tbody.meal-list tr > td.warning.required_foods .icon:hover {
+  opacity: .5;
+}
+/* line 108, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.high:before,
 tbody .activity-data.even > td.warning.high:before, tbody .activity-data.odd td.warning.high:before,
 tbody .activity-data.odd > td.warning.high:before,
@@ -466,7 +666,7 @@ tbody.meal-list tr > td.warning.high:before {
   margin-right: 5px;
   top: 0;
 }
-/* line 63, ../sass/base/_tables.scss */
+/* line 119, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot tr:first-of-type td,
 tbody .activity-data.even > td tfoot tr:first-of-type td, tbody .activity-data.odd td tfoot tr:first-of-type td,
 tbody .activity-data.odd > td tfoot tr:first-of-type td,
@@ -484,7 +684,7 @@ tbody.meal-list tr td tfoot tr:first-of-type td,
 tbody.meal-list tr > td tfoot tr:first-of-type td {
   border-top: 1px solid #818c94;
 }
-/* line 68, ../sass/base/_tables.scss */
+/* line 124, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot .null-row,
 tbody .activity-data.even > td tfoot .null-row, tbody .activity-data.odd td tfoot .null-row,
 tbody .activity-data.odd > td tfoot .null-row,
@@ -503,7 +703,7 @@ tbody.meal-list tr > td tfoot .null-row {
   border: none;
   background: #818c94;
 }
-/* line 73, ../sass/base/_tables.scss */
+/* line 129, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot .label,
 tbody .activity-data.even > td tfoot .label, tbody .activity-data.odd td tfoot .label,
 tbody .activity-data.odd > td tfoot .label,
@@ -523,7 +723,7 @@ tbody.meal-list tr > td tfoot .label {
   color: #fff;
   font-weight: 600;
 }
-/* line 80, ../sass/base/_tables.scss */
+/* line 136, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot.totals td,
 tbody .activity-data.even > td tfoot.totals td, tbody .activity-data.odd td tfoot.totals td,
 tbody .activity-data.odd > td tfoot.totals td,
@@ -542,7 +742,7 @@ tbody.meal-list tr > td tfoot.totals td {
   background: #000;
   color: #fff;
 }
-/* line 84, ../sass/base/_tables.scss */
+/* line 140, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot.totals td.header_cell,
 tbody .activity-data.even > td tfoot.totals td.header_cell, tbody .activity-data.odd td tfoot.totals td.header_cell,
 tbody .activity-data.odd > td tfoot.totals td.header_cell,
@@ -560,7 +760,7 @@ tbody.meal-list tr td tfoot.totals td.header_cell,
 tbody.meal-list tr > td tfoot.totals td.header_cell {
   font-weight: 600;
 }
-/* line 91, ../sass/base/_tables.scss */
+/* line 147, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details,
 tbody .activity-data.even > td.details, tbody .activity-data.odd td.details,
 tbody .activity-data.odd > td.details,
@@ -579,7 +779,7 @@ tbody.meal-list tr > td.details {
   width: 150px;
   text-align: center;
 }
-/* line 95, ../sass/base/_tables.scss */
+/* line 151, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a,
 tbody .activity-data.even td.details .edit_meal,
 tbody .activity-data.even > td.details a,
@@ -616,7 +816,7 @@ tbody.meal-list tr > td.details .edit_meal {
   cursor: pointer;
   display: inline-block;
 }
-/* line 100, ../sass/base/_tables.scss */
+/* line 156, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a:hover,
 tbody .activity-data.even td.details .edit_meal:hover,
 tbody .activity-data.even > td.details a:hover,
@@ -652,7 +852,7 @@ tbody.meal-list tr > td.details a:hover,
 tbody.meal-list tr > td.details .edit_meal:hover {
   text-decoration: underline;
 }
-/* line 104, ../sass/base/_tables.scss */
+/* line 160, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a:after,
 tbody .activity-data.even td.details .edit_meal:after,
 tbody .activity-data.even > td.details a:after,
@@ -695,95 +895,95 @@ tbody.meal-list tr > td.details .edit_meal:after {
   border-color: transparent transparent transparent #818c94;
   margin-left: 5px;
 }
-/* line 125, ../sass/base/_tables.scss */
+/* line 181, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .additional-info td {
   display: none;
 }
-/* line 133, ../sass/base/_tables.scss */
+/* line 189, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .open + .additional-info table {
   margin: 15px 0 0;
 }
-/* line 137, ../sass/base/_tables.scss */
+/* line 193, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .open + .additional-info td {
   display: table-cell;
 }
-/* line 145, ../sass/base/_tables.scss */
+/* line 201, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info table {
   margin-bottom: 20px;
 }
-/* line 149, ../sass/base/_tables.scss */
+/* line 205, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info th,
 tbody tr.open + .additional-info td {
   display: table-cell;
   text-align: left;
 }
-/* line 155, ../sass/base/_tables.scss */
+/* line 211, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .ride-details {
   display: block;
 }
-/* line 163, ../sass/base/_tables.scss */
+/* line 219, ../sass/base/_tables.scss */
 tbody tr.open td, tbody tr.open.even td {
   background: #c7dee9;
 }
-/* line 166, ../sass/base/_tables.scss */
+/* line 222, ../sass/base/_tables.scss */
 tbody tr.open td.warning, tbody tr.open.even td.warning {
   color: #b94a48;
   background: #efcbcc;
 }
-/* line 177, ../sass/base/_tables.scss */
+/* line 233, ../sass/base/_tables.scss */
 tbody .activity-data.even > td,
 tbody .meal-list.even > td {
   background: #ebebeb;
 }
-/* line 184, ../sass/base/_tables.scss */
+/* line 240, ../sass/base/_tables.scss */
 tbody .additional-info td {
   border-top: 1px solid #bebebe;
   border-bottom: 1px solid #bebebe;
 }
-/* line 189, ../sass/base/_tables.scss */
+/* line 245, ../sass/base/_tables.scss */
 tbody .additional-info td,
 tbody .additional-info .ride-details {
   display: none;
 }
 
-/* line 199, ../sass/base/_tables.scss */
+/* line 255, ../sass/base/_tables.scss */
 tfoot tr:first-of-type td {
   border-top: 1px solid #818c94;
 }
-/* line 204, ../sass/base/_tables.scss */
+/* line 260, ../sass/base/_tables.scss */
 tfoot .null-row {
   border: none;
   background: #818c94;
 }
-/* line 209, ../sass/base/_tables.scss */
+/* line 265, ../sass/base/_tables.scss */
 tfoot .label {
   background: #818c94;
   color: #fff;
   font-weight: 600;
 }
-/* line 216, ../sass/base/_tables.scss */
+/* line 272, ../sass/base/_tables.scss */
 tfoot.totals td {
   background: #000;
   color: #fff;
 }
-/* line 220, ../sass/base/_tables.scss */
+/* line 276, ../sass/base/_tables.scss */
 tfoot.totals td.header_cell {
   font-weight: 600;
 }
 
-/* line 227, ../sass/base/_tables.scss */
+/* line 283, ../sass/base/_tables.scss */
 .expand-row {
   width: 50px;
   padding: 0;
 }
-/* line 231, ../sass/base/_tables.scss */
+/* line 287, ../sass/base/_tables.scss */
 .expand-row button {
   width: 100%;
   height: 100%;
   text-indent: -9999px;
   position: relative;
 }
-/* line 237, ../sass/base/_tables.scss */
+/* line 293, ../sass/base/_tables.scss */
 .expand-row button:before {
   content: "";
   display: block;
@@ -798,7 +998,7 @@ tfoot.totals td.header_cell {
   margin-top: -2px;
   margin-left: -2px;
 }
-/* line 253, ../sass/base/_tables.scss */
+/* line 309, ../sass/base/_tables.scss */
 .expand-row button:hover:before, .open .expand-row button:before {
   border-width: 5px 4px 0 4px;
   border-color: #818c94 transparent transparent transparent;
@@ -2079,6 +2279,13 @@ Interactive Layer
   width: 16%;
 }
 /* line 108, ../sass/components/_monthly-overview.scss */
+.monthly-overview .daily_nutrition thead th.required_foods,
+.monthly-overview .daily_nutrition thead td.required_foods,
+.monthly-overview .daily_nutrition tbody th.required_foods,
+.monthly-overview .daily_nutrition tbody td.required_foods {
+  width: 30px;
+}
+/* line 112, ../sass/components/_monthly-overview.scss */
 .monthly-overview .daily_nutrition thead th.meal_detail_link,
 .monthly-overview .daily_nutrition thead td.meal_detail_link,
 .monthly-overview .daily_nutrition tbody th.meal_detail_link,

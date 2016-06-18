@@ -30,6 +30,7 @@ define(function(require) {
 
                 self.dom.newRidePrecedent = self.dom.newRide.parents('header');
                 self.dom.activityList = self.dom.component.find('.activity-list');
+                self.dom.icons = self.dom.component.find('.warning .icon');
                 self.dom.newActivity = $('#new_activity');
                 self.dom.newActivityPrecedent = self.dom.newActivity.parents('header');
                 self.dom.dailyTarget = $('#daily_target');
@@ -49,6 +50,7 @@ define(function(require) {
                 self.dom.tabButtons.on('click', self.navigateToMonth);
                 self.dom.yearSelection.on('change', self.navigateToYear);
                 self.dom.component.on('click', '.expand-row, .view_meal', self.expandRow);
+                self.dom.icons.on('click', self.showWarningMessage);
 
                 /* Ride View */
                 self.dom.newRide.on('click', self.toggleNewRide);
@@ -115,6 +117,17 @@ define(function(require) {
 
                 siblings.removeClass('open');
                 row.toggleClass('open');
+            },
+
+            showWarningMessage: function (e) {
+                e.preventDefault();
+
+                var clicked = $(e.currentTarget),
+                    cell = clicked.parent(),
+                    siblings = clicked.parents('table').find('.show');
+
+                cell.toggleClass('show');
+                siblings.removeClass('show');
             },
 
             navigateToMonth: function(e) {

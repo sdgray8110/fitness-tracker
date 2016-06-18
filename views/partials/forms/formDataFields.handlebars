@@ -23,6 +23,15 @@
     <input id="sugar_target" name="sugar_target" type="text" class="inputText" value="{{targets.sugar_target}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for Sugar" />
     {{/fields.sugarTargetField}}
 
+    {{#fields.requiredFoodsField}}
+    <h2>Required Food Servings</h2>
+
+    {{#targets.requiredFoods}}
+    <label for="required_food_{{_id}}">{{food_name}}</label>
+    <input id="required_food_{{_id}}" name="required_food_{{_id}}" type="text" class="inputText" value="{{count}}" data-validation="number"  data-required="true" data-validation-message="Please enter a valid number for {{food_name}}" />
+    {{/targets.requiredFoods}}
+    {{/fields.requiredFoodsField}}
+
     {{#fields.rideNameField}}
     <label for="ride_name">Name</label>
     <input id="ride_name" name="ride_name" type="text" class="inputText" value="{{targets.ride_name}}" data-validation="required" data-validation-message="Please enter the ride name." />

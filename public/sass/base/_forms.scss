@@ -11,6 +11,12 @@
     width: 33%;
     padding: 0 20px;
 
+    h2 {
+        margin: 20px 0 15px;
+        width: 100%;
+        float: left;
+    }
+
     &.wide {
         width: 50%;
     }
@@ -62,14 +68,14 @@
     }
 
     label {
-        width: 35%;
+        width: 40%;
         padding-right: 15px;
         text-align: right;
     }
 
     input[type=text],
     textarea {
-        width: 65%;
+        width: 60%;
     }
 }
 
