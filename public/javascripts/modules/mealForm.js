@@ -148,7 +148,21 @@ define(function(require) {
                 self.dom.form.on('click', '#save_recipe', self.saveAsRecipe);
                 self.dom.form.on('change', '#common_meals', self.applyCommonMeal);
 
+                $(document.body).on('keydown', self.inputBackspace);
+
                 self.applyValidation();
+            },
+
+            inputBackspace: function (e) {
+                var target = $(document.activeElement),
+                    isCheck = target.is('.checkbox input');
+
+                if (e.keyCode === 8 && isCheck) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $('#search_foods').trigger('focus');
+                }
             },
 
             filterFoods: function (e) {
@@ -466,6 +480,8 @@ define(function(require) {
                 if (self.dom.targetsForm && self.dom.targetsForm.length) {
                     self.dom.targetsForm.remove();
                 }
+
+                $(document.body).off('keyup');
 
                 self.options.closeCallback();
                 self.isOpen = false;

@@ -93,6 +93,7 @@ define(function(require) {
                 //self.dom.deleteActivity.on('click', self.delete);
                 self.dom.form.on('keyup', '#search_foods', self.filterFoods);
                 self.dom.form.on('change', '.checkbox input', self.selectFoodToEdit);
+
                 self.applyValidation();
             },
 
