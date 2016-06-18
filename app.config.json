@@ -35,6 +35,11 @@
     "singular": "Capsule",
     "plural": "Capsules",
     "value": "capsule"
+  }, {
+    "title": "Servings",
+    "singular": "Serving",
+    "plural": "Servings",
+    "value": "serving"
   }],
 
   "routes": {
