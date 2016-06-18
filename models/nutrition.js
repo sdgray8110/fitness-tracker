@@ -515,8 +515,6 @@ var NutritionCollection = (function() {
                     dailyMeals.requiredFoodsTargets.push(theFood);
                 }
             });
-
-            console.log('foo', dailyMeals.requiredFoodsTargets);
         },
 
         processTabs: helpers.processTabs
