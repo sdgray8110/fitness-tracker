@@ -20,6 +20,11 @@ td {
     &:last-of-type {
         border-right: none;
     }
+
+    &.zoomed {
+        font-size: 22px;
+        font-weight: 700;
+    }
 }
 
 tbody {

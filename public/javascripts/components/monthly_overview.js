@@ -36,6 +36,7 @@ define(function(require) {
                 self.dom.dailyTarget = $('#daily_target');
                 self.dom.addHealthEntry = $('#addHealthEntry');
                 self.dom.newHealthEntryPrecedent = self.dom.addHealthEntry.parents('header');
+                self.dom.stateHover = $();
             },
 
             init: function() {
@@ -71,12 +72,32 @@ define(function(require) {
                 self.dom.newMeal.on('click', self.toggleNewMeal);
                 self.dom.dailyTarget.on('click', self.toggleTargets);
                 self.dom.component.on('click', '#duplicate_meal', self.duplicateMeal);
-                
+                self.dom.component.on('mouseover', '.meal-list td', self.hoverZoom);
+                self.dom.component.on('mouseout', '.meal-list td', self.deHoverZoom);
+
                 /* Health Entry View */
                 self.dom.addHealthEntry.on('click', self.toggleNewHealthEntry);
                 self.dom.component.on('click', '.edit-health', self.editHealth);
                 self.dom.component.on('click', '.duplicate-health', self.duplicateHealth);
 
+            },
+
+            hoverZoom: function (e) {
+                var el = $(e.target);
+                self.dom.stateHover =  el;
+
+                setTimeout(function () {
+                    if (self.dom.stateHover.is(el)) {
+                        el.addClass('zoomed');
+                    }
+                }, 2000);
+            },
+
+            deHoverZoom: function (e) {
+                var el = $(e.target);
+                self.dom.stateHover = $();
+
+                el.removeClass('zoomed');
             },
 
             loadFormModule: function() {

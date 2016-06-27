@@ -389,8 +389,14 @@ th:last-of-type,
 td:last-of-type {
   border-right: none;
 }
+/* line 24, ../sass/base/_tables.scss */
+th.zoomed,
+td.zoomed {
+  font-size: 22px;
+  font-weight: 700;
+}
 
-/* line 32, ../sass/base/_tables.scss */
+/* line 37, ../sass/base/_tables.scss */
 tbody .activity-data.even td,
 tbody .activity-data.even > td, tbody .activity-data.odd td,
 tbody .activity-data.odd > td,
@@ -409,7 +415,7 @@ tbody.meal-list tr > td {
   background: #fff;
   color: #818c94;
 }
-/* line 37, ../sass/base/_tables.scss */
+/* line 42, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods,
 tbody .activity-data.even > td.required_foods, tbody .activity-data.odd td.required_foods,
 tbody .activity-data.odd > td.required_foods,
@@ -427,7 +433,7 @@ tbody.meal-list tr td.required_foods,
 tbody.meal-list tr > td.required_foods {
   width: 30px;
 }
-/* line 40, ../sass/base/_tables.scss */
+/* line 45, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods:before,
 tbody .activity-data.even > td.required_foods:before, tbody .activity-data.odd td.required_foods:before,
 tbody .activity-data.odd > td.required_foods:before,
@@ -445,7 +451,7 @@ tbody.meal-list tr td.required_foods:before,
 tbody.meal-list tr > td.required_foods:before {
   display: none;
 }
-/* line 44, ../sass/base/_tables.scss */
+/* line 49, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods .required_messaging,
 tbody .activity-data.even > td.required_foods .required_messaging, tbody .activity-data.odd td.required_foods .required_messaging,
 tbody .activity-data.odd > td.required_foods .required_messaging,
@@ -463,7 +469,7 @@ tbody.meal-list tr td.required_foods .required_messaging,
 tbody.meal-list tr > td.required_foods .required_messaging {
   display: none;
 }
-/* line 49, ../sass/base/_tables.scss */
+/* line 54, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods.show .required_messaging,
 tbody .activity-data.even > td.required_foods.show .required_messaging, tbody .activity-data.odd td.required_foods.show .required_messaging,
 tbody .activity-data.odd > td.required_foods.show .required_messaging,
@@ -482,7 +488,7 @@ tbody.meal-list tr > td.required_foods.show .required_messaging {
   display: block;
   width: 250px;
 }
-/* line 53, ../sass/base/_tables.scss */
+/* line 58, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods.show .required_messaging p,
 tbody .activity-data.even > td.required_foods.show .required_messaging p, tbody .activity-data.odd td.required_foods.show .required_messaging p,
 tbody .activity-data.odd > td.required_foods.show .required_messaging p,
@@ -501,7 +507,7 @@ tbody.meal-list tr > td.required_foods.show .required_messaging p {
   line-height: 15px;
   margin-bottom: 15px;
 }
-/* line 60, ../sass/base/_tables.scss */
+/* line 65, ../sass/base/_tables.scss */
 tbody .activity-data.even td.required_foods .icon,
 tbody .activity-data.even > td.required_foods .icon, tbody .activity-data.odd td.required_foods .icon,
 tbody .activity-data.odd > td.required_foods .icon,
@@ -525,7 +531,7 @@ tbody.meal-list tr > td.required_foods .icon {
   background-repeat: no-repeat;
   margin: 4px auto 0 auto;
 }
-/* line 71, ../sass/base/_tables.scss */
+/* line 76, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning,
 tbody .activity-data.even > td.warning, tbody .activity-data.odd td.warning,
 tbody .activity-data.odd > td.warning,
@@ -544,7 +550,7 @@ tbody.meal-list tr > td.warning {
   color: #b94a48;
   background: #efcbcc;
 }
-/* line 75, ../sass/base/_tables.scss */
+/* line 80, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning:before,
 tbody .activity-data.even > td.warning:before, tbody .activity-data.odd td.warning:before,
 tbody .activity-data.odd > td.warning:before,
@@ -568,7 +574,7 @@ tbody.meal-list tr > td.warning:before {
   position: relative;
   top: -2px;
 }
-/* line 85, ../sass/base/_tables.scss */
+/* line 90, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.required_foods,
 tbody .activity-data.even > td.warning.required_foods, tbody .activity-data.odd td.warning.required_foods,
 tbody .activity-data.odd > td.warning.required_foods,
@@ -586,7 +592,7 @@ tbody.meal-list tr td.warning.required_foods,
 tbody.meal-list tr > td.warning.required_foods {
   width: 30px;
 }
-/* line 88, ../sass/base/_tables.scss */
+/* line 93, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.required_foods:before,
 tbody .activity-data.even > td.warning.required_foods:before, tbody .activity-data.odd td.warning.required_foods:before,
 tbody .activity-data.odd > td.warning.required_foods:before,
@@ -604,7 +610,7 @@ tbody.meal-list tr td.warning.required_foods:before,
 tbody.meal-list tr > td.warning.required_foods:before {
   display: none;
 }
-/* line 92, ../sass/base/_tables.scss */
+/* line 97, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.required_foods .icon,
 tbody .activity-data.even > td.warning.required_foods .icon, tbody .activity-data.odd td.warning.required_foods .icon,
 tbody .activity-data.odd > td.warning.required_foods .icon,
@@ -628,7 +634,7 @@ tbody.meal-list tr > td.warning.required_foods .icon {
   margin: 4px auto 0 auto;
   transition: opacity .5s;
 }
-/* line 101, ../sass/base/_tables.scss */
+/* line 106, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.required_foods .icon:hover,
 tbody .activity-data.even > td.warning.required_foods .icon:hover, tbody .activity-data.odd td.warning.required_foods .icon:hover,
 tbody .activity-data.odd > td.warning.required_foods .icon:hover,
@@ -646,7 +652,7 @@ tbody.meal-list tr td.warning.required_foods .icon:hover,
 tbody.meal-list tr > td.warning.required_foods .icon:hover {
   opacity: .5;
 }
-/* line 108, ../sass/base/_tables.scss */
+/* line 113, ../sass/base/_tables.scss */
 tbody .activity-data.even td.warning.high:before,
 tbody .activity-data.even > td.warning.high:before, tbody .activity-data.odd td.warning.high:before,
 tbody .activity-data.odd > td.warning.high:before,
@@ -666,7 +672,7 @@ tbody.meal-list tr > td.warning.high:before {
   margin-right: 5px;
   top: 0;
 }
-/* line 119, ../sass/base/_tables.scss */
+/* line 124, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot tr:first-of-type td,
 tbody .activity-data.even > td tfoot tr:first-of-type td, tbody .activity-data.odd td tfoot tr:first-of-type td,
 tbody .activity-data.odd > td tfoot tr:first-of-type td,
@@ -684,7 +690,7 @@ tbody.meal-list tr td tfoot tr:first-of-type td,
 tbody.meal-list tr > td tfoot tr:first-of-type td {
   border-top: 1px solid #818c94;
 }
-/* line 124, ../sass/base/_tables.scss */
+/* line 129, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot .null-row,
 tbody .activity-data.even > td tfoot .null-row, tbody .activity-data.odd td tfoot .null-row,
 tbody .activity-data.odd > td tfoot .null-row,
@@ -703,7 +709,7 @@ tbody.meal-list tr > td tfoot .null-row {
   border: none;
   background: #818c94;
 }
-/* line 129, ../sass/base/_tables.scss */
+/* line 134, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot .label,
 tbody .activity-data.even > td tfoot .label, tbody .activity-data.odd td tfoot .label,
 tbody .activity-data.odd > td tfoot .label,
@@ -723,7 +729,7 @@ tbody.meal-list tr > td tfoot .label {
   color: #fff;
   font-weight: 600;
 }
-/* line 136, ../sass/base/_tables.scss */
+/* line 141, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot.totals td,
 tbody .activity-data.even > td tfoot.totals td, tbody .activity-data.odd td tfoot.totals td,
 tbody .activity-data.odd > td tfoot.totals td,
@@ -742,7 +748,7 @@ tbody.meal-list tr > td tfoot.totals td {
   background: #000;
   color: #fff;
 }
-/* line 140, ../sass/base/_tables.scss */
+/* line 145, ../sass/base/_tables.scss */
 tbody .activity-data.even td tfoot.totals td.header_cell,
 tbody .activity-data.even > td tfoot.totals td.header_cell, tbody .activity-data.odd td tfoot.totals td.header_cell,
 tbody .activity-data.odd > td tfoot.totals td.header_cell,
@@ -760,7 +766,7 @@ tbody.meal-list tr td tfoot.totals td.header_cell,
 tbody.meal-list tr > td tfoot.totals td.header_cell {
   font-weight: 600;
 }
-/* line 147, ../sass/base/_tables.scss */
+/* line 152, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details,
 tbody .activity-data.even > td.details, tbody .activity-data.odd td.details,
 tbody .activity-data.odd > td.details,
@@ -779,7 +785,7 @@ tbody.meal-list tr > td.details {
   width: 150px;
   text-align: center;
 }
-/* line 151, ../sass/base/_tables.scss */
+/* line 156, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a,
 tbody .activity-data.even td.details .edit_meal,
 tbody .activity-data.even > td.details a,
@@ -816,7 +822,7 @@ tbody.meal-list tr > td.details .edit_meal {
   cursor: pointer;
   display: inline-block;
 }
-/* line 156, ../sass/base/_tables.scss */
+/* line 161, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a:hover,
 tbody .activity-data.even td.details .edit_meal:hover,
 tbody .activity-data.even > td.details a:hover,
@@ -852,7 +858,7 @@ tbody.meal-list tr > td.details a:hover,
 tbody.meal-list tr > td.details .edit_meal:hover {
   text-decoration: underline;
 }
-/* line 160, ../sass/base/_tables.scss */
+/* line 165, ../sass/base/_tables.scss */
 tbody .activity-data.even td.details a:after,
 tbody .activity-data.even td.details .edit_meal:after,
 tbody .activity-data.even > td.details a:after,
@@ -895,95 +901,95 @@ tbody.meal-list tr > td.details .edit_meal:after {
   border-color: transparent transparent transparent #818c94;
   margin-left: 5px;
 }
-/* line 181, ../sass/base/_tables.scss */
+/* line 186, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .additional-info td {
   display: none;
 }
-/* line 189, ../sass/base/_tables.scss */
+/* line 194, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .open + .additional-info table {
   margin: 15px 0 0;
 }
-/* line 193, ../sass/base/_tables.scss */
+/* line 198, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .open + .additional-info td {
   display: table-cell;
 }
-/* line 201, ../sass/base/_tables.scss */
+/* line 206, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info table {
   margin-bottom: 20px;
 }
-/* line 205, ../sass/base/_tables.scss */
+/* line 210, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info th,
 tbody tr.open + .additional-info td {
   display: table-cell;
   text-align: left;
 }
-/* line 211, ../sass/base/_tables.scss */
+/* line 216, ../sass/base/_tables.scss */
 tbody tr.open + .additional-info .ride-details {
   display: block;
 }
-/* line 219, ../sass/base/_tables.scss */
+/* line 224, ../sass/base/_tables.scss */
 tbody tr.open td, tbody tr.open.even td {
   background: #c7dee9;
 }
-/* line 222, ../sass/base/_tables.scss */
+/* line 227, ../sass/base/_tables.scss */
 tbody tr.open td.warning, tbody tr.open.even td.warning {
   color: #b94a48;
   background: #efcbcc;
 }
-/* line 233, ../sass/base/_tables.scss */
+/* line 238, ../sass/base/_tables.scss */
 tbody .activity-data.even > td,
 tbody .meal-list.even > td {
   background: #ebebeb;
 }
-/* line 240, ../sass/base/_tables.scss */
+/* line 245, ../sass/base/_tables.scss */
 tbody .additional-info td {
   border-top: 1px solid #bebebe;
   border-bottom: 1px solid #bebebe;
 }
-/* line 245, ../sass/base/_tables.scss */
+/* line 250, ../sass/base/_tables.scss */
 tbody .additional-info td,
 tbody .additional-info .ride-details {
   display: none;
 }
 
-/* line 255, ../sass/base/_tables.scss */
+/* line 260, ../sass/base/_tables.scss */
 tfoot tr:first-of-type td {
   border-top: 1px solid #818c94;
 }
-/* line 260, ../sass/base/_tables.scss */
+/* line 265, ../sass/base/_tables.scss */
 tfoot .null-row {
   border: none;
   background: #818c94;
 }
-/* line 265, ../sass/base/_tables.scss */
+/* line 270, ../sass/base/_tables.scss */
 tfoot .label {
   background: #818c94;
   color: #fff;
   font-weight: 600;
 }
-/* line 272, ../sass/base/_tables.scss */
+/* line 277, ../sass/base/_tables.scss */
 tfoot.totals td {
   background: #000;
   color: #fff;
 }
-/* line 276, ../sass/base/_tables.scss */
+/* line 281, ../sass/base/_tables.scss */
 tfoot.totals td.header_cell {
   font-weight: 600;
 }
 
-/* line 283, ../sass/base/_tables.scss */
+/* line 288, ../sass/base/_tables.scss */
 .expand-row {
   width: 50px;
   padding: 0;
 }
-/* line 287, ../sass/base/_tables.scss */
+/* line 292, ../sass/base/_tables.scss */
 .expand-row button {
   width: 100%;
   height: 100%;
   text-indent: -9999px;
   position: relative;
 }
-/* line 293, ../sass/base/_tables.scss */
+/* line 298, ../sass/base/_tables.scss */
 .expand-row button:before {
   content: "";
   display: block;
@@ -998,7 +1004,7 @@ tfoot.totals td.header_cell {
   margin-top: -2px;
   margin-left: -2px;
 }
-/* line 309, ../sass/base/_tables.scss */
+/* line 314, ../sass/base/_tables.scss */
 .expand-row button:hover:before, .open .expand-row button:before {
   border-width: 5px 4px 0 4px;
   border-color: #818c94 transparent transparent transparent;
