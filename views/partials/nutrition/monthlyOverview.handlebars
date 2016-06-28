@@ -36,10 +36,10 @@
                 {{/../requiredFoodsTargets}}
                 {{/requiredFoodsWarning}}
             </td>
-            <td {{#fiberWarning}}class="warning" title="You are below the daily target of {{fiber_target}} grams of fiber per 1,000 calories."{{/fiberWarning}}>{{totals.food_fiber}}</td>
-            <td {{#sugarWarning}}class="warning high" title="You have exceeded your target of {{sugar_target}} grams of sugar."{{/sugarWarning}}>{{totals.food_sugar}}</td>
-            <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.food_protein}}</td>
-            <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.food_calories}}</td>
+            <td {{#fiberWarning}}class="warning" title="You are below the daily target of {{fiber_target}} grams of fiber per 1,000 calories."{{/fiberWarning}}>{{totals.display.food_fiber.formatted}}</td>
+            <td {{#sugarWarning}}class="warning high" title="You have exceeded your target of {{sugar_target}} grams of sugar."{{/sugarWarning}}>{{totals.display.food_sugar.formatted}}</td>
+            <td {{#proteinWarning}}class="warning" title="You haven't yet reached the daily target of {{protein_target}} grams of protein."{{/proteinWarning}}>{{totals.display.food_protein.formatted}}</td>
+            <td {{#calorieWarning}}class="warning" title="You haven't yet reached the daily target of {{calorie_target}} calories."{{/calorieWarning}}>{{totals.display.food_calories.formatted}}</td>
         </tr>
 
         <tr class="additional-info">

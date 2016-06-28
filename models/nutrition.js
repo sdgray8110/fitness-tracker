@@ -401,6 +401,7 @@ var NutritionCollection = (function() {
 
                 if (typeof(meal.totals) != 'undefined') {
                     meal.totals = JSON.parse(meal.totals);
+                    meal.totals.display = helpers.formatTotaledDecimals(meal.totals,Object.keys(meal.totals));
                 } else {
                     meal.totals = {};
                 }
@@ -469,6 +470,8 @@ var NutritionCollection = (function() {
             keys.forEach(function(key) {
                 totals[key] = self.foodSum(day, key);
             });
+            
+            totals.display = helpers.formatTotaledDecimals(totals, keys);
 
             return totals;
         },

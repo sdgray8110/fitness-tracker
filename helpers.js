@@ -159,18 +159,41 @@ var helpers = (function() {
         },
 
         formatDecimal: function(val, floatLen) {
+            var obj;            
             floatLen = typeof(floatLen) === 'undefined' ? 2 : floatLen;
             
-            return {
-                formatted: self.commify(val.toFixed(floatLen)),
-                raw: val
+            if (val) {
+                obj = {
+                    formatted: self.commify(val.toFixed(floatLen)),
+                    raw: val
+                }
+            } else {
+                obj = val;
             }
+            
+
+            return obj;
         },
 
         formatDecimals: function(activity, properties) {
             properties.forEach(function(property) {
                 activity[property] = self.formatDecimal(activity[property]);
             });
+        },
+
+        formatTotaledDecimals: function (data, properties) {
+            var list = {};
+
+            properties.forEach(function(property) {
+                if (isNaN(data[property])) {
+                    list[property] = data[property];
+                } else {
+                    list[property] = self.formatDecimal(data[property]);
+                }
+
+            });
+            
+            return list;
         },
 
         formatContent: function(activity) {
