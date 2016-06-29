@@ -261,9 +261,23 @@ var RideCollection = (function() {
             },
 
             fetchYearList: function(req, res, options, callback) {
-                var db = req.db;
+                var db = req.db,
+                    yearVal = parseInt(moment().format('YYYY')),
+                    match = null;
 
                 db.collection('rides').aggregate([{'$group': {_id: {year: {'$year': '$date'}}}},{'$sort' : {'_id.year' : -1}}], function(err, years) {
+                    years.forEach(function (year) {
+                        if (year.year === yearVal) {
+                            match = yearVal;
+                        }
+                    });
+
+                    if (!match) {
+                        years.unshift({
+                            _id: {year: yearVal}
+                        });
+                    }
+
                     for (var i = 0; i < years.length; i ++) {
                         years[i] = years[i]._id;
 
