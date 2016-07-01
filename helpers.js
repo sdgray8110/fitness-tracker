@@ -354,9 +354,9 @@ var helpers = (function() {
         },
 
         processTabs: function(date) {
-            var now = moment(),
+            var now = self.today(),
                 selectedMonth = parseInt(date.format('M')),
-                currentMonth = date.year() === now.year() ? parseInt(moment().format('M')) : 12,
+                currentMonth = date.year() === now.year() ? parseInt(now.format('M')) : 12,
                 year = parseInt(date.format('YYYY')),
                 month = currentMonth,
                 months = [];
