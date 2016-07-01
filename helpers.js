@@ -64,20 +64,7 @@ var helpers = (function() {
         monthName: function(date, short) {
             var month = typeof(date) === 'number' ? date - 1 : date.getMonth(),
                 type = short ? 'abbr' : 'full',
-                months = [
-                    {full: 'January', abbr: 'Jan'},
-                    {full: 'February', abbr: 'Feb'},
-                    {full: 'March', abbr: 'Mar'},
-                    {full: 'April', abbr: 'Apr'},
-                    {full: 'May', abbr: 'May'},
-                    {full: 'June', abbr: 'June'},
-                    {full: 'July', abbr: 'July'},
-                    {full: 'August', abbr: 'Aug'},
-                    {full: 'September', abbr: 'Sept'},
-                    {full: 'October', abbr: 'Oct'},
-                    {full: 'November', abbr: 'Nov'},
-                    {full: 'December', abbr: 'Dec'}
-                ];
+                months = config.dataAccess.property('months');
 
             return months[month][type];
         },
