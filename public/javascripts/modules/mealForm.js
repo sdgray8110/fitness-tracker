@@ -241,15 +241,16 @@ define(function(require) {
             }, 750),
 
             processSelectedFoods: function() {
-                var match = false;
+                var match;
 
                 self.model.chosenFoods.forEach(function (item) {
                     item.count = item.count || 1;
 
                     self.model.selectedFoods.forEach(function(food) {
-                        if(item._id === food._id) {
+                        match = item._id === food._id;
+
+                        if(match) {
                             food.count = (food.count * 1) + 1;
-                            match = true;
                         }
                     });
 
