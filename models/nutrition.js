@@ -433,29 +433,12 @@ var NutritionCollection = (function() {
             keys = Object.keys(dailyMeals);
 
             model = keys.map(function(key) {
+                var pipeline = ['set_calorie_target', 'set_protein_target', 'set_sugar_target', 'set_fiber_target', 'requiredFoodsWarning'];
                 dailyMeals[key].totals = self.sumDaily(dailyMeals[key]);
                 
-                if (dailyMeals[key].totals.food_calories < targets.calorie_target) {
-                    dailyMeals[key].calorie_target = targets.calorie_target
-                    dailyMeals[key].calorieWarning = true;
-                }
-
-                if (dailyMeals[key].totals.food_protein < targets.protein_target) {
-                    dailyMeals[key].protein_target = targets.protein_target;
-                    dailyMeals[key].proteinWarning = true;
-                }
-
-                if (dailyMeals[key].totals.food_sugar > Number(targets.sugar_target)) {
-                    dailyMeals[key].sugar_target = targets.sugar_target;
-                    dailyMeals[key].sugarWarning = true;
-                }
-
-                if ((dailyMeals[key].totals.food_fiber / ((dailyMeals[key].totals.food_calories / 1000))) < Number(targets.fiber_target)) {
-                    dailyMeals[key].fiber_target = targets.fiber_target;
-                    dailyMeals[key].fiberWarning = true;
-                }
-
-                self.requiredFoodsWarning(dailyMeals[key], targets);
+                pipeline.forEach(function (func) {
+                    self[func](dailyMeals[key], targets);
+                });
 
                 return dailyMeals[key];
             });
@@ -486,6 +469,36 @@ var NutritionCollection = (function() {
             });
 
             return value;
+        },
+
+        set_calorie_target: function (dailyMeals, targets) {
+            if (dailyMeals.totals.food_calories < targets.calorie_target) {
+                dailyMeals.calorie_target = targets.calorie_target
+                dailyMeals.calorieWarning = true;
+            }
+        },
+
+        set_protein_target: function (dailyMeals, targets) {
+            if (dailyMeals.totals.food_protein < targets.protein_target) {
+                dailyMeals.protein_target = targets.protein_target;
+                dailyMeals.proteinWarning = true;
+            }
+        },
+
+        set_sugar_target: function (dailyMeals, targets) {
+            if (dailyMeals.totals.food_sugar > Number(targets.sugar_target)) {
+                dailyMeals.sugar_target = targets.sugar_target;
+                dailyMeals.sugarWarning = true;
+            }
+
+        },
+
+        set_fiber_target:  function (dailyMeals, targets) {
+            if ((dailyMeals.totals.food_fiber / ((dailyMeals.totals.food_calories / 1000))) < Number(targets.fiber_target)) {
+                dailyMeals.fiber_target = targets.fiber_target;
+                dailyMeals.fiberWarning = true;
+            }
+
         },
 
         requiredFoodsWarning: function (dailyMeals, targets) {
