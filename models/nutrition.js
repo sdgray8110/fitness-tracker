@@ -473,7 +473,7 @@ var NutritionCollection = (function() {
 
         set_calorie_target: function (dailyMeals, targets) {
             if (dailyMeals.totals.food_calories < targets.calorie_target) {
-                dailyMeals.calorie_target = targets.calorie_target
+                dailyMeals.calorie_target = targets.calorie_target;
                 dailyMeals.calorieWarning = true;
             }
         },
