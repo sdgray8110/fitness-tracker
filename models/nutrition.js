@@ -433,7 +433,7 @@ var NutritionCollection = (function() {
             keys = Object.keys(dailyMeals);
 
             model = keys.map(function(key) {
-                var pipeline = ['set_calorie_target', 'set_protein_target', 'set_sugar_target', 'set_fiber_target', 'requiredFoodsWarning'];
+                var pipeline = ['set_calorie_target', 'set_protein_target', 'set_sugar_target', 'set_fiber_target', 'required_foods_warning'];
                 dailyMeals[key].totals = self.sumDaily(dailyMeals[key]);
                 
                 pipeline.forEach(function (func) {
@@ -501,7 +501,7 @@ var NutritionCollection = (function() {
 
         },
 
-        requiredFoodsWarning: function (dailyMeals, targets) {
+        required_foods_warning: function (dailyMeals, targets) {
             var reqFoods = {
                 keys: []
             };
