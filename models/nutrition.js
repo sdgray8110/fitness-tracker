@@ -264,6 +264,8 @@ var NutritionCollection = (function() {
             day.ui = {
                 className: i % 2 === 0 ? 'even' : 'odd'
             };
+
+            console.log(i);
         },
 
         processMeta: function(req) {
@@ -384,7 +386,7 @@ var NutritionCollection = (function() {
             return outStr;
         },
         
-        processMeals: function(meals, targets) {0
+        processMeals: function(meals, targets) {
             var dailyMeals = {},
                 keys = [],
                 model = [],
@@ -393,43 +395,7 @@ var NutritionCollection = (function() {
 
 
             meals.forEach(function (meal) {
-                meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
-                if (typeof(meal.foods) != 'undefined') {
-                    meal.foods = JSON.parse(meal.foods);
-                } else {
-                    meal.foods = {};
-                }
-
-
-                if (typeof(meal.totals) != 'undefined') {
-                    meal.totals = JSON.parse(meal.totals);
-                    meal.totals.display = helpers.formatTotaledDecimals(meal.totals,Object.keys(meal.totals));
-                } else {
-                    meal.totals = {};
-                }
-
-                var duplicate = helpers.extend({}, meal);
-                duplicate.meal_date = moment().format('MM/DD/YYYY');
-                duplicate.selectedFoods = duplicate.foods;
-                duplicate.inProgress = true;
-                duplicate.selectedFoodTotals = duplicate.totals;
-
-                delete(duplicate._id);
-                delete(duplicate.totals);
-
-                meal.meal_encoded = JSON.stringify(meal);
-                meal.duplicate = JSON.stringify(duplicate);
-
-                if(!dailyMeals[meal.meal_date]) {
-                    dailyMeals[meal.meal_date] = {
-                        meals: [],
-                        totals: {},
-                        meal_date: meal.meal_date
-                    };
-                    i += 1;
-                }
-                dailyMeals[meal.meal_date].meals.push(meal);
-                self.uiModel(dailyMeals[meal.meal_date], i);
+                i = self.processDailyMeal(meal, dailyMeals, i);
             });
 
             keys = Object.keys(dailyMeals);
@@ -445,6 +411,49 @@ var NutritionCollection = (function() {
             });
 
             return model;
+        },
+
+
+        processDailyMeal: function (meal, dailyMeals, i) {
+            meal.meal_date = moment(meal.meal_date).format('MM/DD/YYYY');
+            if (typeof(meal.foods) != 'undefined') {
+                meal.foods = JSON.parse(meal.foods);
+            } else {
+                meal.foods = {};
+            }
+
+
+            if (typeof(meal.totals) != 'undefined') {
+                meal.totals = JSON.parse(meal.totals);
+                meal.totals.display = helpers.formatTotaledDecimals(meal.totals,Object.keys(meal.totals));
+            } else {
+                meal.totals = {};
+            }
+
+            var duplicate = helpers.extend({}, meal);
+            duplicate.meal_date = moment().format('MM/DD/YYYY');
+            duplicate.selectedFoods = duplicate.foods;
+            duplicate.inProgress = true;
+            duplicate.selectedFoodTotals = duplicate.totals;
+
+            delete(duplicate._id);
+            delete(duplicate.totals);
+
+            meal.meal_encoded = JSON.stringify(meal);
+            meal.duplicate = JSON.stringify(duplicate);
+
+            if(!dailyMeals[meal.meal_date]) {
+                dailyMeals[meal.meal_date] = {
+                    meals: [],
+                    totals: {},
+                    meal_date: meal.meal_date
+                };
+                i += 1;
+            }
+            dailyMeals[meal.meal_date].meals.push(meal);
+            self.uiModel(dailyMeals[meal.meal_date], i);
+
+            return i;
         },
 
         sumDaily: function(day) {
