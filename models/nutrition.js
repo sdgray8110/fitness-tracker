@@ -264,8 +264,6 @@ var NutritionCollection = (function() {
             day.ui = {
                 className: i % 2 === 0 ? 'even' : 'odd'
             };
-
-            console.log(i);
         },
 
         processMeta: function(req) {
