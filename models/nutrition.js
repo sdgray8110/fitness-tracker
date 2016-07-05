@@ -408,7 +408,7 @@ var NutritionCollection = (function() {
                     meal.totals = {};
                 }
 
-                var duplicate = helpers.extend({}, meal);;
+                var duplicate = helpers.extend({}, meal);
                 duplicate.meal_date = moment().format('MM/DD/YYYY');
                 duplicate.selectedFoods = duplicate.foods;
                 duplicate.inProgress = true;
