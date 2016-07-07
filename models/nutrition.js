@@ -266,10 +266,6 @@ var NutritionCollection = (function() {
             };
         },
 
-        processMeta: function(req) {
-            return {title: req.title + ' | Nutrition' }
-        },
-
         processContent: function(data) {
             return data;
         },
