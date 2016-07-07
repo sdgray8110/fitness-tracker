@@ -374,11 +374,11 @@ var NutritionCollection = (function() {
         },
         
         processMeals: function(meals, targets) {
-            var dailyMeals = {},
+            var targetsPipeline = ['set_calorie_target', 'set_protein_target', 'set_sugar_target', 'set_fiber_target', 'required_foods_warning'],
+                dailyMeals = {},
                 keys = [],
                 model = [],
-                i = 1,
-                targetsPipeline = ['set_calorie_target', 'set_protein_target', 'set_sugar_target', 'set_fiber_target', 'required_foods_warning'];
+                i = 1;
 
 
             meals.forEach(function (meal) {
