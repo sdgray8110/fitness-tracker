@@ -289,7 +289,8 @@ var NutritionCollection = (function() {
         processRecipes: function(recipes) {
             var updated = [],
                 names = [],
-                theRecipe;
+                theRecipe,
+                sortByName = helpers.sortByProp('name');
 
             recipes.forEach(function (recipe) {
                 theRecipe = self.processRecipe(recipe);
@@ -300,7 +301,7 @@ var NutritionCollection = (function() {
                 }
             });
 
-            updated = updated.sort(self.sortByName);
+            updated = updated.sort(sortByName);
             updated.forEach(function(item, i) {
                 item.index = i;
             });
