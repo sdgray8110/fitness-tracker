@@ -380,7 +380,6 @@ var NutritionCollection = (function() {
                 model = [],
                 i = 1;
 
-
             meals.forEach(function (meal) {
                 i = self.processDailyMeal(meal, dailyMeals, i);
             });
