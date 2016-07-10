@@ -235,4 +235,9 @@ router.post('/health/edit', function(req, res) {
     });
 });
 
+router.get('/health/weight', function(req, res) {
+gr
+});
+
+
 module.exports = router;

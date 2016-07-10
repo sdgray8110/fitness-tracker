@@ -1,4 +1,5 @@
 var RideCollection = require('./rides'),
+    HealthCollection = require('./health'),
     moment = require('moment'),
     helpers = require('../helpers'),
     ObjectID = require('mongoskin').ObjectID;
@@ -131,7 +132,12 @@ var RideGraphs = (function() {
                 RideCollection.dataAccess.fetchAll(req, res, function(totals) {
                     viewModel.allRides = self.processMonthlyTotals(totals);
 
-                    callback(viewModel);
+                    HealthCollection.dataAccess.findWeightEntries(req, res, function(message) {
+                        viewModel.weight = message;
+
+                        callback(viewModel);
+                    });
+
                 });
             },
 

@@ -57,6 +57,16 @@ var moment = require('moment'),
                     });
                 },
 
+                findWeightEntries: function(req, res, callback) {
+                    var db = req.db;
+
+                    db.collection('health').find({type: 'weight'}).toArray(function(err, health) {
+                        health = self.healthForGraphs(health);
+                        
+                        callback(health);
+                    });
+                },
+
                 editHealthEntry: function(req, res, callback) {
                     var db = req.db,
                         model = req.body,
@@ -78,6 +88,20 @@ var moment = require('moment'),
                 day.ui = {
                     className: i % 2 === 0 ? 'even' : 'odd'
                 };
+            },
+
+            healthForGraphs: function (health) {
+                return [{
+                    key: 'Weight',
+                    color: '#7777ff',
+                    values: health.map(function (entry, i) {
+                        return {
+                            weight: entry.weight,
+                            index: i,
+                            label: moment(entry.date).format('MM/D/YYYY')
+                        }
+                    })
+                }];
             },
 
             processHealth: function (health) {

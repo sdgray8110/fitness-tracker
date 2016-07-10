@@ -28,6 +28,7 @@ define(function(require) {
                 self.currentDays(data.allRides);
                 self.rideBreakdown(data.allRides);
                 self.powerLineChart(data.allRides.power);
+                self.weightLineChart(data.weight);
             },
 
             currentMonths: function(data) {
@@ -72,8 +73,9 @@ define(function(require) {
 
             powerLineChart: function(data) {
                 nv.addGraph(function() {
+                    console.log(self.processPowerData(data));
                     var chart = nv.models.lineChart()
-                        .x(function(d) { return d.index + 1; })    //Specify the data accessors.
+                        .x(function(d) {return d.index + 1; })    //Specify the data accessors.
                         .y(function(d) { return d.value });
 
                     d3.select('#power_line svg')
@@ -85,6 +87,23 @@ define(function(require) {
                     return chart;
                 });
             },
+
+            weightLineChart: function(data) {
+                  nv.addGraph(function() {
+                    var chart = nv.models.lineChart()
+                        .x(function(d) { return d.index + 1; })    //Specify the data accessors.
+                        .y(function(d) { return d.weight; })
+
+                    d3.select('#weight_line svg')
+                        .datum(data)
+                        .call(chart);
+
+                    nv.utils.windowResize(chart.update);
+
+                    return chart;
+                });
+            },
+
 
             rideBreakdown: function(data) {
                 nv.addGraph(function() {

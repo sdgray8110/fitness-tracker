@@ -85,7 +85,7 @@
       },
       "graphs": {
         "path": "/graphs",
-        "title": "Ride Graphs",
+        "title": "Graphs",
         "className": "graphs"
       },
       "activity": {
