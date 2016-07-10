@@ -20,7 +20,6 @@ var moment = require('moment'),
                         content = {displayMonth: displayMonth, dateString: dateStr},
                         foodlist = [],
                         fieldAssociation = {
-                            meta: {method: 'processMeta', data: {title: req.title}},
                             content: {method: 'processContent', data: content},
                             tabs: {method: 'processTabs', data: dateObj}
                         },
@@ -111,10 +110,6 @@ var moment = require('moment'),
 
                 item.duplicate = JSON.stringify(duplicate);
                 item.encoded = JSON.stringify(item);
-            },
-
-            processMeta: function(req) {
-                return {title: req.title + ' | Health' };
             },
 
             processContent: function(data) {
