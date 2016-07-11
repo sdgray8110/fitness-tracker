@@ -141,10 +141,9 @@ define(function(require) {
                     vals.push(data)
                 });
 
-                var res = {
-                    key: '2015 Monthly Ride Totals',
+                var res = $.extend({
                     values: vals
-                };
+                }, self.graphData.monthlyTotals);
 
                 return res;
             },

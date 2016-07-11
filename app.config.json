@@ -325,6 +325,9 @@
     "weight": {
       "key": "Weight",
       "color": "#ff7f0e"
+    },
+    "monthlyTotals": {
+      "key": "2015 Monthly Ride Totals"
     }
   }
 
