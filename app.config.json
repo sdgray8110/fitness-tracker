@@ -311,5 +311,21 @@
     "full": "December",
     "abbr": "Dec"
   }
-  ]
+  ],
+  "graphs": {
+    "averages": {
+      "key": "7 day average power",
+      "color": "#ff7f0e"
+    },
+
+    "rideAverage": {
+      "key": "Ride Average Power",
+      "color": "#7777ff"
+    },
+    "weight": {
+      "key": "Weight",
+      "color": "#ff7f0e"
+    }
+  }
+
 }

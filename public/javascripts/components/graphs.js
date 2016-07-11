@@ -21,6 +21,13 @@ define(function(require) {
         var self = {
             init: function() {
                 require(['json!/api/graph/monthly-totals'], self.render);
+                self.cache_dom();
+                self.graphData = self.dom.wrapper.data('graphs');
+            },
+
+            cache_dom: function () {
+              self.dom = {};
+              self.dom.wrapper = $('#graphs_content');
             },
 
             render: function(data) {
@@ -73,7 +80,6 @@ define(function(require) {
 
             powerLineChart: function(data) {
                 nv.addGraph(function() {
-                    console.log(self.processPowerData(data));
                     var chart = nv.models.lineChart()
                         .x(function(d) {return d.index + 1; })    //Specify the data accessors.
                         .y(function(d) { return d.value });
@@ -174,17 +180,13 @@ define(function(require) {
                     x += 1;
                 });
 
-                averageData = {
-                    values: averages,
-                    key: '7 day average power',
-                    color: '#ff7f0e'
-                };
+                averageData = $.extend({
+                    values: averages
+                }, self.graphData.averages);
 
-                data = {
-                    values: data.values,
-                    key: 'Ride Average Power',
-                    color: '#7777ff'
-                };
+                data = $.extend({
+                    values: data.values
+                }, self.graphData.rideAverage);
 
                 res = [averageData, data];
 

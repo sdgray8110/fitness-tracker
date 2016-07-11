@@ -61,7 +61,7 @@ var moment = require('moment'),
                     var db = req.db;
 
                     db.collection('health').find({type: 'weight'}).toArray(function(err, health) {
-                        health = self.healthForGraphs(health);
+                        health = self.healthForGraphs(health, req.graphConfig);
                         
                         callback(health);
                     });
@@ -90,10 +90,10 @@ var moment = require('moment'),
                 };
             },
 
-            healthForGraphs: function (health) {
+            healthForGraphs: function (health, config) {
                 return [{
-                    key: 'Weight',
-                    color: '#7777ff',
+                    key: config.weight.key,
+                    color: config.weight.color,
                     values: health.map(function (entry, i) {
                         return {
                             weight: entry.weight,

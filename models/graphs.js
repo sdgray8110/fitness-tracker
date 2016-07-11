@@ -2,14 +2,16 @@ var RideCollection = require('./rides'),
     HealthCollection = require('./health'),
     moment = require('moment'),
     helpers = require('../helpers'),
+    AppConfig = require('../models/config'),
     ObjectID = require('mongoskin').ObjectID;
 
 var RideGraphs = (function() {
     var self = {
         processMeta: function(data) {
-            return {title: data.title + ' | ' + 'Graphs'};
-        },
+            console.log(data);
 
+            return {pageData: data.pageData};
+        },
 
         processMonthlyTotals: function(totals) {
             var data = {
@@ -130,6 +132,8 @@ var RideGraphs = (function() {
                 var viewModel = {};
 
                 RideCollection.dataAccess.fetchAll(req, res, function(totals) {
+                    req.graphConfig = AppConfig.dataAccess.property('graphs');
+
                     viewModel.allRides = self.processMonthlyTotals(totals);
 
                     HealthCollection.dataAccess.findWeightEntries(req, res, function(message) {
@@ -143,7 +147,7 @@ var RideGraphs = (function() {
 
             fetch: function(req, res, callback) {
                 var fieldAssociation = {
-                        meta: {method: 'processMeta', data: {title: req.title}}
+                        meta: {method: 'processMeta', data: {title: req.title, pageData: JSON.stringify(AppConfig.dataAccess.property('graphs'))}}
                     },
                     model = {};
 
