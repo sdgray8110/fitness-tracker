@@ -204,10 +204,9 @@ define(function(require) {
                     });
                 });
 
-                var res = {
-                    key: '2015 Daily Rides',
+                var res = $.extend({
                     values: vals
-                };
+                }, self.graphData.dailyTotals);
 
                 return res;
             },

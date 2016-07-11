@@ -328,6 +328,9 @@
     },
     "monthlyTotals": {
       "key": "2015 Monthly Ride Totals"
+    },
+    "dailyTotals": {
+      "key": "2015 Daily Rides"
     }
   }
 
