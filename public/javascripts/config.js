@@ -17,7 +17,7 @@ require.config({
         json: 'lib/require_json',
         mustache: 'lib/mustache',
         moment: 'lib/moment',
-        jquery: 'lib/jquery-2.1.1.min',
+        jquery: 'lib/jquery-3.0.0.min',
         maskedInput: 'lib/jquery.maskedInput',
         serializeObject: 'lib/serializeObject',
         d3: 'lib/d3',
