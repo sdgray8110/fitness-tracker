@@ -8,9 +8,7 @@ var RideCollection = require('./rides'),
 var RideGraphs = (function() {
     var self = {
         processMeta: function(data) {
-            console.log(data);
-
-            return {pageData: data.pageData};
+              return {pageData: data.pageData};
         },
 
         processMonthlyTotals: function(totals) {
