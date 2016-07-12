@@ -145,7 +145,7 @@ var RideGraphs = (function() {
 
             fetch: function(req, res, callback) {
                 var fieldAssociation = {
-                        meta: {method: 'processMeta', data: {title: req.title, pageData: JSON.stringify(AppConfig.dataAccess.property('graphs'))}}
+                        meta: {method: 'processMeta', data: {pageData: JSON.stringify(AppConfig.dataAccess.property('graphs'))}}
                     },
                     model = {};
 
