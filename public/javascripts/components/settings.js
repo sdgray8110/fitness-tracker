@@ -1,4 +1,4 @@
-/* In The Neighborhood Component  */
+/* Fitness tracker, Settings Component  */
 
 define(function(require) {
     'use strict';

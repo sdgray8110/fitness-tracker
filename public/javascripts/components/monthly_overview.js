@@ -1,4 +1,4 @@
-/* In The Neighborhood Component  */
+/* Fitness tracker, shared monthly overview component  */
 
 define(function(require) {
     'use strict';
@@ -512,7 +512,7 @@ define(function(require) {
                 model = $.extend(model, {
                     date: {formatted: moment().format('MM/DD/YYYY')},
                     action: model && model.action ? model.action : '/api/meal/new',
-                    commonMeals: self.dom.component.data('commonMeals') 
+                    commonMeals: self.dom.component.data('commonMeals')
                 });
 
                 formModule.mealForm.init({
@@ -568,12 +568,12 @@ define(function(require) {
 
             /***************/
             /* Health View */
-            /***************/            
-            
+            /***************/
+
             toggleNewHealthEntry: function (e) {
                 e.preventDefault();
 
-                self.genericNewHealthForm();                
+                self.genericNewHealthForm();
             },
 
             editHealth: function (e) {

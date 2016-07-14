@@ -1,4 +1,4 @@
-/* In The Neighborhood Component  */
+/* FITNESS TRACKER GRAPHS component */
 
 define(function(require) {
     'use strict';
