@@ -1,7 +1,8 @@
 define(function(require) {
     'use strict';
 
-    var self = {
+    var config = require('json!/api/config'),
+        self = {
         settings: (function() {
             var settings = {};
             settings.javascriptPath = '/javascripts/';
@@ -18,6 +19,7 @@ define(function(require) {
 
         init: function() {
             self.cacheDom();
+            self.config = config;
 
             return self;
         },
@@ -107,20 +109,7 @@ define(function(require) {
         monthName: function(date, short) {
             var month = typeof(date) === 'number' ? date - 1 : date.getMonth(),
                 type = short ? 'abbr' : 'full',
-                months = [
-                    {full: 'January', abbr: 'Jan'},
-                    {full: 'February', abbr: 'Feb'},
-                    {full: 'March', abbr: 'Mar'},
-                    {full: 'April', abbr: 'Apr'},
-                    {full: 'May', abbr: 'May'},
-                    {full: 'June', abbr: 'June'},
-                    {full: 'July', abbr: 'July'},
-                    {full: 'August', abbr: 'Aug'},
-                    {full: 'September', abbr: 'Sept'},
-                    {full: 'October', abbr: 'Oct'},
-                    {full: 'November', abbr: 'Nov'},
-                    {full: 'December', abbr: 'Dec'}
-                ];
+                months = self.config.months;
 
             return months[month][type];
         },

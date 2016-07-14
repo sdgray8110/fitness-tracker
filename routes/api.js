@@ -68,6 +68,12 @@ router.get('/form-config', function(req, res) {
     });
 });
 
+router.get('/config', function(req, res) {
+    Config.dataAccess.config(function(config) {
+        res.json(config);
+    });
+});
+
 router.get('/migrate', function(req, res) {
     var db = req.db,
         ct = 0;

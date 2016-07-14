@@ -58,6 +58,10 @@ var Config = (function() {
         },
 
         dataAccess: {
+            config: function(callback) {
+                callback(AppConfig);
+            },
+
             formConfig: function(callback) {
                 callback({
                     formFields: self.setFieldTypes(AppConfig.formFields),
@@ -65,7 +69,7 @@ var Config = (function() {
                     healthTypes: self.setHealthTypes()
                 });
             },
-            
+
             property: function (prop) {
                 return AppConfig[prop];
 
