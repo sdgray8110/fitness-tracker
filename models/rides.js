@@ -1,5 +1,6 @@
 var moment = require('moment-timezone'),
     helpers = require('../helpers'),
+    AppConfig = require('../models/config'),
     ObjectID = require('mongoskin').ObjectID;
 
 var RideCollection = (function() {
@@ -234,7 +235,7 @@ var RideCollection = (function() {
                     var rideNames = {},
                         keys = [],
                         commonRides = [],
-                        excludes = ['Imported Ride'];
+                        excludes = AppConfig.dataAccess.property('commonRideExcludes');
 
                     rides.forEach(function(ride) {
                         if (excludes.indexOf(ride.ride_name) >= 0) {

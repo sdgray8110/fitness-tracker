@@ -273,6 +273,7 @@
       "Hours"
     ]
   },
+  "commonRideExcludes": ["Imported Ride"],
   "months": [
     {
     "full": "January",
