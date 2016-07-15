@@ -121,7 +121,9 @@ define(function(require) {
         },
 
         baseUrl: function(){
-            return window.location.href.substring(0, window.location.href.indexOf("?"));
+            var end = window.location.href.indexOf("?")  >= 0 ? window.location.href.indexOf("?") : window.location.href.length;
+          
+            return window.location.href.substring(0, end);
         },
 
         cacheBust: function() {
