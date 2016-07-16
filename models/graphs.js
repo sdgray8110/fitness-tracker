@@ -66,7 +66,11 @@ var RideGraphs = (function() {
                 (function() {
                     var thresholds = AppConfig.dataAccess.property('graphThresholds'),
                         len = thresholds.length;
-                        excess = 'over100';
+                        excess = (function () {
+                            var val = AppConfig.dataAccess.property('graphExcess');
+
+                            return val.value;
+                        })();
 
                     if (typeof(data.breakdown[year]) === 'undefined') {
                         data.breakdown[year] = self.mapThresholds(thresholds, excess);

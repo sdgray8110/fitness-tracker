@@ -223,7 +223,7 @@ define(function(require) {
                     item.label = prev + ' - ' + key + ' miles'
 
                     if (isNaN(key)) {
-                        item.label = 'Over 100 miles';
+                        item.label = helpers.config.graphExcess.label;
                     }
 
                     prev = key;
