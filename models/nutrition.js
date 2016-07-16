@@ -39,7 +39,7 @@ var NutritionCollection = (function() {
                         });
 
                         self.dataAccess.monthlyMealOverview(req, res, dateRange, model, callback);
-                    });x
+                    });
                 });
             },
 
@@ -396,14 +396,7 @@ var NutritionCollection = (function() {
                 meal.totals = {};
             }
 
-            var duplicate = helpers.extend({}, meal);
-            duplicate.meal_date = moment().format('MM/DD/YYYY');
-            duplicate.selectedFoods = duplicate.foods;
-            duplicate.inProgress = true;
-            duplicate.selectedFoodTotals = duplicate.totals;
-
-            delete(duplicate._id);
-            delete(duplicate.totals);
+            var duplicate = self.duplicateMeal(meal);
 
             meal.meal_encoded = JSON.stringify(meal);
             meal.duplicate = JSON.stringify(duplicate);
@@ -420,6 +413,19 @@ var NutritionCollection = (function() {
             self.uiModel(dailyMeals[meal.meal_date], i);
 
             return i;
+        },
+
+        duplicateMeal: function (meal) {
+            var duplicate = helpers.extend({}, meal);
+            duplicate.meal_date = moment().format('MM/DD/YYYY');
+            duplicate.selectedFoods = duplicate.foods;
+            duplicate.inProgress = true;
+            duplicate.selectedFoodTotals = duplicate.totals;
+
+            delete(duplicate._id);
+            delete(duplicate.totals);
+
+            return duplicate;
         },
 
         sumDaily: function(day) {
