@@ -9,271 +9,271 @@
     "title": "Gram(s)",
     "singular": "Gram",
     "plural": "Grams",
-    "value": "gram"
-  }, {
-    "title": "Ounce(s)",
-    "singular": "Ounce",
-    "plural": "Ounces",
-    "value": "ounce"
-  }, {
-    "title": "Tablespoon(s)",
-    "singular": "Tablespoon",
-    "plural": "Tablespoons",
-    "value": "tablespoon"
-  }, {
-    "title": "Scoop(s)",
-    "singular": "Scoop",
-    "plural": "Scoops",
-    "value": "scoop"
-  }, {
-    "title": "Package(s) / Item(s)",
-    "singular": "Package / Item",
-    "plural": "Packages / Items",
-    "value": "package"
-  }, {
-    "title": "Capsule(s)",
-    "singular": "Capsule",
-    "plural": "Capsules",
-    "value": "capsule"
-  }, {
-    "title": "Servings",
-    "singular": "Serving",
-    "plural": "Servings",
-    "value": "serving"
-  }],
+  "value": "gram"
+}, {
+"title": "Ounce(s)",
+"singular": "Ounce",
+"plural": "Ounces",
+"value": "ounce"
+}, {
+"title": "Tablespoon(s)",
+"singular": "Tablespoon",
+"plural": "Tablespoons",
+"value": "tablespoon"
+}, {
+"title": "Scoop(s)",
+"singular": "Scoop",
+"plural": "Scoops",
+"value": "scoop"
+}, {
+"title": "Package(s) / Item(s)",
+"singular": "Package / Item",
+"plural": "Packages / Items",
+"value": "package"
+}, {
+"title": "Capsule(s)",
+"singular": "Capsule",
+"plural": "Capsules",
+"value": "capsule"
+}, {
+"title": "Servings",
+"singular": "Serving",
+"plural": "Servings",
+"value": "serving"
+}],
+"graphThresholds": [10,25,35,50,75,100],
+"routes": {
+"index": {
+"controllerPath": "../routes/index",
+"routePath": "/"
+},
+"activity": {
+"controllerPath": "../routes/activity",
+"routePath": "/activity"
+},
+"nutrition": {
+"controllerPath": "../routes/nutrition",
+"routePath": "/nutrition"
+},
+"health": {
+"controllerPath": "../routes/health",
+"routePath": "/health"
+},
+"graphs": {
+"controllerPath": "../routes/graphs",
+"routePath": "/graphs"
+},
+"settings": {
+"controllerPath": "../routes/settings",
+"routePath": "/settings"
+},
+"api": {
+"controllerPath": "../routes/api",
+"routePath": "/api"
+},
+"templates": {
+"controllerPath": "../routes/templates",
+"routePath": "/templates"
+}
+},
+"navigation" : {
+"header": {
+"ride": {
+"path": "/",
+"title": "Ride Logger",
+"className": "ride-logger"
+},
+"graphs": {
+"path": "/graphs",
+"title": "Graphs",
+"className": "graphs"
+},
+"activity": {
+"path": "/activity",
+"title": "Activity Tracker",
+"className": "activity-tracker"
+},
+"nutrition": {
+"path": "/nutrition",
+"title": "Nutrition",
+"className": "nutrition-tracker"
+},
+"health": {
+"path": "/health",
+"title": "Health",
+"className": "health-tracker"
+}
+},
+"footer": {
+"settings": {
+"path": "/settings",
+"title": "App Settings",
+"className": "settings"
+}
+}
+},
+"activityTypes": [
+{
+"type": "trainer",
+"name": "Trainer Ride"
+},
+{
+"type": "hike",
+"name": "Hike/Walk"
+},
+{
+"type": "run",
+"name": "Run"
+},
+{
+"type": "strength",
+"name": "Strength"
+},
+{
+"type": "ride",
+"name": "Outdoor Ride"
+},
+{
+"type": "physicalTherapy",
+"name": "Physical Therapy"
+},
+{
+"type": "occupationalTherapy",
+"name": "Occupational Therapy"
+}
+],
+"healthTypes": [
+{
+"type": "weight",
+"name": "Weight"
+}
+],
 
-  "routes": {
-    "index": {
-      "controllerPath": "../routes/index",
-      "routePath": "/"
-    },
-    "activity": {
-      "controllerPath": "../routes/activity",
-      "routePath": "/activity"
-    },
-    "nutrition": {
-      "controllerPath": "../routes/nutrition",
-      "routePath": "/nutrition"
-    },
-    "health": {
-      "controllerPath": "../routes/health",
-      "routePath": "/health"
-    },
-    "graphs": {
-      "controllerPath": "../routes/graphs",
-      "routePath": "/graphs"
-    },
-    "settings": {
-      "controllerPath": "../routes/settings",
-      "routePath": "/settings"
-    },
-    "api": {
-      "controllerPath": "../routes/api",
-      "routePath": "/api"
-    },
-    "templates": {
-      "controllerPath": "../routes/templates",
-      "routePath": "/templates"
-    }
-  },
-  "navigation" : {
-    "header": {
-      "ride": {
-        "path": "/",
-        "title": "Ride Logger",
-        "className": "ride-logger"
-      },
-      "graphs": {
-        "path": "/graphs",
-        "title": "Graphs",
-        "className": "graphs"
-      },
-      "activity": {
-        "path": "/activity",
-        "title": "Activity Tracker",
-        "className": "activity-tracker"
-      },
-      "nutrition": {
-        "path": "/nutrition",
-        "title": "Nutrition",
-        "className": "nutrition-tracker"
-      },
-      "health": {
-        "path": "/health",
-        "title": "Health",
-        "className": "health-tracker"
-      }
-    },
-    "footer": {
-      "settings": {
-        "path": "/settings",
-        "title": "App Settings",
-        "className": "settings"
-      }
-    }
-  },
-  "activityTypes": [
-    {
-      "type": "trainer",
-      "name": "Trainer Ride"
-    },
-    {
-      "type": "hike",
-      "name": "Hike/Walk"
-    },
-    {
-      "type": "run",
-      "name": "Run"
-    },
-    {
-      "type": "strength",
-      "name": "Strength"
-    },
-    {
-      "type": "ride",
-      "name": "Outdoor Ride"
-    },
-    {
-      "type": "physicalTherapy",
-      "name": "Physical Therapy"
-    },
-    {
-      "type": "occupationalTherapy",
-      "name": "Occupational Therapy"
-    }
-  ],
-  "healthTypes": [
-    {
-      "type": "weight",
-      "name": "Weight"
-    }
-  ],
-
-  "formFields": {
-    "physicalTherapy": [
-      "name",
-      "date",
-      "duration",
-      "description"
-    ],
-    "occupationalTherapy": [
-      "name",
-      "date",
-      "duration",
-      "description"
-    ],
-    "ride": [
-      "rideName",
-      "date",
-      "distance",
-      "duration",
-      "climbing",
-      "power",
-      "kj",
-      "stravaLink",
-      "rwgpsLink",
-      "description"
-    ],
-    "trainer": [
-      "name",
-      "date",
-      "duration",
-      "power",
-      "kj",
-      "stravaLink",
-      "rwgpsLink",
-      "description"
-    ],
-    "run": [
-      "name",
-      "date",
-      "distance",
-      "duration",
-      "climbing",
-      "calories",
-      "stravaLink",
-      "rwgpsLink",
-      "description"
-    ],
-    "hike": [
-      "name",
-      "date",
-      "distance",
-      "duration",
-      "climbing",
-      "calories",
-      "stravaLink",
-      "rwgpsLink",
-      "description"
-    ],
-    "strength": [
-      "name",
-      "date",
-      "duration",
-      "calories",
-      "description"
-    ],
-    "targets": [
-      "calorieTarget",
-      "proteinTarget",
-      "sugarTarget",
-      "fiberTarget",
-      "requiredFoods"
-    ],
-    "weight": [
-      "weight",
-      "date"
-    ],
-    "settings": [
-      "viewportContent",
-      "settingsID"
-    ]
-  },
-  "metrics": {
-    "weight": [],
-    "targets": [],
-    "physicalTherapy": [
-      "Date",
-      "Duration"
-    ],
-    "occupationalTherapy": [
-      "Date",
-      "Duration"
-    ],
-    "ride": [
-      "Date",
-      "Duration",
-      "Hours",
-      "Distance",
-      "Climbing",
-      "AverageSpeed",
-      "VAM",
-      "ClimbingRate"
-    ],
-    "trainer": [
-      "Date",
-      "Duration",
-      "Hours"
-    ],
-    "run": [
-      "Date",
-      "Duration",
-      "Hours",
-      "Climbing"
-    ],
-    "hike": [
-      "Date",
-      "Duration",
-      "Hours",
-      "Climbing"
-    ],
-    "strength": [
-      "Date",
-      "Duration",
-      "Hours"
-    ]
-  },
-  "commonRideExcludes": ["Imported Ride"],
+"formFields": {
+"physicalTherapy": [
+"name",
+"date",
+"duration",
+"description"
+],
+"occupationalTherapy": [
+"name",
+"date",
+"duration",
+"description"
+],
+"ride": [
+"rideName",
+"date",
+"distance",
+"duration",
+"climbing",
+"power",
+"kj",
+"stravaLink",
+"rwgpsLink",
+"description"
+],
+"trainer": [
+"name",
+"date",
+"duration",
+"power",
+"kj",
+"stravaLink",
+"rwgpsLink",
+"description"
+],
+"run": [
+"name",
+"date",
+"distance",
+"duration",
+"climbing",
+"calories",
+"stravaLink",
+"rwgpsLink",
+"description"
+],
+"hike": [
+"name",
+"date",
+"distance",
+"duration",
+"climbing",
+"calories",
+"stravaLink",
+"rwgpsLink",
+"description"
+],
+"strength": [
+"name",
+"date",
+"duration",
+"calories",
+"description"
+],
+"targets": [
+"calorieTarget",
+"proteinTarget",
+"sugarTarget",
+"fiberTarget",
+"requiredFoods"
+],
+"weight": [
+"weight",
+"date"
+],
+"settings": [
+"viewportContent",
+"settingsID"
+]
+},
+"metrics": {
+"weight": [],
+"targets": [],
+"physicalTherapy": [
+"Date",
+"Duration"
+],
+"occupationalTherapy": [
+"Date",
+"Duration"
+],
+"ride": [
+"Date",
+"Duration",
+"Hours",
+"Distance",
+"Climbing",
+"AverageSpeed",
+"VAM",
+"ClimbingRate"
+],
+"trainer": [
+"Date",
+"Duration",
+"Hours"
+],
+"run": [
+"Date",
+"Duration",
+"Hours",
+"Climbing"
+],
+"hike": [
+"Date",
+"Duration",
+"Hours",
+"Climbing"
+],
+"strength": [
+"Date",
+"Duration",
+"Hours"
+]
+},
+"commonRideExcludes": ["Imported Ride"],
   "months": [
     {
     "full": "January",

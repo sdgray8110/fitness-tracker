@@ -39,7 +39,7 @@ var NutritionCollection = (function() {
                         });
 
                         self.dataAccess.monthlyMealOverview(req, res, dateRange, model, callback);
-                    });
+                    });x
                 });
             },
 

@@ -64,14 +64,12 @@ var RideGraphs = (function() {
                 })();
 
                 (function() {
-                    var thresholds = [10,25,35,50,75,100],
+                    var thresholds = AppConfig.dataAccess.property('graphThresholds'),
                         len = thresholds.length;
                         excess = 'over100';
 
                     if (typeof(data.breakdown[year]) === 'undefined') {
-                        data.breakdown[year] = {
-                            10: 0, 25: 0, 35: 0, 50: 0, 75: 0, 100: 0, 'over100': 0
-                        };
+                        data.breakdown[year] = self.mapThresholds(thresholds, excess);
                     }
 
                     for (var i = 0; i < len; i++) {
@@ -113,6 +111,18 @@ var RideGraphs = (function() {
             data.totals.power = data.power;
 
             return data.totals;
+        },
+
+        mapThresholds: function (threshholds, excess) {
+            var val = {};
+
+            threshholds.forEach(function (x) {
+                val[x] = 0;
+            });
+
+            val[excess] = 0;
+
+            return val;
         },
 
         monthlyTotals: function(year, months) {
