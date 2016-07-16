@@ -21,13 +21,7 @@ define(function(require) {
         var self = {
             init: function() {
                 require(['json!/api/graph/monthly-totals'], self.render);
-                self.cache_dom();
                 self.graphData = helpers.config.graphs;
-            },
-
-            cache_dom: function () {
-              self.dom = {};
-              self.dom.wrapper = $('#graphs_content');
             },
 
             render: function(data) {
