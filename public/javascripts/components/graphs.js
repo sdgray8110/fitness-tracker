@@ -22,7 +22,7 @@ define(function(require) {
             init: function() {
                 require(['json!/api/graph/monthly-totals'], self.render);
                 self.cache_dom();
-                self.graphData = self.dom.wrapper.data('graphs');
+                self.graphData = helpers.config.graphs;
             },
 
             cache_dom: function () {
