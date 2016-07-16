@@ -11,11 +11,12 @@ var ActivityCollection = (function() {
         },
 
         processActivity: function(activity, i) {
-            helpers.formattedType(activity);
-            helpers.formattedDate(activity);
-            helpers.formattedDuration(activity);
-            helpers.formattedCalories(activity);
-            helpers.formatContent(activity);
+            var activityPipeline = ['formattedType', 'formattedDate', 'formattedDuration', 'formattedCalories', 'formatContent'];
+
+            activityPipeline.forEach(function (func) {
+                helpers[func](activity);
+            });
+
             self.uiModel(activity, i);
         },
         processContent: function(data) {
