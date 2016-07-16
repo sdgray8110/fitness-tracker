@@ -25,11 +25,17 @@ define(function(require) {
             },
 
             render: function(data) {
-                self.currentMonths(data);
-                self.currentDays(data.allRides);
-                self.rideBreakdown(data.allRides);
-                self.powerLineChart(data.allRides.power);
-                self.weightLineChart(data.weight);
+                var renderPipeline = [
+                    {method: 'currentMonths', data: data},
+                    {method: 'currentDays', data: data.allRides},
+                    {method: 'rideBreakdown', data: data.allRides},
+                    {method: 'powerLineChart', data: data.allRides.power},
+                    {method: 'weightLineChart', data: data.weight}
+                ];
+
+                renderPipeline.forEach(function (mapping) {
+                    self[mapping.method](mapping.data);
+                });
             },
 
             currentMonths: function(data) {
